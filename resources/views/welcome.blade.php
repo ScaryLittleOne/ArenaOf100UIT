@@ -87,7 +87,7 @@
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/ScaryLittleOne/ArenaOf100UIT.git">Our repository</a>
+                    <a href="https://github.com/ScaryLittleOne/ArenaOf100UIT.git">Our repository WECODE</a>
                 </div>
             </div>
         </div>
