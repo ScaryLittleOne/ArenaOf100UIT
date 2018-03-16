@@ -13,6 +13,25 @@
   <body>
     <h1>VIEW: Hello, world LIST!</h1>
 
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+         <th>Số Thứ Tự</th>
+         <th>Nội Dung</th>
+          <th>Thông Tin Cuộc Thi</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($question as $question)
+          <tr>
+          <td>{!! $question->id !!}</td>
+          <td>{!! $question->content !!}</td>
+          <td>{!! $question->contest_id !!}</td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table> 
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

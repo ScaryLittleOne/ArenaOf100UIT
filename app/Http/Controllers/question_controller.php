@@ -2,7 +2,7 @@
 
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Question;
 use App\Questions_answer;       /// Dung de ket hop Them cau hoi + dap an luon
 use Illuminate\Http\Request;
@@ -17,8 +17,8 @@ class question_controller extends Controller
     public function index()
     {
         echo "Đây là DANH SÁCH CÁC CÂU HỎI";
-        return view('question.list',['questions' => Question::all()]);
-
+        $question = Question::all();
+        return view('question.list',compact('question'));//['questions' => Question::all()]);
     }
     /**
      * Show the form for creating a new resource.
@@ -48,11 +48,19 @@ class question_controller extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
+    
     public function show(Question $id)
     {
         echo "Trang Này Show Cụ Thể Câu Hỏi Nè ";
-        //$question = Question::all(); 
+        //$question = Question::all();
+        //$question = DB::table('questions')->where('id',$id)->get();
+
         $question = Question::findOrFail($id);
+
+        foreach ( $question as $question) {
+            echo $question->id;
+}
+
         //$answers = Questions_answer::findOrFail($id);
         //$answers = Questions_answer::all();
         $answers = \App\Questions_answer::with('question')->get();
