@@ -39,7 +39,7 @@
           <li> Nội Dung : {!! $question->content !!} </li>
           <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
         </div>
-    @endforeach
+    @endforeach */?>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
      
@@ -51,7 +51,7 @@
           </div>
           <div class="w3-panel w3-round w3-teal">
             <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
-          </div>*/?>
+          </div>
        
 
   <table class="table table-striped table-bordered table-hover">

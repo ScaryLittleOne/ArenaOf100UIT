@@ -52,18 +52,11 @@ class question_controller extends Controller
     public function show(Question $id)
     {
         echo "Trang Này Show Cụ Thể Câu Hỏi Nè ";
-        //$question = Question::all();
-        //$question = DB::table('questions')->where('id',$id)->get();
+        
+        $question = Question::findOrFail($id->id);
 
-        $question = Question::findOrFail($id);
-
-        foreach ( $question as $question) {
-            echo $question->id;
-}
-
-        //$answers = Questions_answer::findOrFail($id);
-        //$answers = Questions_answer::all();
-        $answers = \App\Questions_answer::with('question')->get();
+        $answers = DB::table('questions_answers')->where('question_id','=',$id->id)->get();
+  
         return view('question.show',compact('question'),compact('answers'));//['question' => Question::findOrFail($id)]);
         //
     }
