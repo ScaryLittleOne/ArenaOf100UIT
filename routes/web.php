@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::resource('questions', 'question_controller');
 
+Route::get('questions/show/{id}', 'question_controller@show');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

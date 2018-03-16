@@ -27,9 +27,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1031daf3d1566ac4c2c9bdb172d5cc00535e6cdd
     public function histories()
     {
         return $this->hasMany('App\History');
     }
 }
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> 1031daf3d1566ac4c2c9bdb172d5cc00535e6cdd
