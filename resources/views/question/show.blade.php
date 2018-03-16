@@ -14,17 +14,35 @@
   <body>
     <h1>VIEW: IT's Show Time Bitches!</h1>
    
+
+    <?php /*<table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+         <th>Số Thứ Tự</th>
+         <th>Nội Dung</th>
+          <th>Thông Tin Cuộc Thi</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($question as $question)
+          <td>{!! $question->id !!}</td>
+          <td>{!! $question->content !!}</td>
+          <td>{!! $question->contest_id !!}</td>
+
+        @endforeach
+      </tbody>
+    </table> */?>
+
    <?php /* @foreach($question as $question)
         <div>
           <li> Số Thứ Tự : {!! $question->id !!} </li>
           <li> Nội Dung : {!! $question->content !!} </li>
           <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
         </div>
-    @endforeach*/?>
+    @endforeach
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    @foreach($question as $question)
-        <div>
+     
           <div class="w3-panel w3-round w3-teal">
             <li> Số Thứ Tự : {!! $question->id !!} </li>
           </div>
@@ -33,9 +51,9 @@
           </div>
           <div class="w3-panel w3-round w3-teal">
             <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
-          </div>
-        </div>
-    @endforeach
+          </div>*/?>
+       
+
   <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
