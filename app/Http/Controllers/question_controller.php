@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Question;
@@ -47,8 +48,15 @@ class question_controller extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $question)
+    public function show(Question $id)
     {
+        echo "Trang Này Show Cụ Thể Câu Hỏi Nè ";
+        //$question = Question::all(); 
+        $question = Question::findOrFail($id);
+        //$answers = Questions_answer::findOrFail($id);
+        //$answers = Questions_answer::all();
+        $answers = \App\Questions_answer::with('question')->get();
+        return view('question.show',compact('question'),compact('answers'));//['question' => Question::findOrFail($id)]);
         //
     }
 
