@@ -70,6 +70,8 @@ class question_controller extends Controller
     public function edit(Question $question)
     {
         //
+        echo "Đây là TRANG SỬA CÂU HỎI";
+        return view('question.edit');
     }
 
     /**
@@ -93,5 +95,8 @@ class question_controller extends Controller
     public function destroy(Question $question)
     {
         //
+        $question = Question::find($id);
+        $question->delete();
+        return redirect('question');
     }
 }
