@@ -14,9 +14,7 @@ class question_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        echo "Đây là DANH SÁCH CÁC CÂU HỎI";
+    public function index(){
         $question = Question::all();
         return view('question.list',compact('question'));//['questions' => Question::all()]);
     }
@@ -49,9 +47,7 @@ class question_controller extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function show(Question $id)
-    {
-        echo "Trang Này Show Cụ Thể Câu Hỏi Nè ";
+    public function show(Question $id){
         
         $question = Question::findOrFail($id->id);
 

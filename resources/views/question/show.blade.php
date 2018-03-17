@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -8,76 +9,88 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>VIEW: Questions Show</title>
+    <title>Question's Details</title>
     
   </head>
   <body>
-    <h1>VIEW: IT's Show Time Bitches!</h1>
-   
+ @extends('layouts.app')
+<!--Co Gi Xoa Cai Nay Di. Day La Cach Hien Thi Ne .Tu Day -->
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Chi Tiết Câu Hỏi Và Đáp Án') }}</div>
+   <!--Toi Day -->
 
-    <?php /*<table class="table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-         <th>Số Thứ Tự</th>
-         <th>Nội Dung</th>
-          <th>Thông Tin Cuộc Thi</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach($question as $question)
-          <td>{!! $question->id !!}</td>
-          <td>{!! $question->content !!}</td>
-          <td>{!! $question->contest_id !!}</td>
+            <?php /*<table class="table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                 <th>Số Thứ Tự</th>
+                 <th>Nội Dung</th>
+                  <th>Thông Tin Cuộc Thi</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($question as $question)
+                  <td>{!! $question->id !!}</td>
+                  <td>{!! $question->content !!}</td>
+                  <td>{!! $question->contest_id !!}</td>
 
-        @endforeach
-      </tbody>
-    </table> */?>
+                @endforeach
+              </tbody>
+            </table> */?>
 
-   <?php /* @foreach($question as $question)
-        <div>
-          <li> Số Thứ Tự : {!! $question->id !!} </li>
-          <li> Nội Dung : {!! $question->content !!} </li>
-          <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
-        </div>
-    @endforeach */?>
+           <?php /* @foreach($question as $question)
+                <div>
+                  <li> Số Thứ Tự : {!! $question->id !!} </li>
+                  <li> Nội Dung : {!! $question->content !!} </li>
+                  <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
+                </div>
+            @endforeach */?>
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
      
-          <div class="w3-panel w3-round w3-teal">
-            <li> Số Thứ Tự : {!! $question->id !!} </li>
-          </div>
-          <div class="w3-panel w3-round w3-teal">
-            <li> Nội Dung : {!! $question->content !!} </li>
-          </div>
-          <div class="w3-panel w3-round w3-teal">
-            <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
-          </div>
+            <div class="w3-panel w3-round w3-teal">
+              <li> Số Thứ Tự : {!! $question->id !!} </li>
+            </div>
+            <div class="w3-panel w3-round w3-teal">
+              <li> Nội Dung : {!! $question->content !!} </li>
+            </div>
+            <div class="w3-panel w3-round w3-teal">
+              <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
+            </div>
        
 
-  <table class="table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-         <th>Số Thứ Tự</th>
-         <th>Đáp Án Của Câu</th>
-         <th>Cách Hiển Thị Đáp Án</th>
-         <th>Nội Dung</th>
-         <th>Là Đáp Án Đúng (0: Sai; 1:Đúng)</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach($answers as $answers)
-          <tr>
-          <td>{!! $answers->id !!}</td>
-          <td>{!! $answers->question_id !!}</td>
-          <td>{!! $answers->abcd !!}</td>
-          <td>{!! $answers->content !!}</td>
-          <td>{!! $answers->correct !!}</td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                   <th>Số Thứ Tự</th>
+                   <th>Cách Hiển Thị Đáp Án</th>
+                   <th>Nội Dung</th>
+                   <th>Là Đáp Án Đúng (0: Sai; 1:Đúng)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($answers as $answers)
+                    <tr>
+                    <td>{!! $answers->id !!}</td>
+                    <td>{!! $answers->abcd !!}</td>
+                    <td>{!! $answers->content !!}</td>
+                    <td>{!! $answers->correct !!}</td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          <!-- O day Nua-->
+          </div>
+          </div>
+        </div>
+    </div>
 </div>
+@endsection
+<!--Toi Day-->
 
 
     <!-- Optional JavaScript -->
