@@ -6,8 +6,12 @@
            <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<<<<<<< HEAD
         <title>UIT 100 - Đấu trường ánh sáng</title>
         <link rel="shortcut icon" href="{{ url('/icon.png') }}">
+=======
+        <title>The Arena Of Light (Under Contruction)</title>
+>>>>>>> 1075b2535649fc9e26666440a7eac1e976a5d0b0
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -86,14 +90,15 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('login') }}">Đăng Nhập</a>
+                        <a href="{{ route('register') }}">Đăng Kí</a>
                     @endauth
                 </div>
             @endif  
 
 
             <div class="content">
+<<<<<<< HEAD
                 <center>
                 <div id="chaomung">
                     <p>Welcome</p>
@@ -102,6 +107,19 @@
                </div>
            </center>
 
+=======
+                <div class="title m-b-md">
+                    The Arena Of Light
+                </div>
+
+                <div class="links">
+                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://github.com/ToanNguyen1107/ArenaOf100UIT.git">Our Beloved Repo</a>
+                </div>
+>>>>>>> 1075b2535649fc9e26666440a7eac1e976a5d0b0
             </div>
         </div></div>
     </body>

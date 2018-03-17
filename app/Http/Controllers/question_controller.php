@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
 
+namespace App\Http\Controllers;
+use DB;
 use App\Question;
 use App\Questions_answer;       /// Dung de ket hop Them cau hoi + dap an luon
 use Illuminate\Http\Request;
@@ -13,11 +14,9 @@ class question_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        echo "Đây là DANH SÁCH CÁC CÂU HỎI";
-        return view('question.list',['questions' => Question::all()]);
-
+    public function index(){
+        $question = Question::all();
+        return view('question.list',compact('question'));//['questions' => Question::all()]);
     }
     /**
      * Show the form for creating a new resource.
@@ -47,8 +46,14 @@ class question_controller extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $question)
-    {
+    
+    public function show(Question $id){
+        
+        $question = Question::findOrFail($id->id);
+
+        $answers = DB::table('questions_answers')->where('question_id','=',$id->id)->get();
+  
+        return view('question.show',compact('question'),compact('answers'));//['question' => Question::findOrFail($id)]);
         //
     }
 
@@ -61,6 +66,8 @@ class question_controller extends Controller
     public function edit(Question $question)
     {
         //
+        echo "Đây là TRANG SỬA CÂU HỎI";
+        return view('question.edit');
     }
 
     /**
@@ -84,5 +91,8 @@ class question_controller extends Controller
     public function destroy(Question $question)
     {
         //
+        $question = Question::find($id);
+        $question->delete();
+        return redirect('question');
     }
 }
