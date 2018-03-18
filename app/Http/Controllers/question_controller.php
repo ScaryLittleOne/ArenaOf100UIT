@@ -37,7 +37,15 @@ class question_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = new Question;
+        
+        $question->content = $request['content'];
+        $question->contest_id = $request['contest_id'];
+        
+        $question->save();
+
+    //    session()->flash('message', 'Thêm câu hỏi thành công!');
+        return redirect('questions');
     }
 
     /**
@@ -47,11 +55,9 @@ class question_controller extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function show(Question $id){
-        
-        $question = Question::findOrFail($id->id);
+    public function show(Question $question){
 
-        $answers = DB::table('questions_answers')->where('question_id','=',$id->id)->get();
+        $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->get();
   
         return view('question.show',compact('question'),compact('answers'));//['question' => Question::findOrFail($id)]);
         //
@@ -66,8 +72,8 @@ class question_controller extends Controller
     public function edit(Question $question)
     {
         //
-        echo "Đây là TRANG SỬA CÂU HỎI";
-        return view('question.edit');
+        $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->get();
+        return view('question.edit', compact('question'), compact('answers'));
     }
 
     /**
@@ -79,7 +85,10 @@ class question_controller extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->content = $request->content;
+        $question->contest_id = $request->contest_id;
+        $question->save();
+        return redirect('questions');
     }
 
     /**
@@ -91,8 +100,7 @@ class question_controller extends Controller
     public function destroy(Question $question)
     {
         //
-        $question = Question::find($id);
         $question->delete();
-        return redirect('question');
+        return redirect('questions');
     }
 }

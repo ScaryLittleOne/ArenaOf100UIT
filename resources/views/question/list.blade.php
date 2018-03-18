@@ -21,14 +21,14 @@
   </head>
   <body>
     <h1>VIEW: Hello, world LIST!</h1>
-    <a href="questions/create" class="btn btn-primary">Add new</a>
+    <a href="{{ route('questions.create') }}" class="btn btn-primary">Add new</a>
     <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px;">
       <thead>
         <tr>
          <th width="7%" class="sorting_asc">ID</th>
          <th>Content</th>
           <th width="10%">Contest_ID</th>
-          <th>Action</th>
+          <th colspan="3">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -40,7 +40,11 @@
           <td>
             <a href="{{ route('questions.show', $question->id) }}" class = "btn btn-info">Info</a>
             <a href="{{ route('questions.edit', $question->id) }}" class = "btn btn-success">Edit</a>
-            <a href="{{ route('questions.destroy', $question->id) }}" class = "btn btn-danger">Delete</a>
+          </td>
+          <td>
+              {!! Form::open(['method'=>'delete', 'route'=>['questions.destroy', $question->id]]) !!}
+              {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+              {!! Form::close() !!}
           </td>
           </tr>
         @endforeach
