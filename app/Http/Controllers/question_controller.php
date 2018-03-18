@@ -41,6 +41,8 @@ class question_controller extends Controller
         
         $question->content = $request['content'];
         $question->contest_id = $request['contest_id'];
+        $answers = new Questions_answer;
+        $answers->abcd = $request['content_A'];
         
         $question->save();
 
