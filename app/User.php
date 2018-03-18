@@ -28,9 +28,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
 =======
 >>>>>>> 1031daf3d1566ac4c2c9bdb172d5cc00535e6cdd
+>>>>>>> 1075b2535649fc9e26666440a7eac1e976a5d0b0
     public function histories()
     {
         return $this->hasMany('App\History');
@@ -38,6 +41,9 @@ class User extends Authenticatable
 }
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 
     
 >>>>>>> 1031daf3d1566ac4c2c9bdb172d5cc00535e6cdd
+>>>>>>> 1075b2535649fc9e26666440a7eac1e976a5d0b0

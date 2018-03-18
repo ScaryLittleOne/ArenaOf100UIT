@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','Login')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -43,7 +43,7 @@
                             <div class="col-md-6 offset-md-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Nhớ Mật Khẩu Của Tao Ngheo') }}
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Ghi nhớ mật khẩu') }}
                                     </label>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Quên Pass Hả Mại') }}
+                                    {{ __('Tôi không nhớ mật khẩu của mình') }}
                                 </a>
                             </div>
                         </div>
