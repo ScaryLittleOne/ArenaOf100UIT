@@ -80,7 +80,19 @@
       </div>
 
       <div class="form-group">
-        <div class="col-md-offset-4 col-md-2">
+        {!! Form::label('correct', 'Correct Answer', ['class'=>'control-label col-md-4']) !!}
+        <div class="col-md-4">
+          {{ Form::select('correct', [
+          'A' => 'A',
+          'B' => 'B',
+          'C' => 'C',
+          'D' => 'D']
+          ) }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4">
           {{ Form::submit('Submit', ['class' => 'btn  btn-primary form-control']) }}
         </div>
       </div>

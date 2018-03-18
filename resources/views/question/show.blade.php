@@ -72,9 +72,11 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $k=0 ?>
                   @foreach($answers as $answers)
+                    <?php $k++ ?>
                     <tr>
-                    <td>{!! $answers->id !!}</td>
+                    <td> {!!$k!!}  </td>
                     <td>{!! $answers->abcd !!}</td>
                     <td>{!! $answers->content !!}</td>
                     <td>{!! $answers->correct !!}</td>

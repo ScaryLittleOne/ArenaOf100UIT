@@ -41,10 +41,62 @@ class question_controller extends Controller
         
         $question->content = $request['content'];
         $question->contest_id = $request['contest_id'];
-        $answers = new Questions_answer;
-        $answers->abcd = $request['content_A'];
-        
         $question->save();
+
+        $check = new Questions_answer;
+        $check->abcd=$request['correct'];
+
+        $questions_answer = new Questions_answer;
+        $questions_answer->abcd = 'A';
+        $questions_answer->content = $request['content_A'];
+        if ($check->abcd==$questions_answer->abcd)
+            {
+                $questions_answer->correct = 1;
+            } else
+            {
+                 $questions_answer->correct = 0;
+            }
+        $questions_answer->question_id = $question->id;
+        $questions_answer ->save();
+
+        $questions_answer = new Questions_answer;
+        $questions_answer->abcd = 'B';
+        $questions_answer->content = $request['content_B'];
+        if ($check->abcd==$questions_answer->abcd)
+            {
+                $questions_answer->correct = 1;
+            } else
+            {
+                 $questions_answer->correct = 0;
+            }
+        $questions_answer->question_id = $question->id;
+        $questions_answer ->save();
+
+        $questions_answer = new Questions_answer;
+        $questions_answer->abcd = 'C';
+        $questions_answer->content = $request['content_C'];
+        if ($check->abcd==$questions_answer->abcd)
+            {
+                $questions_answer->correct = 1;
+            } else
+            {
+                 $questions_answer->correct = 0;
+            }
+        $questions_answer->question_id = $question->id;
+        $questions_answer ->save();
+
+        $questions_answer = new Questions_answer;
+        $questions_answer->abcd = 'D';
+        $questions_answer->content = $request['content_D'];
+        if ($check->abcd==$questions_answer->abcd)
+            {
+                $questions_answer->correct = 1;
+            } else
+            {
+                 $questions_answer->correct = 0;
+            }
+        $questions_answer->question_id = $question->id;
+        $questions_answer ->save();
 
     //    session()->flash('message', 'Thêm câu hỏi thành công!');
         return redirect('questions');
@@ -60,6 +112,7 @@ class question_controller extends Controller
     public function show(Question $question){
 
         $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->get();
+        //$QA = Questions_answer::all();echo $QA;
   
         return view('question.show',compact('question'),compact('answers'));//['question' => Question::findOrFail($id)]);
         //
@@ -86,10 +139,14 @@ class question_controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Question $question)
-    {
+    {   
+        $question_answers = new Question_answers;
+        $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->get();
         $question->content = $request->content;
         $question->contest_id = $request->contest_id;
         $question->save();
+        $answers->content = $request->content;
+        $answers->save();
         return redirect('questions');
     }
 
@@ -102,6 +159,7 @@ class question_controller extends Controller
     public function destroy(Question $question)
     {
         //
+        $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->delete();
         $question->delete();
         return redirect('questions');
     }

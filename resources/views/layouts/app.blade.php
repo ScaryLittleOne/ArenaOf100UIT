@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -35,7 +34,6 @@
             }
             #logout {
                 text-align: right;
-<<<<<<< HEAD
                 left: 30px;
                 top: 5px;
                 position: fixed;
@@ -44,24 +42,6 @@
 
             .chaomung{
                 margin-top: 25px;
-=======
-                right: 20px;
-                top: 5px;
-                position: absolute;
-            }
-
-            #logout a{
-                font-size: 100%;
-                text-decoration: none;
-                border-radius: 5px; 
-                background: #F3F3F3;
-                color: #555555;
-                display: inline-block;
-                text-align: center;
-                padding: 2px 10px;
-                
-
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
             }
         @yield('style')
     </style>
@@ -71,7 +51,6 @@
         <nav class="navbar navbar-expand-md navbar-light ">
             <div class="container">
                 <div class="flex-center position-ref full-height">
-<<<<<<< HEAD
                     <div id="logout">
                         @yield('name')
                     </div>
@@ -82,16 +61,6 @@
             </div>
         </div>
 
-=======
-            <div class="chaomung">
-                    <a  href="{{url('/')}}" target="_self"><img src="{{ url('/dautruong100.png') }}" height="70%" width="70%"></a>
-                    <div id="logout">
-                        @yield('name') 
-                    </div>
-            </div>
-        </div>
-
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
                
                     <!-- Left Side Of Navbar -->
                     

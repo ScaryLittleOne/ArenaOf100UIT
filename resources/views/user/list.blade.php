@@ -64,10 +64,7 @@
         }
 
         .wrapper {
-<<<<<<< HEAD
 
-=======
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
             z-index: 2;
             position: absolute;
             top: 0px;
@@ -88,17 +85,17 @@
             margin: 100px auto;
             padding: 10px 10px;
             text-align:center;
-<<<<<<< HEAD
+
             border-radius: 10px; 
         }
 
         .wrapper>.popup>.text-right {
 
-=======
+
         }
 
         .wrapper>.popup>.text-right {
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
+
             text-align: right;
         }
 
@@ -115,7 +112,7 @@
         }
 
         .wrapper>.popup form>div {
-<<<<<<< HEAD
+
 
             margin-top: 10px;
             margin-bottom: 5px;
@@ -134,7 +131,7 @@
        
         .adduser a{
             padding: 10px 50px;
-=======
+
             margin-top: 10px;
             margin-bottom: 5px;
             text-align: right;
@@ -142,23 +139,23 @@
        
         .adduser a{
             padding: 10px 10px;
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
+
             color: #fff;
             background: #226EE9;
             font-size: 100%;
             width: 100%;
-<<<<<<< HEAD
+
         }
         .adduser {
         margin-left:5%;
         }
-=======
+
             text-align: right;
     }
         .adduser {
         margin-left:5%;
     }
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
+
 
 @stop
 @section('content')
@@ -212,23 +209,24 @@
                                     
                                             <td><?php echo ($x->username); ?> </td>
                                             <td>
-                                        <form action="">
-                                                <a class="login-button" href="javascript:;" > X </a>
-                                        </form>
+                                         {!! Form::open(['method'=>'delete', 'route'=>['users.destroy', $x->id]]) !!}
+                                         {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+                                         {!! Form::close() !!}
+
                                         </td>
                                         </tr><?php
 
                                     }?>
                                         <php>   
-                                            <?php for ($x=0 ; $x<100 ; $x++) {?>
+                                           
 
                                             @foreach($users as $user)
                                                     <?php 
-                                                        showacc($user,$x);
+                                                        showacc($user,1);
 
                                                     ?>
                                             @endforeach
-                                            <?php  } ?>
+                                           
 
                                         </php>          
                                         
