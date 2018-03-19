@@ -7,8 +7,15 @@
         height: 80px;
       }
 
+<<<<<<< HEAD
 @stop
 @section('content')
+=======
+    <title>Questions List</title>
+  </head>
+  <body>
+    <h1>QUESTIONS LIST</h1>
+>>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
     <a href="{{ route('questions.create') }}" class="btn btn-primary">Add new</a>
     <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px;">
       <thead>
@@ -16,7 +23,7 @@
          <th width="7%" class="sorting_asc">ID</th>
          <th>Content</th>
           <th width="10%">Contest_ID</th>
-          <th colspan="3">Action</th>
+          <th width="20%" colspan="2">Action</th>
         </tr>
       </thead>
       <tbody>

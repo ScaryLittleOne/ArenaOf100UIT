@@ -1,16 +1,18 @@
 @extends('layouts.app')
-@section('title','users')
+@section('title','Users')
 <!-- 
 @section('name')
 
 @stop
 !-->
 @section('style')
+
 #info-list {
+
                 margin-top:20px;
                 text-align: center;
-                margin-left: 100px;
-                margin-right: 100px;
+                margin-left: 10px;
+                margin-right: 10px;
             }
             #info-list table tr th{
                 margin: 0px 0px;
@@ -159,17 +161,6 @@
 
 @stop
 @section('content')
-    <div class="wrapper">
-        <div class="popup">
-            <div class="text-right"><a href="javascript:;" class="close-button">Thoát</a></div>
-            <form>
-                Bạn muốn xóa sinh viên này ra khỏi danh sách?
-                <div>
-                    <button type="submit">Có</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
 <div class="adduser">
     <a   href="{{route('users.create')}}" > Thêm user </a>
@@ -183,9 +174,9 @@
                                 <thead>
                                     <tr>
                                         <th height="8%" width="8%">STT</th>
-                                        <th height="30%" width="30%">MSSV</th>
+                                        <th height="30%" width="30%">Mã số sinh viên</th>
                                     
-                                        <th height="20%" width="20%">Xóa</th>
+                                        <th height="20%" width="20%">Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -204,9 +195,25 @@
                                                 </td>
                                             <td><?php echo ($x->username); ?> </td>
                                             <td>
-                                                     {!! Form::open(['method'=>'delete', 'route'=>['users.destroy', $x->id]]) !!}
-                                                     {!! Form::submit('X', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
-                                                     {!! Form::close() !!}
+                                            <div class="container">
+                                                  <div class="row">
+                                                    <div class="col-sm">
+                                                      <form method="POST" action="http://arena.test/users/8" accept-charset="UTF-8" >
+                                                        <input name="_method" value="DELETE" type="hidden">
+                                                        <input name="_token" value="OyIEuEIG4YaEkVTzFPg1n9zeYYwzukqaSMKEsAUB" type="hidden">
+                                                      
+                                                      <input class="btn btn-danger" onclick='return confirm("Do you want to delete this record?")' type="submit" value="Xóa">
+                                                       </form>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                      <a href="{{ route('users.edit', $x->id) }}" class = "btn btn-success">Chỉnh sửa</a>
+                                                    </div>
+                                                  </div>
+                                                </div>                                                    
+
+                                                 
+                                               
+                                                     
 
                                         </td>
                                         </tr><?php

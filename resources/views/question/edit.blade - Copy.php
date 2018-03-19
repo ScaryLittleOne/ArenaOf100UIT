@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-@extends('layouts.app')
-@section('title','List questions')
-@section('content')
-{{ Form::model($question, array('route' => array('questions.update', $question->id), 'method' => 'PUT')) }}
-=======
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,8 +34,6 @@
   </style>
   <body>
     {{ Form::model($question, array('route' => array('questions.update', $question->id), 'method' => 'PUT')) }} 
-     {{Form::model($answers, array('route' => array('question.update', $question->id,'method' => 'PUT'))) }}
->>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
 
     <div class="form-group">
         {!! Form::label('content', 'Content', ['class'=>'control-label col-md-2']) !!}
@@ -56,19 +48,9 @@
           {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
         </div>
       </div>
-
-
-
-<<<<<<< HEAD
-{{ Form::close() }}
-@stop
-=======
-        <!-- Answers -->
-       
+      
         {!! Form::label('content_A', 'Answer A', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
-            
-
           {!! Form::text('content_A', null, ['class' => 'form-control']) !!}
         </div>
       </div>
@@ -112,10 +94,8 @@
         </div>
       </div>
     {{ Form::close() }}
- {{ Form::close() }}
  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
->>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84

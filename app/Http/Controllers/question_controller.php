@@ -111,6 +111,7 @@ class question_controller extends Controller
     public function show(Question $question){
 
         $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->get();
+        //$QA = Questions_answer::all();echo $QA;
   
         return view('question.show',compact('question'),compact('answers'));//['question' => Question::findOrFail($id)]);
         //
@@ -137,6 +138,7 @@ class question_controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Question $question)
+<<<<<<< HEAD
     {
         
         $question->content = $request->content;
@@ -198,6 +200,16 @@ class question_controller extends Controller
         $questions_answer->question_id = $question->id;
         $questions_answer ->save();*/
 
+=======
+    {   
+        $question_answers = new Question_answers;
+        $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->get();
+        $question->content = $request->content;
+        $question->contest_id = $request->contest_id;
+        $question->save();
+        $answers->content = $request->content;
+        $answers->save();
+>>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
         return redirect('questions');
     }
 
@@ -210,6 +222,7 @@ class question_controller extends Controller
     public function destroy(Question $question)
     {
         //
+        $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->delete();
         $question->delete();
         return redirect('questions');
     }

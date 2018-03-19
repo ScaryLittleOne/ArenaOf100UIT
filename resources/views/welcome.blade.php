@@ -9,6 +9,7 @@
         <title>UIT 100 | Đấu trường ánh sáng</title>
         <link rel="shortcut icon" href="{{ url('/icon.png') }}">
 
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -75,27 +76,40 @@
             font-size: 20px;
         }
         #logouit {
-            position: absolute;
-            top: 0px; 
-            left: 0px;
+            position: fixed;
+            top: 10px; 
+            left: 10px;
             display: inline-block;
            
         }
+        .logowecode{
+                position: fixed;
+                right: 10px;
+                bottom: 10px;
+                height: 50px;
+                width: 50px;
+            
+            }
         </style>
     </head>
     <body>
        
 <div id="logouit">
     <img src="{{ url('/uit.png') }}" width="15%" height="15%">
+
+    <img src="{{ url('/logodoanthanhnien.png') }}" width="12%" height="12%">
+    <img src="{{ url('/logokhmt.png') }}" width="15%" height="15%">
+
 </div>                
             <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Trang chủ</a>
+
+                        <a href="{{ route('logout') }}">Đăng Xuất</a>
                     @else
-                        <a href="{{ route('login') }}">Đăng nhập</a>
-                        <a href="{{ route('register') }}">Đăng ký</a>
+                        <a href="{{ route('login') }}">Đăng Nhập</a>
+
                     @endauth
                 </div>
             @endif  
@@ -111,6 +125,10 @@
            </center>
 
             </div>
-        </div></div>
+        </div>
+    </div>
+    <div class="logowecode">
+<img src="{{ url('/logowecode.svg') }}" height="100%" width="100%">
+</div>
     </body>
 </html>

@@ -44,11 +44,14 @@
                 margin-top: 25px;
             }
             .logowecode{
-                position: absolute;
-                right: 0px;
-                height: 100px;
-                width: 100px;
+                position: fixed;
+                right: 10px;
+                bottom: 10px;
+                height: 50px;
+                width: 50px;
+            
             }
+
         @yield('style')
     </style>
 </head>
@@ -74,27 +77,33 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng nhập') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Đăng ký') }}</a></li>
+                       @guest
+                             <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a></li>
+                            <!--<li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Register') }}</a></li> -->
                         @else
-                            <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li>
+
+                            <!--<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                                </a>-->
+                                <!--<a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li> 
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Đăng xuất') }}
+                                        {{ __('Đăng Xuất') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    
                                 </div>
-                            </li>
+                            </li>-->
                         @endguest
                     </ul>
                 </div>
@@ -107,7 +116,7 @@
     </div>
 
 <div class="logowecode">
-<img src="{{ url('/logowecode.png') }}" height="100%" width="100%">
+<img src="{{ url('/logowecode.svg') }}" height="100%" width="100%">
 </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}">

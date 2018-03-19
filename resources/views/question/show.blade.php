@@ -1,5 +1,5 @@
+@extends('layouts.app')
 <!doctype html>
-
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -13,9 +13,15 @@
     
   </head>
   <body>
- @extends('layouts.app')
 <!--Co Gi Xoa Cai Nay Di. Day La Cach Hien Thi Ne .Tu Day -->
 @section('content')
+
+  <div class="top-left links">
+      <!--<a href="{{ route('questions.index')  }}">Trở Về</a>  -->
+      <a href="{{ route('questions.index') }}" class="btn btn-primary" color: white font-size: 20px font-family: cursive>Trở Về</a>             
+  </div>
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -72,9 +78,11 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $k=0 ?>
                   @foreach($answers as $answers)
+                    <?php $k++ ?>
                     <tr>
-                    <td>{!! $answers->id !!}</td>
+                    <td> {!!$k!!}  </td>
                     <td>{!! $answers->abcd !!}</td>
                     <td>{!! $answers->content !!}</td>
                     <td>{!! $answers->correct !!}</td>

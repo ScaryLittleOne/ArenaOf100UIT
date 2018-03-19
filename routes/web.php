@@ -15,13 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users','user_controller');
 Auth::routes();
+
+Route::resource('users','user_controller');
+
 Route::get('/home','HomeController@index')->name('home');
 
 Route::resource('questions', 'question_controller');
 
 Route::resource('users', 'user_controller');
+
 
 Route::get('questions/show/{id}', 'question_controller@show');
 
@@ -32,3 +35,14 @@ Route::post('register', 'Auth\RegisterController@postRegister');
 Route::get('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
 Route::post('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@postLogin']);
 Route::get('logout', [ 'as' => 'logout', 'uses' => 'Auth\LogoutController@getLogout']);*/
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', function () {
+	Auth::logout();
+    return view('welcome');
+});
