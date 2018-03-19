@@ -1,11 +1,12 @@
 <?php
 
-
 namespace App\Http\Controllers;
 use DB;
 use App\Question;
 use App\Questions_answer;       /// Dung de ket hop Them cau hoi + dap an luon
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class question_controller extends Controller
 {
@@ -14,7 +15,23 @@ class question_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+        {
+            $this->middleware('auth');
+            $this->middleware('checkadmin');
+            /*$user = Auth::user();
+            $id = Auth::id();
+            var_dump($user);
+            var_dump($id);*/
+        }
+       
+
     public function index(){
+        /*$this->middleware('auth');
+        $user = Auth::user();
+            if ($user->admin==0){
+                abort(403, 'Unauthorized Access. Your IP has been reported to Admin');
+            }*/
         $question = Question::all();
         return view('question.list',compact('question'));//['questions' => Question::all()]);
     }
@@ -163,4 +180,5 @@ class question_controller extends Controller
         $question->delete();
         return redirect('questions');
     }
+
 }

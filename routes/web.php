@@ -21,11 +21,10 @@ Route::resource('users','user_controller');
 
 Route::get('/home','HomeController@index')->name('home');
 
-Route::resource('questions', 'question_controller');
+Route::resource('questions', 'question_controller')->middleware('auth');
+
 
 Route::resource('users', 'user_controller');
-
-
 
 Auth::routes();
 
