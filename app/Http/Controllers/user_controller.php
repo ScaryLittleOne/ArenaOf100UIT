@@ -48,7 +48,7 @@ class user_controller extends Controller
          
             $user=new User;
             $user->username=$request->MSSV;
-            $user->password=$request->password;
+            $user->password=bcrypt($request->password);
             $user->active=1;
             $user->admin=0;
             $user->remember_token="None";
@@ -90,7 +90,7 @@ class user_controller extends Controller
     {
         //
         $user->username=$request->username;
-        $user->password=$request->password;
+        $user->password=bcrypt($request->password);
         $user->active=1;
         $user->admin=0;
         $user->remember_token="None";

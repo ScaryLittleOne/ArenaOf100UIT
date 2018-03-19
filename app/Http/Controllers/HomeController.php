@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,8 +14,10 @@ class HomeController extends Controller
      * @return void
      */
     public function __construct()
-    {
+    { 
         $this->middleware('auth');
+       
+        //$this->middleware('checkadmin');
     }
 
     /**
@@ -22,7 +26,12 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $user = Auth::user();
+        if ($user->admin==0){
+               return redirect('contest');
+            }
+        else
         return view('home');
     }
 }
