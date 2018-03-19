@@ -6,17 +6,8 @@
            <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<<<<<<< HEAD
-        <title>UIT 100 - Đấu trường ánh sáng</title>
+        <title>UIT 100 | Đấu trường ánh sáng</title>
         <link rel="shortcut icon" href="{{ url('/icon.png') }}">
-=======
-<<<<<<< HEAD
-        <title>UIT 100 - Đấu trường ánh sáng</title>
-        <link rel="shortcut icon" href="{{ url('/icon.png') }}">
-=======
-        <title>The Arena Of Light (Under Contruction)</title>
->>>>>>> 1075b2535649fc9e26666440a7eac1e976a5d0b0
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -83,30 +74,34 @@
             color: white;
             font-size: 20px;
         }
-
+        #logouit {
+            position: absolute;
+            top: 0px; 
+            left: 0px;
+            display: inline-block;
+           
+        }
         </style>
     </head>
     <body>
        
-                
+<div id="logouit">
+    <img src="{{ url('/uit.png') }}" width="15%" height="15%">
+</div>                
             <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Trang chủ</a>
                     @else
-                        <a href="{{ route('login') }}">Đăng Nhập</a>
-                        <a href="{{ route('register') }}">Đăng Kí</a>
+                        <a href="{{ route('login') }}">Đăng nhập</a>
+                        <a href="{{ route('register') }}">Đăng ký</a>
                     @endauth
                 </div>
             @endif  
 
 
             <div class="content">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
                 <center>
                 <div id="chaomung">
                     <p>Welcome</p>
@@ -114,24 +109,7 @@
                     <img src="{{ url('/dautruong100.png') }}" height="100%" width="100%">
                </div>
            </center>
-<<<<<<< HEAD
 
-=======
-
-=======
-                <div class="title m-b-md">
-                    The Arena Of Light
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/ToanNguyen1107/ArenaOf100UIT.git">Our Beloved Repo</a>
-                </div>
->>>>>>> 1075b2535649fc9e26666440a7eac1e976a5d0b0
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
             </div>
         </div></div>
     </body>

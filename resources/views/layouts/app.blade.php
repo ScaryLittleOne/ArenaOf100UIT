@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -35,7 +34,6 @@
             }
             #logout {
                 text-align: right;
-<<<<<<< HEAD
                 left: 30px;
                 top: 5px;
                 position: fixed;
@@ -44,24 +42,12 @@
 
             .chaomung{
                 margin-top: 25px;
-=======
-                right: 20px;
-                top: 5px;
-                position: absolute;
             }
-
-            #logout a{
-                font-size: 100%;
-                text-decoration: none;
-                border-radius: 5px; 
-                background: #F3F3F3;
-                color: #555555;
-                display: inline-block;
-                text-align: center;
-                padding: 2px 10px;
-                
-
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
+            .logowecode{
+                position: absolute;
+                right: 0px;
+                height: 100px;
+                width: 100px;
             }
         @yield('style')
     </style>
@@ -71,7 +57,6 @@
         <nav class="navbar navbar-expand-md navbar-light ">
             <div class="container">
                 <div class="flex-center position-ref full-height">
-<<<<<<< HEAD
                     <div id="logout">
                         @yield('name')
                     </div>
@@ -82,16 +67,6 @@
             </div>
         </div>
 
-=======
-            <div class="chaomung">
-                    <a  href="{{url('/')}}" target="_self"><img src="{{ url('/dautruong100.png') }}" height="70%" width="70%"></a>
-                    <div id="logout">
-                        @yield('name') 
-                    </div>
-            </div>
-        </div>
-
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
                
                     <!-- Left Side Of Navbar -->
                     
@@ -100,8 +75,8 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng nhập') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Đăng ký') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -112,7 +87,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Đăng xuất') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -131,6 +106,9 @@
         </main>
     </div>
 
+<div class="logowecode">
+<img src="{{ url('/logowecode.png') }}" height="100%" width="100%">
+</div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}">
         

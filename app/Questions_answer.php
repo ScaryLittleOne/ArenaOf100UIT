@@ -11,6 +11,7 @@ class Questions_answer extends Model
         return $this->hasMany('App\History');
     }
 
+    public $timestamps = false;
     public function question()
     {
     	

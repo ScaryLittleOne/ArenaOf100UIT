@@ -9,8 +9,8 @@
 #info-list {
                 margin-top:20px;
                 text-align: center;
-                margin-left: 50px;
-                margin-right: 50px;
+                margin-left: 100px;
+                margin-right: 100px;
             }
             #info-list table tr th{
                 margin: 0px 0px;
@@ -26,7 +26,7 @@
             #info-list table{
                 border-collapse: collapse;
                 width: 100%;
-                background: #12B8B6;
+                background: white;
             }
             #info-list tbody form a {
                 font-size: 100%;
@@ -64,10 +64,7 @@
         }
 
         .wrapper {
-<<<<<<< HEAD
 
-=======
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
             z-index: 2;
             position: absolute;
             top: 0px;
@@ -88,17 +85,17 @@
             margin: 100px auto;
             padding: 10px 10px;
             text-align:center;
-<<<<<<< HEAD
+
             border-radius: 10px; 
         }
 
         .wrapper>.popup>.text-right {
 
-=======
+
         }
 
         .wrapper>.popup>.text-right {
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
+
             text-align: right;
         }
 
@@ -115,7 +112,7 @@
         }
 
         .wrapper>.popup form>div {
-<<<<<<< HEAD
+
 
             margin-top: 10px;
             margin-bottom: 5px;
@@ -134,7 +131,7 @@
        
         .adduser a{
             padding: 10px 50px;
-=======
+
             margin-top: 10px;
             margin-bottom: 5px;
             text-align: right;
@@ -142,28 +139,26 @@
        
         .adduser a{
             padding: 10px 10px;
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
+
             color: #fff;
             background: #226EE9;
             font-size: 100%;
             width: 100%;
-<<<<<<< HEAD
+
         }
         .adduser {
         margin-left:5%;
         }
-=======
+
             text-align: right;
     }
         .adduser {
         margin-left:5%;
     }
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
+
 
 @stop
 @section('content')
- 
-   
     <div class="wrapper">
         <div class="popup">
             <div class="text-right"><a href="javascript:;" class="close-button">Thoát</a></div>
@@ -188,9 +183,9 @@
                                 <thead>
                                     <tr>
                                         <th height="8%" width="8%">STT</th>
-                                        <th height="20%" width="20%">MSSV</th>
-                                        <th>Họ và tên</th>
-                                        <th>Xóa</th>
+                                        <th height="30%" width="30%">MSSV</th>
+                                    
+                                        <th height="20%" width="20%">Xóa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -207,28 +202,27 @@
                                                 <td>
                                                     <?php echo ($k); ?> 
                                                 </td>
-                                            <td>
-                                            <?php echo ($x->id); ?> </td>
-                                    
                                             <td><?php echo ($x->username); ?> </td>
                                             <td>
-                                        <form action="">
-                                                <a class="login-button" href="javascript:;" > X </a>
-                                        </form>
+                                                     {!! Form::open(['method'=>'delete', 'route'=>['users.destroy', $x->id]]) !!}
+                                                     {!! Form::submit('X', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+                                                     {!! Form::close() !!}
+
                                         </td>
                                         </tr><?php
 
                                     }?>
                                         <php>   
-                                            <?php for ($x=0 ; $x<100 ; $x++) {?>
-
+                                           
+                                            <?php $k=0 ?>    
                                             @foreach($users as $user)
+                                            <?php $k++; ?>
                                                     <?php 
-                                                        showacc($user,$x);
+                                                        showacc($user,$k);
 
                                                     ?>
                                             @endforeach
-                                            <?php  } ?>
+                                           
 
                                         </php>          
                                         

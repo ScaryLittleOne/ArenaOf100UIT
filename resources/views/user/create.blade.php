@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title','create')
 @section('style')
-<<<<<<< HEAD
 .create {
 			margin :5% auto;
 			text-align: center;
@@ -27,39 +26,23 @@ button {
 @stop
 @section('content')
 <center>
-=======
-.create table{
-	
-			text-align: center;
-}
-@stop
-@section('content')
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b
 <div class="create">
 <form method="POST"  action="{!! route('users.store') !!}" name="formthem">
 <input type="hidden"  name ="_token" value="{!! csrf_token() !!}"/>
 <table>
 	<tr>
-				<td>Name:</td>
-				<td>	<input type="text" name="ten">	</td>
+				<td>Mã số sinh viên:</td>
+				<td>	<input type="text" name="MSSV">	</td>
 	</tr>
 	<tr>
-				<td>MSSV:</td>
-				<td>	<input type="text" name="MSSV">	</td>
+				<td>Password:</td>
+				<td>	<input type="text" name="password">	</td>
 	</tr>
 
 	
 </table>
-<<<<<<< HEAD
 <button type="submit" > OK </button>
 </form>
 </div>
 </center>
 @stop
-=======
-<button type="submit" > them </button>
-</form>
-</div>
-@stop
-
->>>>>>> 4e1651dd463482a6611141b0d9805f8a9064363b

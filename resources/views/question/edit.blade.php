@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('title','List questions')
+@section('content')
 {{ Form::model($question, array('route' => array('questions.update', $question->id), 'method' => 'PUT')) }}
 
     <div class="form-group">
@@ -19,3 +22,4 @@
     {{ Form::submit('Edit the Question!', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
+@stop
