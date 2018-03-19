@@ -157,13 +157,17 @@ class question_controller extends Controller
      */
     public function update(Request $request, Question $question)
     {   
-        $question_answers = new Question_answers;
-        $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->get();
         $question->content = $request->content;
         $question->contest_id = $request->contest_id;
         $question->save();
-        $answers->content = $request->content;
-        $answers->save();
+        
+        foreach($request->ids as $index => $id) {
+            $tmp_answer = Questions_answer::find($id);
+            $tmp_answer->content = $request->answers[$index];
+            $tmp_answer->correct = ($tmp_answer->abcd == $request->correct);
+            $tmp_answer->save();
+        }
+        
         return redirect('questions');
     }
 
