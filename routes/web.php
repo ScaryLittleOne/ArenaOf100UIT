@@ -21,9 +21,14 @@ Route::resource('users','user_controller');
 
 Route::get('/home','HomeController@index')->name('home');
 
+<<<<<<< HEAD
 Route::resource('questions', 'question_controller');
 
+=======
+Route::resource('questions', 'question_controller')->middleware('auth');
+>>>>>>> b001b6e0e93cca1911cdbeaa03ad547010d5dfb7
 
+Route::get('/contest','user_contest_controller@index');//->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

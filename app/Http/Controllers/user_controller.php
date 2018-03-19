@@ -12,6 +12,16 @@ class user_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+        {
+            $this->middleware('auth');
+            $this->middleware('checkadmin');
+            /*$user = Auth::user();
+            $id = Auth::id();
+            var_dump($user);
+            var_dump($id);*/
+        }
+    
     public function index()
     {
         return view('user.list',['users'=>User::all()]); 
@@ -38,7 +48,7 @@ class user_controller extends Controller
          
             $user=new User;
             $user->username=$request->MSSV;
-            $user->password=$request->password;
+            $user->password=bcrypt($request->password);
             $user->active=1;
             $user->admin=0;
             $user->remember_token="None";
@@ -66,6 +76,7 @@ class user_controller extends Controller
     public function edit(User $user)
     {
         //
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -78,6 +89,13 @@ class user_controller extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $user->username=$request->username;
+        $user->password=bcrypt($request->password);
+        $user->active=1;
+        $user->admin=0;
+        $user->remember_token="None";
+        $user->save();
+        return redirect('users');
     }
 
     /**
@@ -93,5 +111,4 @@ class user_controller extends Controller
         return redirect('users');   
     }
 
-    
 }

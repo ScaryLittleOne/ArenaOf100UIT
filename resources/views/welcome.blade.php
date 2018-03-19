@@ -6,12 +6,9 @@
            <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <title>UIT 100 | Đấu trường ánh sáng</title>
+        <link rel="shortcut icon" href="{{ url('/icon.png') }}">
 
-        <title>UIT 100 - Đấu trường ánh sáng</title>
-        <link rel="shortcut icon" href="{{ url('/icon.png') }}">
-        <title>UIT 100 - Đấu trường ánh sáng</title>
-        <link rel="shortcut icon" href="{{ url('/icon.png') }}">
-        <title>The Arena Of Light (Under Contruction)</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -78,12 +75,32 @@
             color: white;
             font-size: 20px;
         }
-
+        #logouit {
+            position: fixed;
+            top: 10px; 
+            left: 10px;
+            display: inline-block;
+           
+        }
+        .logowecode{
+                position: fixed;
+                right: 10px;
+                bottom: 10px;
+                height: 50px;
+                width: 50px;
+            
+            }
         </style>
     </head>
     <body>
        
-                
+<div id="logouit">
+    <img src="{{ url('/uit.png') }}" width="15%" height="15%">
+
+    <img src="{{ url('/logodoanthanhnien.png') }}" width="12%" height="12%">
+    <img src="{{ url('/logokhmt.png') }}" width="15%" height="15%">
+
+</div>                
             <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -91,6 +108,7 @@
                         <a href="{{ route('logout') }}">Đăng Xuất</a>
                     @else
                         <a href="{{ route('login') }}">Đăng Nhập</a>
+
                     @endauth
                 </div>
             @endif  
@@ -105,18 +123,11 @@
                </div>
            </center>
 
-                <div class="title m-b-md">
-                    The Arena Of Light
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/ToanNguyen1107/ArenaOf100UIT.git">Our Beloved Repo</a>
-                </div>
             </div>
-        </div></div>
+        </div>
+    </div>
+    <div class="logowecode">
+<img src="{{ url('/logowecode.svg') }}" height="100%" width="100%">
+</div>
     </body>
 </html>

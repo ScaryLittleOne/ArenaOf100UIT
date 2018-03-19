@@ -39,17 +39,19 @@
                 position: fixed;
 
             }
-            #login {
-                text-align: right;
-                left: 10px;
-                top: 5px;
-                position: fixed;
-
-            }
 
             .chaomung{
                 margin-top: 25px;
             }
+            .logowecode{
+                position: fixed;
+                right: 10px;
+                bottom: 10px;
+                height: 50px;
+                width: 50px;
+            
+            }
+
         @yield('style')
     </style>
 </head>
@@ -75,18 +77,16 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
-                            <!-- <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a></li> -->
-                            <a href="{{ route('login') }}" class="btn btn-primary">Đăng Nhập</a>   
+                       @guest
+                             <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a></li>
                             <!--<li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Register') }}</a></li> -->
                         @else
-                            <!--<a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li>-->
+                            <a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li>
 
-                            <a href="{{ route('logout') }}" class="btn btn-primary">Đăng Xuất</a>    
                             <!--<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                                </a>-->
                                 <!--<a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li> 
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -115,6 +115,9 @@
         </main>
     </div>
 
+<div class="logowecode">
+<img src="{{ url('/logowecode.svg') }}" height="100%" width="100%">
+</div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}">
         
