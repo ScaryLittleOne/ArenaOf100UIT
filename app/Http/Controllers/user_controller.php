@@ -12,6 +12,16 @@ class user_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+        {
+            $this->middleware('auth');
+            $this->middleware('checkadmin');
+            /*$user = Auth::user();
+            $id = Auth::id();
+            var_dump($user);
+            var_dump($id);*/
+        }
+    
     public function index()
     {
         return view('user.list',['users'=>User::all()]); 

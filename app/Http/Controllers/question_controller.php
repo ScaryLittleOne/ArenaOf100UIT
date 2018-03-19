@@ -1,11 +1,12 @@
 <?php
 
-
 namespace App\Http\Controllers;
 use DB;
 use App\Question;
 use App\Questions_answer;       /// Dung de ket hop Them cau hoi + dap an luon
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class question_controller extends Controller
 {
@@ -14,7 +15,23 @@ class question_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+        {
+            $this->middleware('auth');
+            $this->middleware('checkadmin');
+            /*$user = Auth::user();
+            $id = Auth::id();
+            var_dump($user);
+            var_dump($id);*/
+        }
+       
+
     public function index(){
+        /*$this->middleware('auth');
+        $user = Auth::user();
+            if ($user->admin==0){
+                abort(403, 'Unauthorized Access. Your IP has been reported to Admin');
+            }*/
         $question = Question::all();
         return view('question.list',compact('question'));//['questions' => Question::all()]);
     }
@@ -202,14 +219,23 @@ class question_controller extends Controller
 
 =======
     {   
-        $question_answers = new Question_answers;
-        $answers = DB::table('questions_answers')->where('question_id','=',$question->id)->get();
         $question->content = $request->content;
         $question->contest_id = $request->contest_id;
         $question->save();
+<<<<<<< HEAD
         $answers->content = $request->content;
         $answers->save();
 >>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
+=======
+        
+        foreach($request->ids as $index => $id) {
+            $tmp_answer = Questions_answer::find($id);
+            $tmp_answer->content = $request->answers[$index];
+            $tmp_answer->correct = ($tmp_answer->abcd == $request->correct);
+            $tmp_answer->save();
+        }
+        
+>>>>>>> 2ffee210bd6f210dfd09cbacff4c6278d1e04807
         return redirect('questions');
     }
 
@@ -226,4 +252,5 @@ class question_controller extends Controller
         $question->delete();
         return redirect('questions');
     }
+
 }

@@ -198,10 +198,7 @@
                                             <div class="container">
                                                   <div class="row">
                                                     <div class="col-sm">
-                                                      <form method="POST" action="http://arena.test/users/8" accept-charset="UTF-8" >
-                                                        <input name="_method" value="DELETE" type="hidden">
-                                                        <input name="_token" value="OyIEuEIG4YaEkVTzFPg1n9zeYYwzukqaSMKEsAUB" type="hidden">
-                                                      
+                                                      {!!Form::open(['method'=>'delete', 'route'=>['users.destroy', $x->id]]) !!}
                                                       <input class="btn btn-danger" onclick='return confirm("Do you want to delete this record?")' type="submit" value="Xóa">
                                                        </form>
                                                     </div>

@@ -79,13 +79,13 @@
                 </thead>
                 <tbody>
                   <?php $k=0 ?>
-                  @foreach($answers as $answers)
+                  @foreach($answers as $answer)
                     <?php $k++ ?>
                     <tr>
                     <td> {!!$k!!}  </td>
-                    <td>{!! $answers->abcd !!}</td>
-                    <td>{!! $answers->content !!}</td>
-                    <td>{!! $answers->correct !!}</td>
+                    <td>{!! $answer->abcd !!}</td>
+                    <td>{!! $answer->content !!}</td>
+                    <td>{!! $answer->correct !!}</td>
                     </tr>
                   @endforeach
                 </tbody>

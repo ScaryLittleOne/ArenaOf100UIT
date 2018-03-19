@@ -40,8 +40,11 @@
   </style>
   <body>
     {{ Form::model($question, array('route' => array('questions.update', $question->id), 'method' => 'PUT')) }} 
+<<<<<<< HEAD
      {{Form::model($answers, array('route' => array('question.update', $question->id,'method' => 'PUT'))) }}
 >>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
+=======
+>>>>>>> 2ffee210bd6f210dfd09cbacff4c6278d1e04807
 
     <div class="form-group">
         {!! Form::label('content', 'Content', ['class'=>'control-label col-md-2']) !!}
@@ -64,35 +67,16 @@
 @stop
 =======
         <!-- Answers -->
-       
-        {!! Form::label('content_A', 'Answer A', ['class'=>'control-label col-md-1']) !!}
-        <div class="col-md-4">
-            
-
-          {!! Form::text('content_A', null, ['class' => 'form-control']) !!}
+      @foreach($answers as $answer)
+        <div class="form-group">
+          <label for="content[]" class="control-label col-md-1">Answer {{ $answer->abcd}}</label>
+          <div class="col-md-4">
+            <input class="form-control" name="ids[]" type="hidden" id="content_{{$answer->abcd}}" value="{{ $answer->id }}">
+            <input class="form-control" name="answers[]" type="text" id="content_{{$answer->abcd}}" value="{{ $answer->content }}">
+          </div>
         </div>
-      </div>
-
-      <div class="form-group">
-        {!! Form::label('content_B', 'Answer B', ['class'=>'control-label col-md-1']) !!}
-        <div class="col-md-4">
-          {!! Form::text('content_B', null, ['class' => 'form-control']) !!}
-        </div>
-      </div>
-
-      <div class="form-group">
-        {!! Form::label('content_C', 'Answer C', ['class'=>'control-label col-md-1']) !!}
-        <div class="col-md-4">
-          {!! Form::text('content_C', null, ['class' => 'form-control']) !!}
-        </div>
-      </div>
-
-      <div class="form-group">
-        {!! Form::label('content_D', 'Answer D', ['class'=>'control-label col-md-1']) !!}
-        <div class="col-md-4">
-          {!! Form::text('content_D', null, ['class' => 'form-control']) !!}
-        </div>
-      </div>
+    
+      @endforeach
 
       <div class="form-group">
         {!! Form::label('correct', 'Correct Answer', ['class'=>'control-label col-md-4']) !!}
@@ -112,7 +96,6 @@
         </div>
       </div>
     {{ Form::close() }}
- {{ Form::close() }}
  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
