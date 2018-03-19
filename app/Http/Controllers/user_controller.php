@@ -76,6 +76,7 @@ class user_controller extends Controller
     public function edit(User $user)
     {
         //
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -88,6 +89,13 @@ class user_controller extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $user->username=$request->username;
+        $user->password=$request->password;
+        $user->active=1;
+        $user->admin=0;
+        $user->remember_token="None";
+        $user->save();
+        return redirect('users');
     }
 
     /**
@@ -103,5 +111,4 @@ class user_controller extends Controller
         return redirect('users');   
     }
 
-    
 }

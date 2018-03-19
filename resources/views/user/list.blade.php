@@ -1,16 +1,18 @@
 @extends('layouts.app')
-@section('title','users')
+@section('title','Users')
 <!-- 
 @section('name')
 
 @stop
 !-->
 @section('style')
+
 #info-list {
+
                 margin-top:20px;
                 text-align: center;
-                margin-left: 50px;
-                margin-right: 50px;
+                margin-left: 10px;
+                margin-right: 10px;
             }
             #info-list table tr th{
                 margin: 0px 0px;
@@ -26,7 +28,7 @@
             #info-list table{
                 border-collapse: collapse;
                 width: 100%;
-                background: #12B8B6;
+                background: white;
             }
             #info-list tbody form a {
                 font-size: 100%;
@@ -159,19 +161,6 @@
 
 @stop
 @section('content')
- 
-   
-    <div class="wrapper">
-        <div class="popup">
-            <div class="text-right"><a href="javascript:;" class="close-button">Thoát</a></div>
-            <form>
-                Bạn muốn xóa sinh viên này ra khỏi danh sách?
-                <div>
-                    <button type="submit">Có</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
 <div class="adduser">
     <a   href="{{route('users.create')}}" > Thêm user </a>
@@ -185,9 +174,9 @@
                                 <thead>
                                     <tr>
                                         <th height="8%" width="8%">STT</th>
-                                        <th height="20%" width="20%">MSSV</th>
-                                        <th>Họ và tên</th>
-                                        <th>Xóa</th>
+                                        <th height="30%" width="30%">Mã số sinh viên</th>
+                                    
+                                        <th height="20%" width="20%">Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -204,14 +193,24 @@
                                                 <td>
                                                     <?php echo ($k); ?> 
                                                 </td>
-                                            <td>
-                                            <?php echo ($x->id); ?> </td>
-                                    
                                             <td><?php echo ($x->username); ?> </td>
                                             <td>
-                                         {!! Form::open(['method'=>'delete', 'route'=>['users.destroy', $x->id]]) !!}
-                                         {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
-                                         {!! Form::close() !!}
+                                            <div class="container">
+                                                  <div class="row">
+                                                    <div class="col-sm">
+                                                      {!!Form::open(['method'=>'delete', 'route'=>['users.destroy', $x->id]]) !!}
+                                                      <input class="btn btn-danger" onclick='return confirm("Do you want to delete this record?")' type="submit" value="Xóa">
+                                                       </form>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                      <a href="{{ route('users.edit', $x->id) }}" class = "btn btn-success">Chỉnh sửa</a>
+                                                    </div>
+                                                  </div>
+                                                </div>                                                    
+
+                                                 
+                                               
+                                                     
 
                                         </td>
                                         </tr><?php
@@ -219,10 +218,11 @@
                                     }?>
                                         <php>   
                                            
-
+                                            <?php $k=0 ?>    
                                             @foreach($users as $user)
+                                            <?php $k++; ?>
                                                     <?php 
-                                                        showacc($user,1);
+                                                        showacc($user,$k);
 
                                                     ?>
                                             @endforeach

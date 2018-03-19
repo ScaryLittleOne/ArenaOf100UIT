@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Login')
+@section('title','Đăng nhập')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="username" class="col-sm-4 col-form-label text-md-right">{{ __('Tài Khoản') }}</label>
+                            <label for="username" class="col-sm-4 col-form-label text-md-right">{{ __('Mã số sinh viên') }}</label>
 
                             <div class="col-md-6">
                                 <input id="username" type="texts" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" required autofocus>

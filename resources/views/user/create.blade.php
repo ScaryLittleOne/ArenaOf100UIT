@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','create')
+@section('title','Create')
 @section('style')
 .create {
 			margin :5% auto;
@@ -35,7 +35,7 @@ button {
 				<td>	<input type="text" name="MSSV">	</td>
 	</tr>
 	<tr>
-				<td>Password:</td>
+				<td>Mật khẩu::</td>
 				<td>	<input type="text" name="password">	</td>
 	</tr>
 
