@@ -90,7 +90,6 @@ class user_controller extends Controller
     {
         //
         $user->username=$request->username;
-        $user->password=$request->password;
         $user->active=1;
         $user->admin=0;
         $user->remember_token="None";

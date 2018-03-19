@@ -162,9 +162,7 @@
 @stop
 @section('content')
 
-<div class="adduser">
-    <a   href="{{route('users.create')}}" > Thêm user </a>
-</div>
+    <a style="position: absolute;left: 10px;" class="btn btn-light"  href="{{route('users.create')}}" > Thêm user </a>
 
 
 </div>

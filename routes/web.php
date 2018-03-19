@@ -26,6 +26,7 @@ Route::resource('questions', 'question_controller')->middleware('auth');
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', function () {

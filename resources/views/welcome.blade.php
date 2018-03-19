@@ -105,11 +105,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-
                         <a href="{{ route('logout') }}">Đăng Xuất</a>
                     @else
                         <a href="{{ route('login') }}">Đăng Nhập</a>
-
                     @endauth
                 </div>
             @endif  
