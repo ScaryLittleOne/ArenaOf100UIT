@@ -39,6 +39,13 @@
                 position: fixed;
 
             }
+            #login {
+                text-align: right;
+                left: 10px;
+                top: 5px;
+                position: fixed;
+
+            }
 
             .chaomung{
                 margin-top: 25px;
@@ -69,26 +76,34 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Register') }}</a></li>
+                            <!-- <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a></li> -->
+                            <a href="{{ route('login') }}" class="btn btn-primary">Đăng Nhập</a>   
+                            <!--<li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Register') }}</a></li> -->
                         @else
-                            <li class="nav-item dropdown">
+                            <!--<a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li>-->
+
+                            <a href="{{ route('logout') }}" class="btn btn-primary">Đăng Xuất</a>    
+                            <!--<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+                                <!--<a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li> 
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Đăng Xuất') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    
                                 </div>
-                            </li>
+                            </li>-->
                         @endguest
                     </ul>
                 </div>

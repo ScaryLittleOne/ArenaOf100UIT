@@ -92,4 +92,6 @@ class user_controller extends Controller
         $user->delete();
         return redirect('users');   
     }
+
+    
 }
