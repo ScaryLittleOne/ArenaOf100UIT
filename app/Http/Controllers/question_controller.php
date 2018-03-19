@@ -155,7 +155,6 @@ class question_controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Question $question)
-<<<<<<< HEAD
     {
         
         $question->content = $request->content;
@@ -217,16 +216,12 @@ class question_controller extends Controller
         $questions_answer->question_id = $question->id;
         $questions_answer ->save();*/
 
-=======
     {   
         $question->content = $request->content;
         $question->contest_id = $request->contest_id;
         $question->save();
-<<<<<<< HEAD
         $answers->content = $request->content;
         $answers->save();
->>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
-=======
         
         foreach($request->ids as $index => $id) {
             $tmp_answer = Questions_answer::find($id);
@@ -235,7 +230,6 @@ class question_controller extends Controller
             $tmp_answer->save();
         }
         
->>>>>>> 2ffee210bd6f210dfd09cbacff4c6278d1e04807
         return redirect('questions');
     }
 

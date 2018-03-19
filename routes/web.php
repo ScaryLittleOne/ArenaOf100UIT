@@ -23,7 +23,7 @@ Route::get('/home','HomeController@index')->name('home');
 
 Route::resource('questions', 'question_controller')->middleware('auth');
 
-
+Route::get('/contest','user_contest_controller@index');//->name('home');
 Auth::routes();
 
 
