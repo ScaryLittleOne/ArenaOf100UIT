@@ -78,10 +78,10 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                        @guest
-                             <li><a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a></li>
+                             <a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a>
                             <!--<li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Register') }}</a></li> -->
                         @else
-                            <a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li>
+                            <a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a>
 
                             <!--<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

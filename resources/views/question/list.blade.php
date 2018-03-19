@@ -28,15 +28,10 @@
 >>>>>>> b001b6e0e93cca1911cdbeaa03ad547010d5dfb7
       }
 
-<<<<<<< HEAD
 @stop
 @section('content')
-=======
-    <title>Questions List</title>
-  </head>
-  <body>
-    <h1>QUESTIONS LIST</h1>
->>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
+
+
     <a href="{{ route('questions.create') }}" class="btn btn-primary">Add new</a>
     <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
       <thead>
