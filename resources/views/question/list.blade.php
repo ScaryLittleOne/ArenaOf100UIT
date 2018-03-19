@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,6 +16,7 @@
       {
         width: 100%;
         height: 150px;
+        background: white;
       }
    </style>
 
@@ -22,7 +25,7 @@
   <body>
     <h1>QUESTIONS LIST</h1>
     <a href="{{ route('questions.create') }}" class="btn btn-primary">Add new</a>
-    <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px;">
+    <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
       <thead>
         <tr>
          <th width="7%" class="sorting_asc">ID</th>

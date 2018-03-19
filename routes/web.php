@@ -23,9 +23,6 @@ Route::get('/home','HomeController@index')->name('home');
 
 Route::resource('questions', 'question_controller');
 
-Route::resource('users', 'user_controller');
-
-
 
 Auth::routes();
 
