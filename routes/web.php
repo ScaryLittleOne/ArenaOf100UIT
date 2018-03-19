@@ -15,16 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users','user_controller');
 Auth::routes();
+
+Route::resource('users','user_controller');
+
 Route::get('/home','HomeController@index')->name('home');
 
 Route::resource('questions', 'question_controller');
 
 Route::resource('users', 'user_controller');
 
-Route::get('questions/show/{id}', 'question_controller@show');
+
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/logout', function () {
+	Auth::logout();
+    return view('welcome');
+});

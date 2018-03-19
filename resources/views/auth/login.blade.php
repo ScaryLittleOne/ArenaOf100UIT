@@ -12,14 +12,13 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Tài Khoản') }}</label>
+                            <label for="username" class="col-sm-4 col-form-label text-md-right">{{ __('Tài Khoản') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
+                                <input id="username" type="texts" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" required autofocus>
+                                @if ($errors->has('username'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -55,9 +54,9 @@
                                     {{ __('Đăng Nhập') }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Tôi không nhớ mật khẩu của mình') }}
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </form>
