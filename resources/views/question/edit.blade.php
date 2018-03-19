@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-@extends('layouts.app')
-@section('title','List questions')
-@section('content')
-{{ Form::model($question, array('route' => array('questions.update', $question->id), 'method' => 'PUT')) }}
-=======
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,12 +34,6 @@
   </style>
   <body>
     {{ Form::model($question, array('route' => array('questions.update', $question->id), 'method' => 'PUT')) }} 
-<<<<<<< HEAD
-     {{Form::model($answers, array('route' => array('question.update', $question->id,'method' => 'PUT'))) }}
->>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
-=======
->>>>>>> 2ffee210bd6f210dfd09cbacff4c6278d1e04807
-
     <div class="form-group">
         {!! Form::label('content', 'Content', ['class'=>'control-label col-md-2']) !!}
         <div class="col-md-10">
@@ -60,12 +48,6 @@
         </div>
       </div>
 
-
-
-<<<<<<< HEAD
-{{ Form::close() }}
-@stop
-=======
         <!-- Answers -->
       @foreach($answers as $answer)
         <div class="form-group">
@@ -101,4 +83,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
->>>>>>> 4362665030f31adaf3bd778148c9bca4aedddf84
