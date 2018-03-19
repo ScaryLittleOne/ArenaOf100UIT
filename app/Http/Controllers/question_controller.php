@@ -159,9 +159,7 @@ class question_controller extends Controller
         $question->content = $request->content;
         $question->contest_id = $request->contest_id;
         $question->save();
-        $answers->content = $request->content;
-        $answers->save();
-        
+
         foreach($request->ids as $index => $id) {
             $tmp_answer = Questions_answer::find($id);
             $tmp_answer->content = $request->answers[$index];
