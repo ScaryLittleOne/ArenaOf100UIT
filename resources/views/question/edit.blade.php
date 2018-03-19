@@ -1,7 +1,3 @@
-@extends('layouts.app')
-@section('title','List questions')
-@section('content')
-{{ Form::model($question, array('route' => array('questions.update', $question->id), 'method' => 'PUT')) }}
 <!doctype html>
 <html lang="en">
   <head>
