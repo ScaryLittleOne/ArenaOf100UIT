@@ -32,6 +32,15 @@ class admin_contest_controller extends Controller
         Contest::where('active', 1)->update(['currentquestion_id'=>DB::raw('currentquestion_id+1')]);//Cau Hoi Hien Tai++
     }
 
+    public function check_answer(Request $request){//Chua Test
+        $user= User::select('users.*')->where('id','=','$request->id')->get();
+        $user->active=0;
+        $user->save();
+    }
+
+
+
+
     public function show_history(){//Chuc Nang Cua Admin ->Show Toan Bo Lich Su Thi Dau
         $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
             ->join('users','user_id','=','users.id')

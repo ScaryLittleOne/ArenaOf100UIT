@@ -23,7 +23,7 @@ class user_contest_controller extends Controller
         //var_dump($CQ);
     	return view('UserContest');
     }
-    public function receive_answer(Request $request){
+    public function transmit_answer(Request $request){
         $history = new History;
         $history->user_id=$request['user_id'];
         $history->contest_id=$request['contest_id'];

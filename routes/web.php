@@ -24,7 +24,7 @@ Route::get('/home','HomeController@index');
 Route::resource('questions', 'question_controller');
 
 route::get('contest','user_contest_controller@index');
-route::post('contest','user_contest_controller@receive_answer');
+route::post('contest','user_contest_controller@transmit_answer');
 
 Route::get('/admincontest','admin_contest_controller@index')->name('/admincontest');
 Route::post('/admincontest','admin_contest_controller@change')->name('/admincontest');
