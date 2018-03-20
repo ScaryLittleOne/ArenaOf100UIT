@@ -2,11 +2,18 @@
 @section('title',' ')
 @section('content')
 
-  <div class="top-left links">
-      <!--<a href="{{ route('questions.index')  }}">Trở Về</a>  -->
-      <a href="{{ route('questions.index') }}" class="btn btn-primary" color: white font-size: 20px font-family: cursive>Trở Về</a>             
-  </div>
-
+<div class="dropdown mb-4">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Quản trị viên
+  </button>
+  <div class="dropdown-menu">
+  <a class="dropdown-item" href="/questions">Quản lí đề thi</a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/users" > Quản lí sinh viên </a>
+  <a class="dropdown-item" href="/contest" > Vào đấu trường </a>
+  
+</div>
+</div>
 
 <div class="container">
     <div class="row justify-content-center">

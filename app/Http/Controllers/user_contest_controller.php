@@ -14,11 +14,10 @@ class user_contest_controller extends Controller
         //$this->middleware('checkadmin');
     }
   public function index(){
-  //      $question = Question::all();
-        
-          $CQ=DB::table('contests')->get();
-          var_dump($CQ);
-          	return view('usercontest.show',compact('question'));
+        $CQ=DB::table('contests')->get();
+        echo(date("Y-m-d H:i:s")); echo ("<br>");
+        echo(now());
+      return view('usercontest.show',compact('CQ'));
     }   
 }
 
