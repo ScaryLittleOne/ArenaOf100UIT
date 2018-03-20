@@ -47,6 +47,9 @@ class EverythingElseSeeder extends Seeder
         DB::table('contests')->insert([
             'currentquestion_id' => 1
         ]);
+DB::table('contests')->insert([
+            'currentquestion_id' => 1
+        ]);
 
         DB::table('histories')->insert([
             'user_id' => 1,

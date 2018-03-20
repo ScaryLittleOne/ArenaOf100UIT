@@ -35,7 +35,7 @@ button {
 				<td>	<input type="text" name="MSSV">	</td>
 	</tr>
 	<tr>
-				<td>Mật khẩu::</td>
+				<td>Mật khẩu:</td>
 				<td>	<input type="text" name="password">	</td>
 	</tr>
 
