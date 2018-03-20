@@ -1,26 +1,19 @@
 @extends('layouts.app')
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Question's Details</title>
-    
-  </head>
-  <body>
-<!--Co Gi Xoa Cai Nay Di. Day La Cach Hien Thi Ne .Tu Day -->
+@section('title',' ')
 @section('content')
 
-  <div class="top-left links">
-      <!--<a href="{{ route('questions.index')  }}">Trở Về</a>  -->
-      <a href="{{ route('questions.index') }}" class="btn btn-primary" color: white font-size: 20px font-family: cursive>Trở Về</a>             
-  </div>
-
+<div class="dropdown mb-4">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Quản trị viên
+  </button>
+  <div class="dropdown-menu">
+  <a class="dropdown-item" href="/questions">Quản lí đề thi</a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/users" > Quản lí sinh viên </a>
+  <a class="dropdown-item" href="/contest" > Vào đấu trường </a>
+  
+</div>
+</div>
 
 <div class="container">
     <div class="row justify-content-center">

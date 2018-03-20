@@ -78,10 +78,10 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                        @guest
-                             <a class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a>
+                             <a style="background: white; position: fixed; right: 10px;top: 10px; border-radius: 10px;" class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a>
                             <!--<li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Register') }}</a></li> -->
                         @else
-                            <a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a>
+                            <a style="background: white; position: fixed; right: 10px;top: 10px; border-radius: 10px;" class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a>
 
                             <!--<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -110,17 +110,15 @@
             
         </nav>
 
-        <main class="py-4">
+        <div class="container-fluid">
             @yield('content')
-        </main>
+        </div>
     </div>
 
 <div class="logowecode">
 <img src="{{ url('/logowecode.svg') }}" height="100%" width="100%">
 </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}">
-        
-    </script>
+    
 </body>
 </html>
