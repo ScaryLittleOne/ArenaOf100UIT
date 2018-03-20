@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Question;
+use App\Questions_answer;
+use App\Contest;
+use App\User;
+use App\History;
+use DB;
 
 class admin_contest_controller extends Controller
 {
@@ -13,18 +18,27 @@ class admin_contest_controller extends Controller
         $this->middleware('auth');
         $this->middleware('checkadmin');
     }
-    public function index(Question $questioncurrent){
+    public function index(){
 
     	$questions = Question::all();
+        $questioncurrent = DB::table('contests')->where('active','=',true)->get();
     	return view('AdminContest',compact('questions'),compact('questioncurrent'));
     }
 
-    public function change(Request $request){
-    	var_dump($request->id);
+    public function change(){
+    	//var_dump($request->id);
     	///Doi cau hoi hien tai trong table contest
     	///
-    	$questioncurrent = new Question;
-        $questioncurrent = $request;
-    	return $this->index($questioncurrent);
+        Contest::where('active', 1)->update(['currentquestion_id'=>DB::raw('currentquestion_id+1')]);//Cau Hoi Hien Tai++
+    }
+
+    public function show_history(){//Chuc Nang Cua Admin ->Show Toan Bo Lich Su Thi Dau
+        $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
+            ->join('users','user_id','=','users.id')
+            ->join('questions','question_id','=','questions.id')
+            ->join('questions_answers','questions_answer_id','=','questions_answers.id')
+            ->groupBy('histories.id')
+            ->get();
+        return view('ShowHistory',compact('MergeHistory') );
     }
 }

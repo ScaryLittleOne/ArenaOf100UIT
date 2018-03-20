@@ -30,5 +30,4 @@ class History extends Model
     	return $this->belongsTo('App\Questions_answer');
     }
 }
-}
 
