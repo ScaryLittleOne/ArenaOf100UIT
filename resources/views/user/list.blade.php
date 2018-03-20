@@ -18,7 +18,7 @@
   <a class="dropdown-item" href="{{route('users.create')}}">Thêm sinh viên</a>
   <div class="dropdown-divider"></div>
   <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
-  <a class="dropdown-item" href="/contest" > Vào đấu trường </a>
+  <a class="dropdown-item" href="/admincontest" > Vào đấu trường </a>
   
 </div>
 </div>

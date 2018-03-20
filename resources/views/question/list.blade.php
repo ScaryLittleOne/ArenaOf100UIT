@@ -13,7 +13,7 @@
   <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm câu hỏi</a>
   <div class="dropdown-divider"></div>
   <a class="dropdown-item" href="/users" > Quản lí sinh viên </a>
-  <a class="dropdown-item" href="/contest" > Vào đấu trường </a>
+  <a class="dropdown-item" href="/admincontest" > Vào đấu trường </a>
   
 </div>
 </div>

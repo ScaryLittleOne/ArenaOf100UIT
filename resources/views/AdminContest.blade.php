@@ -1,24 +1,33 @@
 @extends('layouts.app')
 @section('title','List questions')
 @section('style')
-      table
-      {
-        width: 100%;
-        height: 80px;
-      }
 
 @stop
 @section('content')
 
+<div class="dropdown mb-4">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Quản trị viên
+  </button>
+  <div class="dropdown-menu">
+  <a class="dropdown-item" href="/users">Quản lí sinh viên</a>
+  <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
+  <!-- thêm thẻ menu vào đây -->
 
-    <a href="{{ route('questions.create') }}" class="btn btn-primary">Add new</a>
-    <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px;">
-      <thead>
+  
+</div>
+</div>
+
+   <!--  <a href="{{ route('questions.create') }}" class="btn btn-primary">Add new</a> -->
+  <div id="row">
+    <div class="col-14">
+    <table class="table table-striped table-light">
+      <thead class="thead-light">
         <tr>
-         <th width="7%" class="sorting_asc">ID</th>
-         <th>Content</th>
-          <th width="10%">Contest_ID</th>
-          <th width="20%" colspan="2">Action</th>
+         <th width="4%" height="4%">STT</th>
+         <th width="40%" height="40%">Nội dung câu hỏi</th>
+          <th width="10%" height="10%">Mã câu hỏi</th>
+          <th width="30%" colspan="2">Thao tác</th>
         </tr>
       </thead>
       <tbody>
@@ -37,6 +46,8 @@
         @endforeach
       </tbody>
     </table> 
+  </div>
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
