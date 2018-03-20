@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','List questions')
+@section('title','Danh sách câu hỏi')
 @section('style')
       table
       {
@@ -15,10 +15,10 @@
     <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px;">
       <thead>
         <tr>
-         <th width="7%" class="sorting_asc">ID</th>
-         <th>Content</th>
-          <th width="10%">Contest_ID</th>
-          <th width="20%" colspan="2">Action</th>
+         <th width="7%" class="sorting_asc">STT</th>
+         <th>Nội dung câu hỏi</th>
+          <th width="10%">Mã câu hỏi</th>
+          <th width="30%" colspan="2">Thao tác</th>
         </tr>
       </thead>
       <tbody>
@@ -28,12 +28,12 @@
           <td>{!! $question->content !!}</td>
           <td>{!! $question->contest_id !!}</td>
           <td>
-            <a href="{{ route('questions.show', $question->id) }}" class = "btn btn-info">Info</a>
-            <a href="{{ route('questions.edit', $question->id) }}" class = "btn btn-success">Edit</a>
+            <a href="{{ route('questions.show', $question->id) }}" class = "btn btn-info">Hiển thị nội dung</a>
+            <a href="{{ route('questions.edit', $question->id) }}" class = "btn btn-success">Chỉnh sửa</a>
           </td>
           <td>
               {!! Form::open(['method'=>'delete', 'route'=>['questions.destroy', $question->id]]) !!}
-              {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+              {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Bạn muốn xóa câu hỏi này?")']) !!}
               {!! Form::close() !!}
           </td>
           </tr>

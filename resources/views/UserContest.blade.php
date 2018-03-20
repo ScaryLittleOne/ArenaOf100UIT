@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Contest')
+@section('title','Đấu trường 100')
 @section('content')
 
 @stop
