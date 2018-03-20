@@ -28,6 +28,7 @@
          <th width="4%" height="4%">STT</th>
          <th width="40%" height="40%">Nội dung câu hỏi</th>
           <th width="10%" height="10%">Mã câu hỏi</th>
+
           <th width="30%" colspan="2">Thao tác</th>
         </tr>
       </thead>

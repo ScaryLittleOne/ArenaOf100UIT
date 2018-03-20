@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\contest;
+use DB;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Contest;
@@ -31,3 +32,4 @@ class user_contest_controller extends Controller
 
     }
 }
+

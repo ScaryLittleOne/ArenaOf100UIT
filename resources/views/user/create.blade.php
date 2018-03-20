@@ -14,17 +14,21 @@
 
 			margin: 10px auto;
 }
-button {
-	
-			width: 50px;
-			background: #0083BF;
-			box-shadow: 0px 0px 5px #CBCBCE;
-			margin: 10px auto;
-			padding: 2px 2px;
-			border-radius: 10px; 
-}
+
 @stop
 @section('content')
+<div class="dropdown mb-4">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Quản trị viên
+  </button>
+  <div class="dropdown-menu">
+  <a class="dropdown-item" href="/users">Quản lí sinh viên</a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
+  <a class="dropdown-item" href="/admincontest" > Vào đấu trường </a>
+  
+</div>
+</div>
 <center>
 <div class="create">
 <form method="POST"  action="{!! route('users.store') !!}" name="formthem">
@@ -41,8 +45,10 @@ button {
 
 	
 </table>
-<button type="submit" > OK </button>
+<button class="btn btn-primary"   type="submit" > OK </button>
 </form>
 </div>
 </center>
+<script src="{{ asset('js/app.js') }}">
+    </script>
 @stop
