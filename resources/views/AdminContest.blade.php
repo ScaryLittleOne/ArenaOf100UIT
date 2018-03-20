@@ -4,46 +4,9 @@
 
 @stop
 @section('content')
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-     
-            <div class="w3-panel w3-round w3-teal">
-              <li> Số Thứ Tự : {!! $questions->id !!} </li>
-            </div>
-            <div class="w3-panel w3-round w3-teal">
-              <li> Nội Dung : {!! $questions->content !!} </li>
-            </div>
-            <div class="w3-panel w3-round w3-teal">
-              <li> Thông Tin Cuộc Thi : {!! $questions->contest_id !!} </li>
-            </div>
-       
 
-<<<<<<< HEAD
-            <!--<table class="table table-striped table-bordered table-hover">
-                <thead>
-                  <tr>
-                   <th>Số Thứ Tự</th>
-                   <th>Cách Hiển Thị Đáp Án</th>
-                   <th>Nội Dung</th>
-                   <th>Là Đáp Án Đúng (0: Sai; 1:Đúng)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $k=0 ?>
-                  @foreach($answers as $answer)
-                    <?php $k++ ?>
-                    <tr>
-                    <td> {!!$k!!}  </td>
-                    <td>{!! $answer->abcd !!}</td>
-                    <td>{!! $answer->content !!}</td>
-                    <td>{!! $answer->correct !!}</td>
-                    </tr>
-                  @endforeach
-                </tbody>
-              </table>  -->  
-    
     <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
       <thead>
-=======
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Quản trị viên
@@ -53,16 +16,13 @@
   <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
   <!-- thêm thẻ menu vào đây -->
 
-  
 </div>
 </div>
-
-   <!--  <a href="{{ route('questions.create') }}" class="btn btn-primary">Add new</a> -->
+  $questioncurrent->content;
   <div id="row">
     <div class="col-14">
     <table class="table table-striped table-light">
       <thead class="thead-light">
->>>>>>> 821c3ef8a8c538157067d1f456792b173c94b16c
         <tr>
          <th width="4%" height="4%">STT</th>
          <th width="40%" height="40%">Nội dung câu hỏi</th>
