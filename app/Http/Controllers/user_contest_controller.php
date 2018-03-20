@@ -13,6 +13,13 @@ class user_contest_controller extends Controller
         //$this->middleware('checkadmin');
     }
     public function index(){
+    	//$this->middleware('checkactive');
+
+    	$user = Auth::user();
+        if ($user->active==false){
+           	abort(403, 'Go Home Bitch. U Lost');
+        }
+        
     	return view('UserContest');
     }
 }
