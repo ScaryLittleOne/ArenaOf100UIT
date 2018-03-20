@@ -24,10 +24,11 @@ Route::get('/home','HomeController@index');
 Route::resource('questions', 'question_controller');
 
 route::get('contest','user_contest_controller@index');
-route::post('contest','user_contest_controller@Receive_Answer');
+route::post('contest','user_contest_controller@receive_answer');
 
 Route::get('/admincontest','admin_contest_controller@index')->name('/admincontest');
 Route::post('/admincontest','admin_contest_controller@change')->name('/admincontest');
+//Route::post('/admincontest','admin_contest_controller@show_history')->name('/admincontest'); //Route Test Cua History
 
 Route::get('/logout', function () {
 	Auth::logout();

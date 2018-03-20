@@ -16,14 +16,14 @@ class user_contest_controller extends Controller
         $this->middleware('checkactive');
     }
     public function index(){
-        $CQ = Question::select('questions.*')
+        $CQ = Question::select('questions.*','contests.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Bang Contest
             ->join('contests','questions.id','=','contests.currentquestion_id')
             ->where('contests.active','=',1)
             ->groupBy('questions.id')->get();
         //var_dump($CQ);
     	return view('UserContest');
     }
-    public function Receive_Answer(Request $request){
+    public function receive_answer(Request $request){
         $history = new History;
         $history->user_id=$request['user_id'];
         $history->contest_id=$request['contest_id'];
