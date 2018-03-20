@@ -4,8 +4,6 @@
 @stop
 @section('content')
 
-
-    <a href="{{ route('questions.create') }}" class="btn btn-primary">Add new</a>
     <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
       <thead>
 <div class="dropdown mb-4">

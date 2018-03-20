@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','List questions')
+@section('title','AdminContest')
 @section('style')
       table
       {
@@ -9,7 +9,41 @@
 
 @stop
 @section('content')
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     
+            <div class="w3-panel w3-round w3-teal">
+              <li> Số Thứ Tự : {!! $questions->id !!} </li>
+            </div>
+            <div class="w3-panel w3-round w3-teal">
+              <li> Nội Dung : {!! $questions->content !!} </li>
+            </div>
+            <div class="w3-panel w3-round w3-teal">
+              <li> Thông Tin Cuộc Thi : {!! $questions->contest_id !!} </li>
+            </div>
+       
 
+            <!--<table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                   <th>Số Thứ Tự</th>
+                   <th>Cách Hiển Thị Đáp Án</th>
+                   <th>Nội Dung</th>
+                   <th>Là Đáp Án Đúng (0: Sai; 1:Đúng)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $k=0 ?>
+                  @foreach($answers as $answer)
+                    <?php $k++ ?>
+                    <tr>
+                    <td> {!!$k!!}  </td>
+                    <td>{!! $answer->abcd !!}</td>
+                    <td>{!! $answer->content !!}</td>
+                    <td>{!! $answer->correct !!}</td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>  -->  
     
     <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
       <thead>
@@ -29,7 +63,7 @@
           <td>
               {!! Form::open(['method'=>'POST', 'route'=>['/admincontest']]) !!}
               <input class="form-control" name="id" type="hidden" value="{{ $question->id }}" >
-              {!! Form::submit('Câu tiếp theo', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Bạn có muốn chọn câu làm câu tiếp theo?")']) !!}
+              {!! Form::submit('Câu tiếp theo', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Bạn có muốn chọn câu hỏi này làm câu tiếp theo?")']) !!}
               {!! Form::close() !!}
           </td>
           </tr>

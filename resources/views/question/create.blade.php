@@ -3,14 +3,14 @@
 
 @section('content')
     {!! Form::open(['url' => 'questions']) !!}
-      <div class="form-group">
+      <div class="form-group" style="color: white">
         {!! Form::label('content', 'Content', ['class'=>'control-label col-md-2']) !!}
         <div class="col-md-10">
           {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
         </div>
       </div>
   
-      <div class="form-group">
+      <div class="form-group" style="color: white">
         {!! Form::label('contest_id', 'Contest_ID', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-1">
           {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
@@ -18,35 +18,35 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="color: white">
         {!! Form::label('content_A', 'Answer A', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
           {!! Form::text('content_A', null, ['class' => 'form-control']) !!}
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="color: white">
         {!! Form::label('content_B', 'Answer B', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
           {!! Form::text('content_B', null, ['class' => 'form-control']) !!}
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="color: white">
         {!! Form::label('content_C', 'Answer C', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
           {!! Form::text('content_C', null, ['class' => 'form-control']) !!}
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="color: white">
         {!! Form::label('content_D', 'Answer D', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
           {!! Form::text('content_D', null, ['class' => 'form-control']) !!}
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="color: white">
         {!! Form::label('correct', 'Correct Answer', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-4">
           {{ Form::select('correct', [

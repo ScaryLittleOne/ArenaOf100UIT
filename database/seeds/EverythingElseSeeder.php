@@ -47,7 +47,7 @@ class EverythingElseSeeder extends Seeder
         DB::table('contests')->insert([
             'currentquestion_id' => 1
         ]);
-DB::table('contests')->insert([
+        DB::table('contests')->insert([
             'currentquestion_id' => 1
         ]);
 
