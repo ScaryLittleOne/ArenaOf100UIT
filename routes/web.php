@@ -19,15 +19,15 @@ Auth::routes();
 
 Route::resource('users','user_controller');
 
-Route::get('/home','HomeController@index')->name('home');
+Route::get('/home','HomeController@index');
 
-Route::resource('questions', 'question_controller')->middleware('auth');
+Route::resource('questions', 'question_controller');
 
-Route::get('/contest','user_contest_controller@index');//->name('home');
-Auth::routes();
+Route::get('/contest','user_contest_controller@index');
 
+Route::get('/admincontest','admin_contest_controller@index')->name('/admincontest');
+Route::post('/admincontest','admin_contest_controller@change')->name('/admincontest');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', function () {
 	Auth::logout();
