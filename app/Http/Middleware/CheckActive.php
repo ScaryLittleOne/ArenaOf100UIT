@@ -15,9 +15,9 @@ class CheckActive
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->activen==false) {
+        if ($request->user()->active==false) {
             //return redirect('home');
-            abort(403, 'Go Home Bitch. U Lost');
+            abort(403, 'Go Home Bitch. U Loser');//Say Some Thing Or Direct To Somewhere When The User Sucks And Loses
         }
         return $next($request);
     }
