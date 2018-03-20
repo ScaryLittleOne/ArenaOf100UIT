@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Edit')
+@section('title','Chỉnh sửa')
 
 <!-- 
 @section('name')

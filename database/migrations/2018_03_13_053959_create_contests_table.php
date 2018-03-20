@@ -16,6 +16,8 @@ class CreateContestsTable extends Migration
         Schema::create('contests', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('currentquestion_id');
+            $table->boolean('active');
+            $table->dateTime('startcurrentquestion');
             $table->timestamps();
         });
     }

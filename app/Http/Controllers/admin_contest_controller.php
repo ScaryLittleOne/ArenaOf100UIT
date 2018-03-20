@@ -13,17 +13,18 @@ class admin_contest_controller extends Controller
         $this->middleware('auth');
         $this->middleware('checkadmin');
     }
-    public function index(){
+    public function index(Question $questioncurrent){
 
     	$questions = Question::all();
-    	return view('AdminContest',compact('questions'));
+    	return view('AdminContest',compact('questions'),compact('questioncurrent'));
     }
 
     public function change(Request $request){
     	var_dump($request->id);
     	///Doi cau hoi hien tai trong table contest
     	///
-    	
-    	index();
+    	$questioncurrent = new Question;
+        $questioncurrent = $request;
+    	return $this->index($questioncurrent);
     }
 }
