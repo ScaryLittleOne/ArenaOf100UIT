@@ -24,5 +24,11 @@ class UsersTableSeeder extends Seeder
             'active' => true,
             'admin' => false
         ]);
+        DB::table('users')->insert([
+            'username' => 'loser',
+            'password' => bcrypt('loser1'),
+            'active' => false,
+            'admin' => false
+        ]);
     }
 }
