@@ -33,7 +33,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($question as $question)
+        @foreach($questions as $question)
           <tr>
           <td>{!! $question->id !!}</td>
           <td>{!! $question->content !!}</td>
