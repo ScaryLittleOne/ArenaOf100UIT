@@ -2,16 +2,30 @@
 @section('title','Create questions')
 
 @section('content')
+<div class="dropdown mb-4">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Quản trị viên
+  </button>
+  <div class="dropdown-menu">
+  <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/users">Quản lí sinh viên</a>
+  
+  
+  <a class="dropdown-item" href="/admincontest" > Vào đấu trường </a>
+  
+</div>
+</div>
     {!! Form::open(['url' => 'questions']) !!}
       <div class="form-group" style="color: white">
-        {!! Form::label('content', 'Content', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('content', 'Nội dung câu hỏi', ['class'=>'control-label col-md-2']) !!}
         <div class="col-md-10">
           {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
         </div>
       </div>
   
       <div class="form-group" style="color: white">
-        {!! Form::label('contest_id', 'Contest_ID', ['class'=>'control-label col-md-1']) !!}
+        {!! Form::label('contest_id', 'Mã câu hỏi', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-1">
           {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
           <!--{!! $errors->has('contest_id')?$errors->first('contest_id'):'' !!}-->
@@ -19,35 +33,35 @@
       </div>
 
       <div class="form-group" style="color: white">
-        {!! Form::label('content_A', 'Answer A', ['class'=>'control-label col-md-1']) !!}
+        {!! Form::label('content_A', 'Đáp án A', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
           {!! Form::text('content_A', null, ['class' => 'form-control']) !!}
         </div>
       </div>
 
       <div class="form-group" style="color: white">
-        {!! Form::label('content_B', 'Answer B', ['class'=>'control-label col-md-1']) !!}
+        {!! Form::label('content_B', 'Đáp án B', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
           {!! Form::text('content_B', null, ['class' => 'form-control']) !!}
         </div>
       </div>
 
       <div class="form-group" style="color: white">
-        {!! Form::label('content_C', 'Answer C', ['class'=>'control-label col-md-1']) !!}
+        {!! Form::label('content_C', 'Đáp án C', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
           {!! Form::text('content_C', null, ['class' => 'form-control']) !!}
         </div>
       </div>
 
       <div class="form-group" style="color: white">
-        {!! Form::label('content_D', 'Answer D', ['class'=>'control-label col-md-1']) !!}
+        {!! Form::label('content_D', 'Đáp án D', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-4">
           {!! Form::text('content_D', null, ['class' => 'form-control']) !!}
         </div>
       </div>
 
       <div class="form-group" style="color: white">
-        {!! Form::label('correct', 'Correct Answer', ['class'=>'control-label col-md-4']) !!}
+        {!! Form::label('correct', 'Đáp án đúng', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-4">
           {{ Form::select('correct', [
           'A' => 'A',
@@ -60,7 +74,7 @@
 
       <div class="form-group">
         <div class="col-md-4">
-          {{ Form::submit('Submit', ['class' => 'btn  btn-primary form-control']) }}
+          {{ Form::submit('Hoàn thành', ['class' => 'btn  btn-primary form-control']) }}
         </div>
       </div>
     {!! Form::close() !!}
