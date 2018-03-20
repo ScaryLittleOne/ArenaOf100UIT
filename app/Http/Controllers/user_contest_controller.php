@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\contest;
+use App\usercontest;
 use DB;
 use Illuminate\Support\Facades\Auth;
-use DB;
-use App\Contest;
 use Illuminate\Http\Request;
 
 class user_contest_controller extends Controller
@@ -16,20 +14,18 @@ class user_contest_controller extends Controller
         $this->middleware('checkactive');
     }
     public function index(){
-    	//$this->middleware('checkactive');
-
-    	/*$user = Auth::user();
-        if ($user->active==false){
-           	abort(403, 'Go Home Bitch. U Loser');
-        }*/ 
-
-        $CQ=DB::table('contests')->get();
-        //var_dump($CQ);
-        echo $CQ->currentquestion_id;
-    	return view('UserContest');
+          echo(now());
+          echo(date('Y-m-d H:i:s'));
+        	return view('usercontest.show');
     }
     public function Receive_Anser(){
 
+    }
+    public function show_histories(){
+        $question = DB::table('histories')->where('user_id','=',1)->get();
+         return view('usercontest.show_histories',compact('question'));//
+      //  echo($question->user_id);
+       // echo($question->contest_id);
     }
 }
 

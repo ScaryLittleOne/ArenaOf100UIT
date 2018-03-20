@@ -23,6 +23,9 @@ Route::get('/home','HomeController@index');
 
 Route::resource('questions', 'question_controller');
 
+route::get('contest','user_contest_controller@index');
+route::get('histories','user_contest_controller@show_histories');
+
 Route::get('/admincontest','admin_contest_controller@index')->name('/admincontest');
 Route::post('/admincontest','admin_contest_controller@change')->name('/admincontest');
 
@@ -31,4 +34,3 @@ Route::get('/logout', function () {
 	Auth::logout();
     return view('welcome');
 });
-route::get('user','user_contest_controller@index');

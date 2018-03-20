@@ -17,7 +17,7 @@
  </head>
  <body>
 			
-	<?php 	var_dump($CQ); ?> 	
+	
  </body>
  </html>
 
