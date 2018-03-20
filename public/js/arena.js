@@ -4,6 +4,6 @@
         setInterval( function() {
                    window.location.reload();
  
-          },30000);
+          },1000);
     }
   </script>
