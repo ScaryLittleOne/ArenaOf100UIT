@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\contest;
+use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -12,14 +13,11 @@ class user_contest_controller extends Controller
         $this->middleware('auth');
         //$this->middleware('checkadmin');
     }
-    public function index(){
-    	//$this->middleware('checkactive');
-
-    	$user = Auth::user();
-        if ($user->active==false){
-           	abort(403, 'Go Home Bitch. U Lost');
-        }
-        
-    	return view('UserContest');
-    }
+  public function index(){
+        $CQ=DB::table('contests')->get();
+        echo(date("Y-m-d H:i:s")); echo ("<br>");
+        echo(now());
+      return view('usercontest.show',compact('CQ'));
+    }   
 }
+

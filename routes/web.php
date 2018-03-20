@@ -33,3 +33,4 @@ Route::get('/logout', function () {
 	Auth::logout();
     return view('welcome');
 });
+route::get('user','user_contest_controller@index');
