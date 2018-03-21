@@ -2,17 +2,24 @@
 @section('title','Đấu trường ánh sáng')
 @section('style')
 .dongho{
-padding: 40px 40px;
+	padding: 30px 30px;
 	border-radius: 70px;
-	font-size: 30px;
+	font-size: 20px;
+}
+#check{
+	padding: 7px 7px;
+	width: 100%;
+	background: white;
+	border-radius: 20px;
+	font-size: 18px;
+	margin-top: 10px;
 }
 @stop
 @section('content')
-
+<script src="{{ '/jquery.min.js'}}"></script>
 <center>
 <button class="dongho" id='demnguoc'>
-    <span id='dem'></span> 
-    <span id='donvi'></span>
+
 </button>
 </center>
  <?php $x=$question->id; ?>
@@ -33,7 +40,6 @@ padding: 40px 40px;
 			 	console.log(res);
 			 else {
 			 	location.reload();
-
 			 }
 
 		}
@@ -53,21 +59,23 @@ padding: 40px 40px;
 });
 
 </script>
-<script src="{{ '/jquery.min.js'}}"></script>
 
-<button type="button" class="btn btn-light btn-lg btn-block mt-4" style="padding: 25px 25px;">{!!$question->content!!}</button>
+
+<button type="button" class="btn btn-info btn-lg btn-block mt-4" style="padding: 20px 20px;">{!!$question->content!!}</button>
  {!!Form::open(['method'=>'POST', 'route'=>'usertransmit_answer']) !!}
 @foreach($answers as $answer)  
 <!-- <div class="custom-control custom-radio custom-control-inline">
   <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="{{!!$answer->id!!}}">
   <label class="custom-control-label" for="customRadioInline1">{{!!$answer->content!!}}</label>
 </div> -->
-  <input type="radio" id="customRadioInline1" name="customRadioInline1" value="{{$answer->id}}">{{$answer->content}}
+<div id="check">
+	 <input id="dapan" name="dapan" type="radio" value="{{$answer->id}}"> 
+	 <label class="dapan" for="dapan" >{{$answer->content}}</label>
+</div>
+ 
 @endforeach
 <br>
-<button type="submit">
-	Submit
-</button>
+<center><button type="submit" class="btn btn-success ">Đây là đáp án cuối cùng của tôi</button></center>
 </form>
 <script src="{{ asset('js/app.js') }}">
     </script>
