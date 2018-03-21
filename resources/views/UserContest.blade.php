@@ -9,19 +9,6 @@ padding: 40px 40px;
 @stop
 @section('content')
 
-<script src="{{ '/jquery.min.js'}}"></script>
-<table>
-        {!!$question->content!!}
-         
-</table>
-@foreach($answers as $answer)
-    <table>     
-        {!!$answer->id!!}
-        {!!$answer->content!!}
-    </table>
-    
-@endforeach
-
 <center>
 <button class="dongho" id='demnguoc'>
     <span id='dem'></span> 
@@ -66,6 +53,22 @@ padding: 40px 40px;
 });
 
 </script>
+<script src="{{ '/jquery.min.js'}}"></script>
 
-
+<button type="button" class="btn btn-light btn-lg btn-block mt-4" style="padding: 25px 25px;">{!!$question->content!!}</button>
+ {!!Form::open(['method'=>'POST', 'route'=>'usertransmit_answer']) !!}
+@foreach($answers as $answer)  
+<!-- <div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="{{!!$answer->id!!}}">
+  <label class="custom-control-label" for="customRadioInline1">{{!!$answer->content!!}}</label>
+</div> -->
+  <input type="radio" id="customRadioInline1" name="customRadioInline1" value="{{$answer->id}}">{{$answer->content}}
+@endforeach
+<br>
+<button type="submit">
+	Submit
+</button>
+</form>
+<script src="{{ asset('js/app.js') }}">
+    </script>
 @stop
