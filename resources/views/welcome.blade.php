@@ -116,8 +116,6 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
             <div class="content">
                 <center>
                 <div id="chaomung">
-                    <p>Welcome</p>
-                    <br>
                     <img src="{{ url('/dautruong100.png') }}" height="100%" width="100%">
                </div>
            </center>
