@@ -75,9 +75,11 @@
                                            
                                             <?php $k=0 ?>    
                                             @foreach($users as $user)
-                                            <?php $k++; ?>
                                                     <?php 
-                                                        showacc($user,$k);
+                                                        if ($user->admin==0){
+                                                          $k++; 
+                                                          showacc($user,$k);
+                                                        }
 
                                                     ?>
                                             @endforeach

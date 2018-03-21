@@ -23,12 +23,12 @@
         </div>
       </div>
   
-      <div class="form-group">
+     <!-- <div class="form-group">
         {!! Form::label('contest_id', 'Contest_ID', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-1">
           {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
         </div>
-      </div>
+      </div>-->
 
         <!-- Answers -->
       @foreach($answers as $answer)
