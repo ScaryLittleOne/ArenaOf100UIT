@@ -5,17 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Question;
-<<<<<<< HEAD
 use App\Contest;
-use DB;
-=======
+//use DB;
 use App\Questions_answer;
-use App\Contest;
+//use App\Contest;
 use App\User;
 use App\History;
 use DB;
 
->>>>>>> 3f19c58ebba55a5a176697f6e624412328e80481
 class admin_contest_controller extends Controller
 {
 	public function __construct()
@@ -24,7 +21,6 @@ class admin_contest_controller extends Controller
         $this->middleware('checkadmin');
     }
     public function index(){
-<<<<<<< HEAD
 
     	$questions = Question::all();
         $contest = Contest::find();
@@ -32,7 +28,7 @@ class admin_contest_controller extends Controller
     	return view('AdminContest',compact('questions'),compact('contests'));
     }
 
-    public function change(Request $request, Contest $contest){
+    /*public function change(Request $request, Contest $contest){
     	var_dump($request->id);
     	///Doi cau hoi hien tai trong table contest
     	///
@@ -42,11 +38,10 @@ class admin_contest_controller extends Controller
         $contest->active = true;
         $contest->currentquestion_id = $request->id;
     	return $this->index();
-=======
     	$questions = Question::all();
         $questioncurrent = DB::table('contests')->where('active','=',true)->get();
     	return view('AdminContest',compact('questions'),compact('questioncurrent'));
-    }
+    }*/
 
     public function change(){//Chua Test
     	//var_dump($request->id);
@@ -93,6 +88,5 @@ class admin_contest_controller extends Controller
             ->groupBy('histories.id')
             ->get();
         return view('ShowHistory',compact('MergeHistory') );
->>>>>>> 3f19c58ebba55a5a176697f6e624412328e80481
     }
 }
