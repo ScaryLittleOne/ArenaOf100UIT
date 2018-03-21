@@ -63,6 +63,7 @@ class admin_contest_controller extends Controller
      //   $now->createFromFormat('d/m/Y','21/03/2018'); 
         //var_dump($now); 
         //return;
+        $now = now();
         $cont = DB::table('contests')->where('active','=',true)->update(['startcurrentquestion'=> $now]);
         //$cont->currentquestion_id = $request->id;
         //$cont -> save();
