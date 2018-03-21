@@ -32,12 +32,9 @@ route::post('usertransmit_answer','user_contest_controller@transmit_answer');
 
 Route::get('/admincontest','admin_contest_controller@index')->name('/admincontest');
 Route::post('/admincontest','admin_contest_controller@change')->name('/admincontest');
-<<<<<<< HEAD
-Route::post('/admincontest','admin_contest_controller@changecontest')->name('/admincontest');
+Route::post('/adminchangecontest','admin_contest_controller@changecontest')->name('/adminchangecontest');
 //Route::post('/admincontest','admin_contest_controller@show_history')->name('/admincontest'); //Route Test Cua History
-=======
-Route::post('/admincontest','admin_contest_controller@show_history')->name('/admincontest'); //Route Test Cua History
->>>>>>> e241deaf1f0779b1320255cdbe1ce2fef3593479
+//Route::post('/admincontest','admin_contest_controller@show_history')->name('/admincontest'); //Route Test Cua History
 
 Route::get('/logout', function () {
 	Auth::logout();

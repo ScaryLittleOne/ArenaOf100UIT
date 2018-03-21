@@ -24,20 +24,17 @@
         </div>
       </div>
   
-<<<<<<< HEAD
        <div class="form-group" style="color: white">
        {!! Form::label('contest_id', 'Mã lần thi', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-1">
           {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
           {!! $errors->has('contest_id')?$errors->first('contest_id'):'' !!}
-=======
       <!--<div class="form-group" style="color: white">
         {!! Form::label('contest_id', 'Mã câu hỏi', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-1">
            {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
         -{!! $errors->has('contest_id')?$errors->first('contest_id'):'' !!}
->>>>>>> e241deaf1f0779b1320255cdbe1ce2fef3593479
-        </div>
+     </div>
       </div>-->
 
       <div class="form-group" style="color: white">

@@ -5,8 +5,8 @@
 @stop
 @section('content')
 
-    <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
-      <thead>
+  <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
+  <thead>
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Quản trị viên
@@ -14,10 +14,11 @@
   <div class="dropdown-menu">
   <a class="dropdown-item" href="/users">Quản lí sinh viên</a>
   <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
-  <!-- thêm thẻ menu vào đây -->
+  </div>
+</div>
+ <!-- thêm thẻ menu vào đây -->
 
-</div>
-</div>
+ {!! Form::open(['method'=>'POST', 'route'=>['/adminchangecontest']]) !!}
    <div class="form-group" style="color: white">
         {!! Form::label('contest_id', 'Contest_ID', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-4">
@@ -26,12 +27,17 @@
           '2' => '2']
           ) }}
         </div>
-      </div>
-    {!! Form::open(['method'=>'POST', 'route'=>['/admincontest']]) !!}
-              <input class="form-control" name="id" type="hidden" value='contest_id' >
-              {!! Form::submit('Chọn lần thi', ['class'=>'btn btn-success', 'onclick'=>'return confirm("Bạn có muốn chọn lần thi này?")']) !!}
-              {!! Form::close() !!}
+    </div>
+      <input class="form-control" name="id" type="hidden" value='contest_id' >
+      {!! Form::submit('Chọn lần thi', ['class'=>'btn btn-success', 'onclick'=>'return confirm("Bạn có muốn chọn lần thi này?")']) !!}
+  {!! Form::close() !!}
   <!--$questioncurrent->content; -->
+  <div class="container">
+  <div class="row justify-content-center">
+  <div class="col-md-8">
+  <div class="card">
+  <div class="card-header">{{ __('Chi Tiết Câu Hỏi Và Đáp Án') }}</div>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <div class="w3-panel w3-round w3-teal">
     <li> Số Thứ Tự : {!! $questionc->id!!} </li>
   </div>
@@ -39,7 +45,7 @@
     <li> Nội Dung : {!! $questionc->content !!} </li>
   </div>
   <div class="w3-panel w3-round w3-teal">
-    <li> Thông Tin Cuộc Thi : {!! $contest->id !!} </li>
+    <li> Thông Tin Cuộc Thi : {!! $cont->id !!} </li>
   </div>
   <!-- -->
   <div id="row">
@@ -50,7 +56,7 @@
          <th width="4%" height="4%">STT</th>
          <th width="40%" height="40%">Nội dung câu hỏi</th>
           <th width="10%" height="10%">Mã lần thi</th>
-          <th width="30%" colspan="2">Thao tác</th>
+          <th width="10%" colspan="2">Thao tác</th>
         </tr>
       </thead>
       <tbody>
@@ -58,7 +64,7 @@
           <tr>
           <td>{!! $question->id !!}</td>
           <td>{!! $question->content !!}</td>
-          <td>{!! $question->contest_id !!}</td>
+          <td>{!! $cont->id !!}</td>
           <td>
               {!! Form::open(['method'=>'POST', 'route'=>['/admincontest']]) !!}
               <input class="form-control" name="id" type="hidden" value="{{ $question->id }}" >
@@ -69,6 +75,8 @@
         @endforeach
       </tbody>
     </table> 
+</thread>
+</table>
   </div>
 </div>
     <!-- Optional JavaScript -->

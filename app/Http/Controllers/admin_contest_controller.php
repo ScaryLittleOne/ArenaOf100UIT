@@ -26,9 +26,10 @@ class admin_contest_controller extends Controller
         //$contest = Contest::find();
         //$contt = Contest::all();
         //$contest = new Contest;
-        $contest = DB::table('contests')->where('active','=',true)->first();
-        $questionc = DB::table('questions')->where('id','=',$contest->currentquestion_id)->first();
-    	return view('AdminContest',compact('questions'),compact('questionc'), compact('contest'));
+        $cont = DB::table('contests')->where('active','=',true)->first();
+        $questionc = DB::table('questions')->where('id','=',$cont->currentquestion_id)->first();
+        //return view('AdminContest',compact('questions'),compact('questionc'), compact('cont'));
+    	return view('AdminContest',['questions' => $questions, 'questionc' => $questionc, 'cont' => $cont]);
     }
 
     /*public function change(Request $request, Contest $contest){
@@ -46,15 +47,16 @@ class admin_contest_controller extends Controller
     	return view('AdminContest',compact('questions'),compact('questioncurrent'));
     }*/
 
-    public function change(Request $request){//Chua Test
-    	//var_dump($request->id);
+    public function change(Request $request)//Request $request){//Chua Test
+    {
+    	var_dump($request->id);
     	///Doi cau hoi hien tai trong table contest
     	///
         /*$Inc = Contest::where('active', 1)->update(['currentquestion_id'=>DB::raw('currentquestion_id+1')]);//Cau Hoi Hien Tai++
         if (is_null($Inc) == true){ // Pop Up Message Pls Push Active a Contest
         }*/
-        $contest = DB::table('contests')->where('active','=',true)->first();
-        $contest->currentquestion_id = $request->id;
+        $cont = DB::table('contests')->where('active','=',true)->first();
+        $cont->currentquestion_id = $request->id;
         return $this->index();
     }
     public function changecontest(Request $request)

@@ -4,8 +4,8 @@
 @stop
 @section('content')
 
-    <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
-      <thead>
+  <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
+  <thead>
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Quản trị viên
@@ -16,10 +16,11 @@
   <a class="dropdown-item" href="/users" > Quản lí sinh viên </a>
   <a class="dropdown-item" href="/admincontest" > Vào đấu trường </a>
   
-</div>
+  </div>
 </div>
 
-    
+  </thead>
+  </table> 
   <div id="row">
     <div class="col-14">
     <table class="table table-striped table-light">
