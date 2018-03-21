@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+//namespace App\Http\Controllers\Carbon\Carbon;
+//namespace Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Question;
 //use App\Contest;
 //use DB;
+use DateTime;
 use App\Questions_answer;
 use App\Contest;
 use App\User;
@@ -49,21 +51,29 @@ class admin_contest_controller extends Controller
 
     public function change(Request $request)//Request $request){//Chua Test
     {
-    	var_dump($request->id);
+    //	var_dump($request->id);
     	///Doi cau hoi hien tai trong table contest
     	///
         /*$Inc = Contest::where('active', 1)->update(['currentquestion_id'=>DB::raw('currentquestion_id+1')]);//Cau Hoi Hien Tai++
         if (is_null($Inc) == true){ // Pop Up Message Pls Push Active a Contest
         }*/
-        $cont = DB::table('contests')->where('active','=',true)->first();
-        $cont->currentquestion_id = $request->id;
+        //$cont = new Contest;
+        $cont = DB::table('contests')->where('active','=',true)->update(['currentquestion_id'=> $request->id]);
+        //$now = Carbon\Carbon::now();
+     //   $now->createFromFormat('d/m/Y','21/03/2018'); 
+        //var_dump($now); 
+        //return;
+        $now = now();
+        $cont = DB::table('contests')->where('active','=',true)->update(['startcurrentquestion'=> $now]);
+        //$cont->currentquestion_id = $request->id;
+        //$cont -> save();
         return $this->index();
     }
     public function changecontest(Request $request)
     {
-        $conts = new Contest;
-        $conts->id = $request['contest_id'];
-        $contt = Contest::all();
+        $cont = DB::table('contests')->where('active','=',true)->update(['active'=> false]);
+        $cont = DB::table('contests')->where('id','=',$request['contest_id'])->update(['active'=> true]);
+        /*$contt = Contest::all();
         foreach($contt as $cont)
         {
             if ($conts->id == $contt->id)
@@ -76,8 +86,8 @@ class admin_contest_controller extends Controller
                  $cont -> save();
             }
            
-        }
-        return $this->index();
+        }*/
+        return redirect('admincontest');
     } 
 
     public function check_answer(Request $request){ // Kiem Tra Cau Tra Loi Va Kick User Khi TL sai (Unfinished)
