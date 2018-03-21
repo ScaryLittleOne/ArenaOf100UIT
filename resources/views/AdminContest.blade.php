@@ -18,7 +18,15 @@
 
 </div>
 </div>
-  $questioncurrent->content;
+   <div class="form-group" style="color: white">
+        {!! Form::label('contest_id', 'Contest_ID', ['class'=>'control-label col-md-4']) !!}
+        <div class="col-md-4">
+          {{ Form::select('correct', [
+          '1' => '1',
+          '2' => '2']
+          ) }}
+        </div>
+      </div>
   <div id="row">
     <div class="col-14">
     <table class="table table-striped table-light">
