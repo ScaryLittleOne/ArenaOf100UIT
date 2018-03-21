@@ -27,7 +27,7 @@ route::get('usercontest','user_contest_controller@index');
 route::get('histories/{$id}','user_contest_controller@show_histories');
 
 route::post('userreceive_answer','user_contest_controller@receive_answer');
-route::post('usertransmit_answer','user_contest_controller@transmit_answer');
+route::post('usertransmit_answer','user_contest_controller@transmit_answer')->name('usertransmit_answer');
 
 
 Route::get('/admincontest','admin_contest_controller@index')->name('/admincontest');

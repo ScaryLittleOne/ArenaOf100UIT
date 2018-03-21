@@ -24,7 +24,7 @@ class user_contest_controller extends Controller
         $answers = DB::table('questions_answers')
             ->where('question_id','=',$question->id)
             ->get(); 
-        return view('usercontest.show',compact('question'),compact('answers'));
+        return view('UserContest',compact('question'),compact('answers'));
     }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History
         $history = new History;
@@ -37,10 +37,11 @@ class user_contest_controller extends Controller
     }
 
     public function time() {
-        echo("1\n");
-        echo(now()."\n");
-        echo(date("Y-m-d H:i:s")."\n");
-        echo(1);
+        $user=DB::table('contests')->where('active','=',true)->first();   
+      echo($user->id."\n");
+      echo($user->currentquestion_id."\n");
+      echo($user->startcurrentquestion."\n");   
+      echo(now()."\n");    
+    //  return view('usercontest');
     }
 }
-
