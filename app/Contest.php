@@ -11,7 +11,7 @@ class Contest extends Model
         return $this->hasMany('App\History');
     }
 
-    public function questions()
+    /*public function questions()
     {
         return $this->hasMany('App\Question');
     }

@@ -56,7 +56,7 @@ class question_controller extends Controller
         $question = new Question;
         
         $question->content = $request['content'];
-        $question->contest_id = $request['contest_id'];
+        $question->contest_id = 0;
         $question->save();
 
         $check = new Questions_answer;
@@ -157,7 +157,7 @@ class question_controller extends Controller
     public function update(Request $request, Question $question)
     {
         $question->content = $request->content;
-        $question->contest_id = $request->contest_id;
+        $question->contest_id = 0;
         $question->save();
 
         foreach($request->ids as $index => $id) {

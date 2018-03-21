@@ -56,9 +56,6 @@
             <div class="w3-panel w3-round w3-teal">
               <li> Nội Dung : {!! $question->content !!} </li>
             </div>
-            <div class="w3-panel w3-round w3-teal">
-              <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
-            </div>
        
 
             <table class="table table-striped table-bordered table-hover">

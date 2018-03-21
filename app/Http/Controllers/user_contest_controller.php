@@ -19,7 +19,7 @@ class user_contest_controller extends Controller
     public function index(){
         $C = DB::table('contests')->where('active','=',true)->first();
         $question = DB::table('questions')->where('id','=',$C->currentquestion_id)
-            ->where('contest_id','=',$C->id)
+            //->where('contest_id','=',$C->id)
             ->first();
         $answers = DB::table('questions_answers')
             ->where('question_id','=',$question->id)
@@ -35,10 +35,7 @@ class user_contest_controller extends Controller
         $history->save();
         return view('UserContest'); 
     }
-    public function show_histories(){
-        $question = DB::table('histories')->where('user_id','=',$id)->get();
-         return view('usercontest.show_histories',compact('question'));//
-    }
+
     public function time() {
         $user=DB::table('contests')->where('active','=',true)->first();   
       echo($user->id."\n");
