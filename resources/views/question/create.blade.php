@@ -18,17 +18,17 @@
 </div>
     {!! Form::open(['url' => 'questions']) !!}
       <div class="form-group" style="color: white">
-        {!! Form::label('content', 'Nội dung câu hỏi', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('content', 'Nội dung câu hỏi', ['class'=>'control-label col-md-3']) !!}
         <div class="col-md-10">
           {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
         </div>
       </div>
   
-      <div class="form-group" style="color: white">
-        {!! Form::label('contest_id', 'Mã câu hỏi', ['class'=>'control-label col-md-1']) !!}
+       <div class="form-group" style="color: white">
+       {!! Form::label('contest_id', 'Mã lần thi', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-1">
           {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
-          <!--{!! $errors->has('contest_id')?$errors->first('contest_id'):'' !!}-->
+          {!! $errors->has('contest_id')?$errors->first('contest_id'):'' !!}
         </div>
       </div>
 

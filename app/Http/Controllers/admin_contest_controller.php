@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Question;
-use App\Contest;
+//use App\Contest;
 //use DB;
 use App\Questions_answer;
-//use App\Contest;
+use App\Contest;
 use App\User;
 use App\History;
 use DB;
@@ -23,9 +23,12 @@ class admin_contest_controller extends Controller
     public function index(){
 
     	$questions = Question::all();
-        $contest = Contest::find();
-        
-    	return view('AdminContest',compact('questions'),compact('contests'));
+        //$contest = Contest::find();
+        //$contt = Contest::all();
+        //$contest = new Contest;
+        $contest = DB::table('contests')->where('active','=',true)->first();
+        $questionc = DB::table('questions')->where('id','=',$contest->currentquestion_id)->first();
+    	return view('AdminContest',compact('questions'),compact('questionc'), compact('contest'));
     }
 
     /*public function change(Request $request, Contest $contest){
@@ -43,15 +46,37 @@ class admin_contest_controller extends Controller
     	return view('AdminContest',compact('questions'),compact('questioncurrent'));
     }*/
 
-    public function change(){//Chua Test
+    public function change(Request $request){//Chua Test
     	//var_dump($request->id);
     	///Doi cau hoi hien tai trong table contest
     	///
-        $Inc = Contest::where('active', 1)->update(['currentquestion_id'=>DB::raw('currentquestion_id+1')]);//Cau Hoi Hien Tai++
-        if (is_null($Inc) == 1){ // Pop Up Message Pls Push Active a Contest
-
-        }
+        /*$Inc = Contest::where('active', 1)->update(['currentquestion_id'=>DB::raw('currentquestion_id+1')]);//Cau Hoi Hien Tai++
+        if (is_null($Inc) == true){ // Pop Up Message Pls Push Active a Contest
+        }*/
+        $contest = DB::table('contests')->where('active','=',true)->first();
+        $contest->currentquestion_id = $request->id;
+        return $this->index();
     }
+    public function changecontest(Request $request)
+    {
+        $conts = new Contest;
+        $conts->id = $request['contest_id'];
+        $contt = Contest::all();
+        foreach($contt as $cont)
+        {
+            if ($conts->id == $contt->id)
+            {
+                $cont -> active = 1;
+                $cont -> save();
+            } else
+            {
+                 $cont -> active = 0;
+                 $cont -> save();
+            }
+           
+        }
+        return $this->index();
+    } 
 
     public function check_answer(Request $request){ // Kiem Tra Cau Tra Loi Va Kick User Khi TL sai (Unfinished)
         $user = User::select('users.*')->where('id','=','$request->id')->get();
@@ -70,15 +95,20 @@ class admin_contest_controller extends Controller
         $cont -> destroy ();
     }
 
-    public function activate_contest(Contest $cont){
+    /*public function activate_contest(Contest $cont){
         $cont -> active = 1;
         $cont -> save();
-    }
+    }*/
 
-    public function deactivate_contest(Contest $cont){
-        $cont -> active = 0;
-        $cont -> save();
-    }
+    /*public function deactivate_contest(){
+        $contt = Contest::all();
+        foreach($contt as $cont) {
+        {
+            $cont -> active = 0;
+            $cont -> save();
+        }}
+        return $this->changecontest();
+    }*/
 
     public function show_history(){//Chuc Nang Cua Admin ->Show Toan Bo Lich Su Thi Dau
         $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active

@@ -27,7 +27,21 @@
           ) }}
         </div>
       </div>
+    {!! Form::open(['method'=>'POST', 'route'=>['/admincontest']]) !!}
+              <input class="form-control" name="id" type="hidden" value='contest_id' >
+              {!! Form::submit('Chọn lần thi', ['class'=>'btn btn-success', 'onclick'=>'return confirm("Bạn có muốn chọn lần thi này?")']) !!}
+              {!! Form::close() !!}
   <!--$questioncurrent->content; -->
+  <div class="w3-panel w3-round w3-teal">
+    <li> Số Thứ Tự : {!! $questionc->id!!} </li>
+  </div>
+  <div class="w3-panel w3-round w3-teal">
+    <li> Nội Dung : {!! $questionc->content !!} </li>
+  </div>
+  <div class="w3-panel w3-round w3-teal">
+    <li> Thông Tin Cuộc Thi : {!! $contest->id !!} </li>
+  </div>
+  <!-- -->
   <div id="row">
     <div class="col-14">
     <table class="table table-striped table-light">
@@ -35,7 +49,7 @@
         <tr>
          <th width="4%" height="4%">STT</th>
          <th width="40%" height="40%">Nội dung câu hỏi</th>
-          <th width="10%" height="10%">Mã câu hỏi</th>
+          <th width="10%" height="10%">Mã lần thi</th>
           <th width="30%" colspan="2">Thao tác</th>
         </tr>
       </thead>
