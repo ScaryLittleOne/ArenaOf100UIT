@@ -39,5 +39,11 @@ class user_contest_controller extends Controller
         $question = DB::table('histories')->where('user_id','=',$id)->get();
          return view('usercontest.show_histories',compact('question'));//
     }
+    public function time() {
+        echo("1\n");
+        echo(now()."\n");
+        echo(date("Y-m-d H:i:s")."\n");
+        echo(1);
+    }
 }
 
