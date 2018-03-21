@@ -24,13 +24,13 @@
         </div>
       </div>
   
-      <div class="form-group" style="color: white">
+      <!--<div class="form-group" style="color: white">
         {!! Form::label('contest_id', 'Mã câu hỏi', ['class'=>'control-label col-md-1']) !!}
         <div class="col-md-1">
-          {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
-          <!--{!! $errors->has('contest_id')?$errors->first('contest_id'):'' !!}-->
+           {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
+        -{!! $errors->has('contest_id')?$errors->first('contest_id'):'' !!}
         </div>
-      </div>
+      </div>-->
 
       <div class="form-group" style="color: white">
         {!! Form::label('content_A', 'Đáp án A', ['class'=>'control-label col-md-1']) !!}

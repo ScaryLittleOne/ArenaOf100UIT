@@ -68,6 +68,7 @@ class admin_contest_controller extends Controller
             ->join('questions_answers','questions_answer_id','=','questions_answers.id')
             ->groupBy('histories.id')
             ->get();
+        //$MergeHistory = History::all();
         return view('ShowHistory',compact('MergeHistory') );
     }
 }
