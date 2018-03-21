@@ -24,8 +24,8 @@ class user_contest_controller extends Controller
         $answers = DB::table('questions_answers')
             ->where('question_id','=',$question->id)
             ->get(); 
-        return view('UserContest',compact('question'),compact('answers'));
-    }
+        return view('usercontest.show',compact('question'),compact('answers'));
+    }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History
         $history = new History;
         $history->user_id=$request['user_id'];
@@ -33,10 +33,10 @@ class user_contest_controller extends Controller
         $history->question_id=$request['question_id'];
         $history->questions_answer_id=$request['questions_answer_id'];
         $history->save();
-        return view('UserContest');
+        return view('UserContest'); 
     }
     public function show_histories(){
-        $question = DB::table('histories')->where('user_id','=',1)->get();
+        $question = DB::table('histories')->where('user_id','=',$id)->get();
          return view('usercontest.show_histories',compact('question'));//
     }
 }

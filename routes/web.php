@@ -24,10 +24,10 @@ Route::get('/home','HomeController@index');
 Route::resource('questions', 'question_controller');
 
 route::get('usercontest','user_contest_controller@index');
-route::get('histories','user_contest_controller@show_histories');
+route::get('histories/{$id}','user_contest_controller@show_histories');
 
-route::post('contest2','user_contest_controller@receive_answer');
-route::post('contest','user_contest_controller@transmit_answer');
+route::post('userreceive_answer','user_contest_controller@receive_answer');
+route::post('usertransmit_answer','user_contest_controller@transmit_answer');
 
 
 Route::get('/admincontest','admin_contest_controller@index')->name('/admincontest');
