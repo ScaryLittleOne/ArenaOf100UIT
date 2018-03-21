@@ -39,3 +39,4 @@ Route::get('/logout', function () {
     return view('welcome');
 });
 
+Route::get('time','user_contest_controller@time');
