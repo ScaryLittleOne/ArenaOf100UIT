@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Http\RedirectResponse;
 use Closure;
 
 class CheckActive
@@ -16,8 +16,9 @@ class CheckActive
     public function handle($request, Closure $next)
     {
         if ($request->user()->active==false) {
-            //return redirect('home');
-            abort(403, 'Go Home Bitch. U Loser');//Say Some Thing Or Direct To Somewhere When The User Sucks And Loses
+           //return redirect()->route('gameover');
+            //return File::get(public_path() . '/gameover.html');
+            abort(403);
         }
         return $next($request);
     }

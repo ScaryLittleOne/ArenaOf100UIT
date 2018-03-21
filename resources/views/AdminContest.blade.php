@@ -18,7 +18,7 @@
 
 </div>
 </div>
-  $questioncurrent->content;
+  <!--$questioncurrent->content; -->
   <div id="row">
     <div class="col-14">
     <table class="table table-striped table-light">
