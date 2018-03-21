@@ -5,8 +5,7 @@
 @stop
 @section('content')
 
-  <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
-  <thead>
+  
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Quản trị viên
@@ -22,16 +21,17 @@
    <div class="form-group" style="color: white">
         {!! Form::label('contest_id', 'Contest_ID', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-4">
-          {{ Form::select('correct', [
+          {{ Form::select('contest_id', [
           '1' => '1',
           '2' => '2']
           ) }}
         </div>
     </div>
-      <input class="form-control" name="id" type="hidden" value='contest_id' >
       {!! Form::submit('Chọn lần thi', ['class'=>'btn btn-success', 'onclick'=>'return confirm("Bạn có muốn chọn lần thi này?")']) !!}
   {!! Form::close() !!}
   <!--$questioncurrent->content; -->
+  <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
+  <thead>
   <div class="container">
   <div class="row justify-content-center">
   <div class="col-md-8">
