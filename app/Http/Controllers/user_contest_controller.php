@@ -80,9 +80,11 @@ class user_contest_controller extends Controller
       $answer=Question::find($request['question_id']); 
       if ($request['questions_answer_id']==$answer['abcd']  && $x){
             $user->active=true;
+            echo('dung');
         }
         else {
           $user->active=false;
+          echo('sai');
         }
     }
 
