@@ -16,11 +16,23 @@ class user_contest_controller extends Controller
         $this->middleware('checkactive');
     }
     public function index(){
-        $CQ = Question::select('questions.*','contests.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Bang Contest
-            ->join('contests','questions.id','=','contests.currentquestion_id')
-            ->where('contests.active','=',1)
-            ->groupBy('questions.id')->get();
-        //var_dump($CQ);
+        //Lay ra cau hoi voi cac dieu kien 1. Contest active=1 2. id cua contest = questions.contest_id
+        $CQ = Question::select('questions.*','contests.id')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Bang Contest (Sai )
+            ->join('contests', function ($join) {
+                $join->on('questions.id','=','currentquestion_id')
+                ->where('active','=',1)
+                ;
+            }) 
+            ->groupBy('questions.id','contests.id')
+            ->having('contests.id','=','questions.contest_id')
+            ->get();
+        var_dump($CQ);
+        echo $CQ;
+
+        //lay cau tra loi dua vao cau hoi da lay duoc
+        $answers = DB::table('questions_answers')->where('question_id','=',$CQ->questions.id)->get();//Sai
+        echo $answers;
+
     	return view('UserContest');
     }
     public function transmit_answer(Request $request){
