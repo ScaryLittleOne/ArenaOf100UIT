@@ -18,6 +18,7 @@
 
 </div>
 </div>
+<<<<<<< HEAD
    <div class="form-group" style="color: white">
         {!! Form::label('contest_id', 'Contest_ID', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-4">
@@ -27,6 +28,9 @@
           ) }}
         </div>
       </div>
+=======
+  <!--$questioncurrent->content; -->
+>>>>>>> 3f19c58ebba55a5a176697f6e624412328e80481
   <div id="row">
     <div class="col-14">
     <table class="table table-striped table-light">

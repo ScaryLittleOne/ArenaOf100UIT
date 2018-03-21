@@ -32,8 +32,8 @@ class question_controller extends Controller
             if ($user->admin==0){
                 abort(403, 'Unauthorized Access. Your IP has been reported to Admin');
             }*/
-        $question = Question::all();
-        return view('question.list',compact('question'));//['questions' => Question::all()]);
+        $questions = Question::all();
+        return view('question.list',compact('questions'));//['questions' => Question::all()]);
     }
     /**
      * Show the form for creating a new resource.

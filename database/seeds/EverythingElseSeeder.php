@@ -45,10 +45,12 @@ class EverythingElseSeeder extends Seeder
         ]);
 
         DB::table('contests')->insert([
-            'currentquestion_id' => 1
+            'currentquestion_id' => 1  ,
+            'active' => 1
         ]);
         DB::table('contests')->insert([
-            'currentquestion_id' => 1
+            'currentquestion_id' => 1,
+            'active' => 0
         ]);
 
         DB::table('histories')->insert([
@@ -56,6 +58,7 @@ class EverythingElseSeeder extends Seeder
             'contest_id' => 1,
             'questions_answer_id' => 1,
             'question_id' => 1,
+
         ]);
 
         DB::table('questions')->insert([
@@ -91,5 +94,26 @@ class EverythingElseSeeder extends Seeder
             'question_id' => 2
         ]);
 
+        DB::table('histories')->insert([
+            'user_id' => 2,
+            'contest_id' => 1,
+            'questions_answer_id' => 3,
+            'question_id' => 1,
+
+        ]);
+        DB::table('histories')->insert([
+            'user_id' => 3,
+            'contest_id' => 1,
+            'questions_answer_id' => 0,
+            'question_id' => 1,
+
+        ]);
+        DB::table('histories')->insert([
+            'user_id' => 1,
+            'contest_id' => 2,
+            'questions_answer_id' => 1,
+            'question_id' => 1,
+
+        ]);
     }
 }
