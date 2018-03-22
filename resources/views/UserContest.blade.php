@@ -18,28 +18,25 @@
 @section('content')
 
 <script src="{{ '/jquery.min.js'}}"></script>
-<center>
-<button class="dongho" id='demnguoc'>
 
-</button>
-</center>
  <?php $x=$question->id; ?>
 <script type="text/javascript">
 	
    $(window).ready( function(){
-        time_dest = Date();
         var ryry = setInterval( function() 
         {
+        	time_dest--;
+
+        	console.log(time_dest);
+        	$('#time_dest').html(time_dest);
             $.ajax({
 		type: 'GET',
-		url: 'http://arena.test/time',
+		url: '{{ url ('/time')}}',
+
 		success: function (response) 
 		{
 			 var res=response.split("\n");
-
-			 if (res[1]=={!!$question->id!!})
-			 	console.log(res);
-			 else {
+			 if (res[1]!={!!$question->id!!}){
 			 	location.reload();
 			 }
 
@@ -59,8 +56,13 @@
       }
 });
 
-</script>
 
+</script>
+<center>
+<button class="dongho" id="time_dest">
+  
+</button>
+</center>
 
 <button type="button" class="btn btn-info btn-lg btn-block mt-4" style="padding: 20px 20px;">
 <i>	{!!$question->content!!}</i>
