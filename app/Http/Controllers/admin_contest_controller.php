@@ -71,6 +71,7 @@ class admin_contest_controller extends Controller
                 //var_dump($check);
                 $us = User::find($check->user_id)->first();
                 $us->active=false;
+                $us->save();
             } 
         }
         
@@ -97,6 +98,13 @@ class admin_contest_controller extends Controller
             }
            
         }*/
+
+        $users=User::all();
+        foreach($users as $user)
+        {
+            $user->active = true;
+            $user->save();
+        }
         return redirect('admincontest');
     } 
 
