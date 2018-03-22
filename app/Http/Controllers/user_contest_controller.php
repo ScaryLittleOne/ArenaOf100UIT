@@ -22,10 +22,15 @@ class user_contest_controller extends Controller
         $question = DB::table('questions')->where('id','=',$C->currentquestion_id)
             //->where('contest_id','=',$C->id)
             ->first();
+          if ($question->id==1) {
+            return(view('usercontest.show'));
+          }
         $answers = DB::table('questions_answers')
             ->where('question_id','=',$question->id)
             ->get(); 
+        
         return view('UserContest',compact('question'),compact('answers'));
+
     }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History
       //test request
@@ -70,13 +75,20 @@ class user_contest_controller extends Controller
                   if ($arr_time_answer[1]==$arr_time_question[1] ){
                         if ($arr_time_answer[2]<=$arr_time_question[2]){
                           $x=true;
+
                         }
                         else $x=false;
                   }else $x=false;
               }
          }
          else $x=false; 
+  } 
+  $x=true;
+  if ($x==true){
+      return redirect('usercontest');  
   }
+  else  return view('errors.403');
+  
 }
     
 
