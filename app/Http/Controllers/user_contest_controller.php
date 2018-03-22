@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use App\Contest;
 use App\Question;
+use App\Questions_answer; 
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 
@@ -31,16 +32,15 @@ class user_contest_controller extends Controller
       $request['user_id']=1;
       $request['contest_id']=1;
       $request['question_id']=1;
-      $request['questions_answer_id']='A';
+      $request['questions_answer_id']="A";
       
-        /*$history = new histories;
+      /*  $history = new histories;
         $history->user_id=$request['user_id'];
         $history->contest_id=$request['contest_id'];
         $history->question_id=$request['question_id'];
         $history->questions_answer_id=$request['questions_answer_id'];
         $history->save(); 
-        */
-        //$user=users::find($request['user_id']);
+      */  //$user=users::find($request['user_id']);
         //env('TIME_LIMIT',31);
         $time=contest::find($request['question_id']);
         $time_question="2018-12-12 12:12:12";//test time $time->startcurrentquestion; // tg bd cau hoi 
@@ -52,9 +52,10 @@ class user_contest_controller extends Controller
         $arr_day_answer=preg_split("/\-/",$arr[0]);
         $arr_time_answer=preg_split("/\:/",$arr[1]);
         //$time_question=$time->startcurrentquestion;//tg tra loi
-        if ($arr_time_question[2]+31<60) $arr_time_question[2]+=31;
+        if ($arr_time_question[2]+env('TIME_LIMIT',31)
+        <60) $arr_time_question[2]+=31;
         else {
-            $arr_time_question[2]=31-(60-$arr_time_question[2]);
+            $arr_time_question[2]=-(60-$arr_time_question[2]);
             if ($arr_time_question[1]+1<60) $arr_time_question[1]+=1;
             else {
                 $arr_time_question[1]=0;
@@ -75,18 +76,8 @@ class user_contest_controller extends Controller
               }
          }
          else $x=false; 
-      }
-      $user = DB::table('users')->where('id','=',$request['user_id'])->first(); 
-      $answer=Question::find($request['question_id']); 
-      if ($request['questions_answer_id']==$answer['abcd']  && $x){
-            $user->active=true;
-            echo('dung');
-        }
-        else {
-          $user->active=false;
-          echo('sai');
-        }
-    }
+      } 
+  }
 
     public function time() {
       $user=DB::table('contests')->where('active','=',true)->first();   
