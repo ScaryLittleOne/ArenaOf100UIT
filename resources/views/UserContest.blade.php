@@ -82,8 +82,8 @@
 </button>
  {!!Form::open(['method'=>'POST', 'route'=>'usertransmit_answer']) !!}
   <input name="user_id" type="hidden" value="{{$user->id}}">
-  <input name="contest_id" type="hidden" value="{{$contest}}">
-  <input name="question_id" type="hidden" value="{{$answer->id}}">
+  <input name="contest_id" type="hidden" value="{{$contest_id}}">
+  <input name="question_id" type="hidden" value="{{$question->id}}">
 
 @foreach($answers as $answer)  
 <div id="check">

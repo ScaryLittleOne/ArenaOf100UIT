@@ -30,5 +30,15 @@ class UsersTableSeeder extends Seeder
             'active' => false,
             'admin' => false
         ]);
+
+        for ($i=0; $i < 150; $i++) { 
+            DB::table('users')->insert([
+                'username' => 'player'.$i,
+                'password' => bcrypt('player'.$i),
+                'active' => true,
+                'admin' => false
+            ]);            
+        }
+
     }
 }

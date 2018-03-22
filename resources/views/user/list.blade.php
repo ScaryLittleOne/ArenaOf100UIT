@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Danh sách sinh viên')
+@section('title','Danh Sách Sinh Viên')
 <!-- 
 @section('name')
 
@@ -12,13 +12,13 @@
 @section('content')
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Quản trị viên
+    Quản Trị Viên
   </button>
   <div class="dropdown-menu">
-  <a class="dropdown-item" href="{{route('users.create')}}">Thêm sinh viên</a>
+  <a class="dropdown-item" href="{{route('users.create')}}">Thêm Sinh Viên</a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
-  <a class="dropdown-item" href="/admincontest" > Vào đấu trường </a>
+  <a class="dropdown-item" href="/questions" > Quản Lí Đề thi </a>
+  <a class="dropdown-item" href="/admincontest" > Vào Đấu Trường </a>
   
 </div>
 </div>
@@ -29,9 +29,9 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th height="4%" width="4%">STT</th>
-                                        <th height="30%" width="30%">Mã số sinh viên</th>
+                                        <th height="30%" width="30%">Mã Số Sinh Viên</th>
                                     
-                                        <th height="20%" width="20%">Thao tác</th>
+                                        <th height="20%" width="20%">Thao Tác</th>
                                     </tr>
                                 </thead>
                                     <tr>
@@ -58,7 +58,7 @@
                                                        </form>
                                                     </div>
                                                     <div class="col-sm">
-                                                      <a href="{{ route('users.edit', $x->id) }}" class = "btn btn-success">Chỉnh sửa</a>
+                                                      <a href="{{ route('users.edit', $x->id) }}" class = "btn btn-success">Chỉnh Sửa</a>
                                                     </div>
                                                   </div>
                                                 </div>                                                    
