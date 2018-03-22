@@ -70,7 +70,7 @@ class admin_contest_controller extends Controller
             {
                 //var_dump($check);
                 $us = User::find($check->user_id)->first();
-                $us->active=false;
+                $us->active=0;
                 $us->save();
             } 
         }
