@@ -30,7 +30,7 @@ class user_contest_controller extends Controller
             ->get(); 
         
         return view('UserContest',
-            ['user' => Auth::user, 'question' => $question, 'answers' => $answers]
+            ['contest_id' => $C->id, 'user' => Auth::user, 'question' => $question, 'answers' => $answers]
         );
 
         return view('UserContest',compact('question'),compact('answers'));
