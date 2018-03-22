@@ -87,13 +87,15 @@
 
 @foreach($answers as $answer)  
 <div id="check">
-	 <input id="dapan" name="questions_answer_id" type="radio" value="{{$answer->id}}"> 
-	 <label class="dapan" for="questions_answer_id" >{{$answer->content}}</label>
+	 <input id="question_answer_id" name="question_answer_id" type="radio" value="{{$answer->id}}"> 
+	 <label class="question_answer_id" for="question_answer_id" >{{$answer->content}}</label>
 </div>
  
 @endforeach
 <br>
-<center><button type="submit" class="btn btn-success ">Đây là đáp án cuối cùng của tôi</button></center>
+<center>
+<button type="submit" class="btn btn-success ">Đây là đáp án cuối cùng của tôi</button>
+</center>
 </form>
 <script src="{{ asset('js/app.js') }}">
     </script>
