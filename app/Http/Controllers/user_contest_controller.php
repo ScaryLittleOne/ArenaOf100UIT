@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use App\Contest;
 use App\Question;
+use App\History;
 use App\Questions_answer; 
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class user_contest_controller extends Controller
             ->get(); 
         
         return view('UserContest',
-            ['contest_id' => $C->id, 'user' => Auth::user, 'question' => $question, 'answers' => $answers]
+            ['contest_id' => $C->id, 'user' => Auth::user(), 'question' => $question, 'answers' => $answers]
         );
 
         return view('UserContest',compact('question'),compact('answers'));
@@ -73,19 +74,31 @@ class user_contest_controller extends Controller
             }
             else $x=false; 
         } 
-
+        //var_dump($request); die();
         $old_history = History::where([
             'user_id' => $request['user_id'],
             'contest_id' => $request['contest_id'],
             'question_id' => $request['question_id']
-        ])->get();
+        ]);
         
-        if ($old_history->count() == 0){
-            if ($x == true) History::create($request);
+
+        if ($old_history->get()->count() == 0){
+
+            if ($x == true) History::create(        [
+                'user_id' => $request['user_id'],
+                'contest_id' => $request['contest_id'],
+                'questions_answer_id' => $request['questions_answer_id'],
+                'question_id' => $request['question_id']
+                ]);
         } else {
             if ($x == true) {
-                $old_history->update($request);
-                $old_history->save();
+                $old_history->update(        [
+                    'user_id' => $request['user_id'],
+                    'contest_id' => $request['contest_id'],
+                    'questions_answer_id' => $request['questions_answer_id'],
+                    'question_id' => $request['question_id']
+                    ]);
+                
             }
         }
         return redirect('usercontest'); ;
