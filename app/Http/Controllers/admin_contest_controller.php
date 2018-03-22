@@ -52,17 +52,28 @@ class admin_contest_controller extends Controller
     public function change(Request $request)//Request $request){//Chua Test
     {
         //checkuser
-        $checks = History::select('histories.*','users.username','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
+        $checks = History::select('histories.*','users.id','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
             ->join('users','user_id','=','users.id')
             ->join('questions','question_id','=','questions.id')
             ->join('questions_answers','questions_answer_id','=','questions_answers.id')
             ->groupBy('histories.id')
             ->get();
+        $corrects = DB::table('questions_answers')->where('id','=',$request->id)->get();
+        $co = new Questions_answer();
+        foreach($corrects as $correct)
+        {
+            if($correct->correct == true) $co=$correct;
+        }
         foreach ($checks as $check) 
         {
-            
+            if($check->abcd!=$co->abcd)
+            {
+                //var_dump($check);
+                $us = User::find($check->user_id)->first();
+                $us->active=false;
+            } 
         }
-        //
+        
         $cont = DB::table('contests')->where('active','=',true)->update(['currentquestion_id'=> $request->id]);
         $now = now();
         $cont = DB::table('contests')->where('active','=',true)->update(['startcurrentquestion'=> $now]);
