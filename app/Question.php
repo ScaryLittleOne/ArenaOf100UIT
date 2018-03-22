@@ -16,4 +16,9 @@ class Question extends Model
         return $this->hasMany('App\Questions_answer');
     }
 
+    public function correct_answer(){
+    	return $this->questions_answers->get()->filter(function($value, $key){
+    		$value->correct == true;
+    	});
+    }
 }

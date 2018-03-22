@@ -29,7 +29,7 @@ class HomeController extends Controller
     {   
         $user = Auth::user();
         if ($user->admin==0){
-               return redirect('contest');
+               return redirect('usercontest');
             }
         else
         return view('home');

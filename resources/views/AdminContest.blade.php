@@ -5,8 +5,7 @@
 @stop
 @section('content')
 
-  <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
-  <thead>
+  
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Quản trị viên
@@ -20,32 +19,34 @@
 
  {!! Form::open(['method'=>'POST', 'route'=>['/adminchangecontest']]) !!}
    <div class="form-group" style="color: white">
-        {!! Form::label('contest_id', 'Contest_ID', ['class'=>'control-label col-md-4']) !!}
-        <div class="col-md-4">
-          {{ Form::select('correct', [
+        {!! Form::label('contest_id', 'Chọn mã cuộc thi', ['class'=>'control-label']) !!}
+        <div class="">
+          {{ Form::select('contest_id', [
           '1' => '1',
           '2' => '2']
           ) }}
         </div>
     </div>
-      <input class="form-control" name="id" type="hidden" value='contest_id' >
-      {!! Form::submit('Chọn lần thi', ['class'=>'btn btn-success', 'onclick'=>'return confirm("Bạn có muốn chọn lần thi này?")']) !!}
+      {!! Form::submit('OK', ['class'=>'btn btn-success', 'onclick'=>'return confirm("Bạn có muốn chọn lần thi này?")']) !!}
+  {!! Form::close() !!}
+  <br>
+  {!! Form::open(['method'=>'POST', 'route'=>['/statistic']]) !!}
+  <input class="form-control" name="id" type="hidden" value="{{ $cont->id }}" >
+    {!! Form::submit('Thống kê đáp án', ['class'=>'btn btn-info', 'onclick'=>'return confirm("Bạn có muốn xem thống kê đáp án của câu hỏi hiện tại?")']) !!}
   {!! Form::close() !!}
   <!--$questioncurrent->content; -->
+  <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
+  <thead>
   <div class="container">
   <div class="row justify-content-center">
   <div class="col-md-8">
   <div class="card">
   <div class="card-header">{{ __('Chi Tiết Câu Hỏi Và Đáp Án') }}</div>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <div class="w3-panel w3-round w3-teal">
-    <li> Số Thứ Tự : {!! $questionc->id!!} </li>
-  </div>
-  <div class="w3-panel w3-round w3-teal">
-    <li> Nội Dung : {!! $questionc->content !!} </li>
-  </div>
-  <div class="w3-panel w3-round w3-teal">
-    <li> Thông Tin Cuộc Thi : {!! $cont->id !!} </li>
+    <li class="list-group-item list-group-item-danger" > Số Thứ Tự : {!! $questionc->id!!} </li>
+
+    <li class="list-group-item list-group-item-primary" > Nội Dung : {!! $questionc->content !!} </li>
+
+    <li class="list-group-item list-group-item-light" > Thông Tin Cuộc Thi : {!! $cont->id !!} </li>
   </div>
   <!-- -->
   <div id="row">
