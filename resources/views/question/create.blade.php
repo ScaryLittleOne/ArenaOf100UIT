@@ -26,7 +26,7 @@
   
        <div class="form-group" style="color: white">
        {!! Form::label('contest_id', 'Mã lần thi', ['class'=>'control-label col-md-1']) !!}
-        <div class="col-md-1">
+        <div class="col-md-10">
           {!! Form::text('contest_id', null, ['class' => 'form-control']) !!}
           {!! $errors->has('contest_id')?$errors->first('contest_id'):'' !!}
       <!--<div class="form-group" style="color: white">

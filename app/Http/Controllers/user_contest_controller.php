@@ -76,8 +76,9 @@ class user_contest_controller extends Controller
               }
          }
          else $x=false; 
-      } 
   }
+}
+    
 
     public function time() {
       $user=DB::table('contests')->where('active','=',true)->first();   
