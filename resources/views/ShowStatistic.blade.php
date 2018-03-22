@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Thống kê')
+@section('title','Thống Kê')
 @section('content')
 
 <!DOCTYPE html>
@@ -15,12 +15,12 @@
 <body>
 
 <div class="container">
-  <h2 style="color: white">Thống kê kết quả câu hỏi</h2>
+  <h2 style="color: white">Thống Kê Kết Quả Câu Hỏi</h2>
   <table class="table table-striped table-bordered" style="margin-top: 15px; background: white;">
     <thead>
       <tr>
-        <th>Câu trả lời</th>
-        <th>Số người chọn</th>
+        <th>Câu Trả Lời</th>
+        <th>Số Người Chọn</th>
       </tr>
     </thead>
     <tbody>   

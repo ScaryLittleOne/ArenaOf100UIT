@@ -8,18 +8,18 @@
   
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Quản trị viên
+    Quản Trị Viên
   </button>
   <div class="dropdown-menu">
-  <a class="dropdown-item" href="/users">Quản lí sinh viên</a>
-  <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
+  <a class="dropdown-item" href="/users">Quản Lí Sinh Viên</a>
+  <a class="dropdown-item" href="/questions" > Quản Lí Đề Thi </a>
   </div>
 </div>
  <!-- thêm thẻ menu vào đây -->
 
  {!! Form::open(['method'=>'POST', 'route'=>['/adminchangecontest']]) !!}
    <div class="form-group" style="color: white">
-        {!! Form::label('contest_id', 'Chọn mã cuộc thi', ['class'=>'control-label']) !!}
+        {!! Form::label('contest_id', 'Chọn Mã Cuộc Thi', ['class'=>'control-label']) !!}
         <div class="">
           {{ Form::select('contest_id', [
           '1' => '1',
@@ -32,7 +32,7 @@
   <br>
   {!! Form::open(['method'=>'POST', 'route'=>['/statistic']]) !!}
   <input class="form-control" name="id" type="hidden" value="{{ $cont->id }}" >
-    {!! Form::submit('Thống kê đáp án', ['class'=>'btn btn-info', 'onclick'=>'return confirm("Bạn có muốn xem thống kê đáp án của câu hỏi hiện tại?")']) !!}
+    {!! Form::submit('Thống Kê Đáp Án', ['class'=>'btn btn-info', 'onclick'=>'return confirm("Bạn có muốn xem thống kê đáp án của câu hỏi hiện tại?")']) !!}
   {!! Form::close() !!}
   <!--$questioncurrent->content; -->
   <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
@@ -55,9 +55,9 @@
       <thead class="thead-light">
         <tr>
          <th width="4%" height="4%">STT</th>
-         <th width="40%" height="40%">Nội dung câu hỏi</th>
-          <th width="10%" height="10%">Mã lần thi</th>
-          <th width="10%" colspan="2">Thao tác</th>
+         <th width="40%" height="40%">Nội Dung Câu Hỏi</th>
+          <th width="10%" height="10%">Mã Lần Thi</th>
+          <th width="10%" colspan="2">Thao Tác</th>
         </tr>
       </thead>
       <tbody>

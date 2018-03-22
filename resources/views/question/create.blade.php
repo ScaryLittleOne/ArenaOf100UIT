@@ -1,24 +1,24 @@
 @extends('layouts.app')
-@section('title','Create questions')
+@section('title','Tạo Đề Thi')
 
 @section('content')
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Quản trị viên
+    Quản Trị Viên
   </button>
   <div class="dropdown-menu">
-  <a class="dropdown-item" href="/questions" > Quản lí đề thi </a>
+  <a class="dropdown-item" href="/questions" > Quản Lí Đề Thi </a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="/users">Quản lí sinh viên</a>
+  <a class="dropdown-item" href="/users">Quản Lí Sinh Viên</a>
   
   
-  <a class="dropdown-item" href="/admincontest" > Vào đấu trường </a>
+  <a class="dropdown-item" href="/admincontest" > Vào Đấu Trường </a>
   
 </div>
 </div>
     {!! Form::open(['url' => 'questions']) !!}
       <div class="form-group" style="color: white">
-        {!! Form::label('content', 'Nội dung câu hỏi', ['class'=>'control-label col-md-3']) !!}
+        {!! Form::label('content', 'Nội Dung Câu Hỏi', ['class'=>'control-label col-md-3']) !!}
         <div class="col-md-10">
           {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
         </div>
