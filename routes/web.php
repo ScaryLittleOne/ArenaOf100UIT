@@ -35,6 +35,7 @@ Route::post('/admincontest','admin_contest_controller@change')->name('/admincont
 Route::post('/adminchangecontest','admin_contest_controller@changecontest')->name('/adminchangecontest');
 //Route::post('/admincontest','admin_contest_controller@show_history')->name('/admincontest'); //Route Test Cua History
 Route::get('/history','admin_contest_controller@show_history')->name('/history'); //Route Test Cua History
+Route::post('/statistic','admin_contest_controller@Statistic')->name('/statistic');
 
 Route::get('/logout', function () {
 	Auth::logout();
