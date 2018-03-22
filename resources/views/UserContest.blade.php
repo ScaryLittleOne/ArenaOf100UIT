@@ -31,7 +31,7 @@
         	$('#time_dest').html(time_dest);
             $.ajax({
 		type: 'GET',
-		url: '{{ url ('/time')}}',
+		url: "{{ url ('/time')}}",
 
 		success: function (response) 
 		{
