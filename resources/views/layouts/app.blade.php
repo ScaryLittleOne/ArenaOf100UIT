@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-     <title>UIT 100 | @yield('title')</title>
+     <title>UIT | @yield('title')</title>
     <link rel="shortcut icon" href="{{ url('/icon.png') }}">
 
     <!-- Styles -->
