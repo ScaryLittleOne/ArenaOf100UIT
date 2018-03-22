@@ -84,7 +84,7 @@ class user_contest_controller extends Controller
         }
         else {
           $user->active=false;
-          echo('sai');
+          return view('errors.403');
         }
     }
 

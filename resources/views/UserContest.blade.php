@@ -16,6 +16,7 @@
 }
 @stop
 @section('content')
+
 <script src="{{ '/jquery.min.js'}}"></script>
 <center>
 <button class="dongho" id='demnguoc'>
@@ -61,13 +62,12 @@
 </script>
 
 
-<button type="button" class="btn btn-info btn-lg btn-block mt-4" style="padding: 20px 20px;">{!!$question->content!!}</button>
+<button type="button" class="btn btn-info btn-lg btn-block mt-4" style="padding: 20px 20px;">
+<i>	{!!$question->content!!}</i>
+</button>
  {!!Form::open(['method'=>'POST', 'route'=>'usertransmit_answer']) !!}
 @foreach($answers as $answer)  
-<!-- <div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="{{!!$answer->id!!}}">
-  <label class="custom-control-label" for="customRadioInline1">{{!!$answer->content!!}}</label>
-</div> -->
+
 <div id="check">
 	 <input id="dapan" name="dapan" type="radio" value="{{$answer->id}}"> 
 	 <label class="dapan" for="dapan" >{{$answer->content}}</label>
