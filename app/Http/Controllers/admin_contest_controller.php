@@ -51,22 +51,21 @@ class admin_contest_controller extends Controller
 
     public function change(Request $request)//Request $request){//Chua Test
     {
-    //	var_dump($request->id);
-    	///Doi cau hoi hien tai trong table contest
-    	///
-        /*$Inc = Contest::where('active', 1)->update(['currentquestion_id'=>DB::raw('currentquestion_id+1')]);//Cau Hoi Hien Tai++
-        if (is_null($Inc) == true){ // Pop Up Message Pls Push Active a Contest
-        }*/
-        //$cont = new Contest;
+        //checkuser
+        $checks = History::select('histories.*','users.username','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
+            ->join('users','user_id','=','users.id')
+            ->join('questions','question_id','=','questions.id')
+            ->join('questions_answers','questions_answer_id','=','questions_answers.id')
+            ->groupBy('histories.id')
+            ->get();
+        foreach ($checks as $check) 
+        {
+            
+        }
+        //
         $cont = DB::table('contests')->where('active','=',true)->update(['currentquestion_id'=> $request->id]);
-        //$now = Carbon\Carbon::now();
-     //   $now->createFromFormat('d/m/Y','21/03/2018'); 
-        //var_dump($now); 
-        //return;
         $now = now();
         $cont = DB::table('contests')->where('active','=',true)->update(['startcurrentquestion'=> $now]);
-        //$cont->currentquestion_id = $request->id;
-        //$cont -> save();
         return $this->index();
     }
     public function changecontest(Request $request)
@@ -95,7 +94,6 @@ class admin_contest_controller extends Controller
         $user->active = 0;
         $user->save();
     }
-
     public function create_contest(){ //Tao Contest
         $NewCon = new Contest;
         $NewCon ->currentquestion_id = 1;
@@ -121,6 +119,28 @@ class admin_contest_controller extends Controller
         }}
         return $this->changecontest();
     }*/
+    public function Statistic (Request $request)
+    {
+        $stas = History::select('histories.*','users.username','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
+            ->join('users','user_id','=','users.id')
+            ->join('questions','question_id','=','questions.id')
+            ->join('questions_answers','questions_answer_id','=','questions_answers.id')
+            ->groupBy('histories.id')
+            ->get();
+        $A=(int)0; $B=(int)0; $C=(int)0; $D=(int)0;
+        $cont = DB::table('contests')->where('id','=',$request->id)->first();
+        foreach($stas as $sta)
+        {
+            if($sta->contest_id==$request->id && $sta->question_id==$cont->currentquestion_id)
+            {
+                if($sta->abcd=='A') $A=$A+1;
+                if($sta->abcd=='B') $B=$B+1;
+                if($sta->abcd=='C') $C=$C+1;
+                if($sta->abcd=='D') $D=$D+1;
+            }
+        }
+        return view('ShowStatistic',['A' => $A, 'B' => $B, 'C' => $C, 'D' => $D]);
+    }
 
     public function show_history(){//Chuc Nang Cua Admin ->Show Toan Bo Lich Su Thi Dau
         $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active

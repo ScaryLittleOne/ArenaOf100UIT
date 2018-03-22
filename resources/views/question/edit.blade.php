@@ -16,7 +16,7 @@
 </div>
 </div>
     {{ Form::model($question, array('route' => array('questions.update', $question->id), 'method' => 'PUT')) }} 
-    <div class="form-group">
+    <div class="form-group" style="color: white">
         {!! Form::label('content', 'Content', ['class'=>'control-label col-md-2']) !!}
         <div class="col-md-10">
           {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
@@ -32,7 +32,7 @@
 
         <!-- Answers -->
       @foreach($answers as $answer)
-        <div class="form-group">
+        <div class="form-group" style="color: white">
           <label for="content[]" class="control-label col-md-1">Answer {{ $answer->abcd}}</label>
           <div class="col-md-4">
             <input class="form-control" name="ids[]" type="hidden" id="content_{{$answer->abcd}}" value="{{ $answer->id }}">
@@ -42,7 +42,7 @@
     
       @endforeach
 
-      <div class="form-group">
+      <div class="form-group" style="color: white">
         {!! Form::label('correct', 'Correct Answer', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-4">
           <!--{!! Form::text('correct', null, ['class' => 'form-control']) !!}-->
@@ -56,7 +56,7 @@
       </div>
     <div class="form-group">
         <div class="col-md-4">
-          {{ Form::submit('Edit the question', ['class' => 'btn  btn-primary form-control']) }}
+          {{ Form::submit('Chỉnh sửa câu hỏi', ['class' => 'btn  btn-primary form-control']) }}
         </div>
       </div>
     {{ Form::close() }}
