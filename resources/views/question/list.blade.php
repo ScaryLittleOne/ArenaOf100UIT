@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Danh sách câu hỏi')
+@section('title','Danh Sách Câu Hỏi')
 @section('style')
 @stop
 @section('content')
@@ -8,13 +8,13 @@
   <thead>
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Quản trị viên
+    Quản Trị Viên
   </button>
   <div class="dropdown-menu">
-  <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm câu hỏi</a>
+  <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm Câu Hỏi</a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="/users" > Quản lí sinh viên </a>
-  <a class="dropdown-item" href="/admincontest" > Vào đấu trường </a>
+  <a class="dropdown-item" href="/users" > Quản Lí Sinh Viên </a>
+  <a class="dropdown-item" href="/admincontest" > Vào Đấu Trường </a>
   
   </div>
 </div>
@@ -27,10 +27,10 @@
       <thead class="thead-light">
         <tr>
          <th width="4%" height="4%">STT</th>
-         <th width="40%" height="40%">Nội dung câu hỏi</th>
+         <th width="40%" height="40%">Nội Dung Câu Hỏi</th>
           <!--<th width="10%" height="10%">Mã câu hỏi</th>-->
 
-          <th width="30%" colspan="2">Thao tác</th>
+          <th width="30%" colspan="2">Thao Tác</th>
         </tr>
       </thead>
       <tbody>
@@ -39,8 +39,8 @@
           <td>{!! $question->id !!}</td>
           <td>{!! $question->content !!}</td>
           <td>
-            <a href="{{ route('questions.show', $question->id) }}" class = "btn btn-info">Hiển thị nội dung</a>
-            <a href="{{ route('questions.edit', $question->id) }}" class = "btn btn-success">Chỉnh sửa</a>
+            <a href="{{ route('questions.show', $question->id) }}" class = "btn btn-info">Hiển Thị Nội Dung</a>
+            <a href="{{ route('questions.edit', $question->id) }}" class = "btn btn-success">Chỉnh Sửa</a>
           </td>
           <td>
               {!! Form::open(['method'=>'delete', 'route'=>['questions.destroy', $question->id]]) !!}
