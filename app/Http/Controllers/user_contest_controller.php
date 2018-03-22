@@ -29,6 +29,10 @@ class user_contest_controller extends Controller
             ->where('question_id','=',$question->id)
             ->get(); 
         
+        return view('UserContest',
+            ['user' => Auth::user, 'question' => $question, 'answers' => $answers]
+        );
+
         return view('UserContest',compact('question'),compact('answers'));
 
     }               
