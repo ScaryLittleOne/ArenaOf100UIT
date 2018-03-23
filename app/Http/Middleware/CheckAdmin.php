@@ -16,7 +16,7 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if ($request->user()->admin==false) {
-            //return redirect('home');
+            return redirect('home');
             abort(403, 'Unauthorized Access. Your IP has been reported to Admin');
         }
 
