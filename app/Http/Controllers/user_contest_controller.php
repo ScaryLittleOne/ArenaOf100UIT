@@ -38,20 +38,22 @@ class user_contest_controller extends Controller
 
     }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History
-        $time=contest::find($request['question_id']);
-        $time_question="2018-12-12 12:12:12";//test time $time->startcurrentquestion; // tg bd cau hoi 
-        $arr2=preg_split("/\ /",$time_question);
-        $arr_day_question=preg_split("/\-/",$arr2[0]);
-        $arr_time_question=preg_split("/\:/",$arr2[1]);
-        $time_answer=now();//tg tra loi
-        $arr=preg_split("/\ /",$time_answer);
-        $arr_day_answer=preg_split("/\-/",$arr[0]);
-        $arr_time_answer=preg_split("/\:/",$arr[1]);
-        //$time_question=$time->startcurrentquestion;//tg tra loi
-        if ($arr_time_question[2]+env('TIME_LIMIT',31)
-        <60) $arr_time_question[2]+=31;
+     
+         $time=DB::table('contests')->where('currentquestion_id','=',$request['question_id'])->first();
+         $time_question=$time->startcurrentquestion;//tg bat dau cau hoi
+        // echo("thoi gian bd".$time_question) ; 
+         $arr2=preg_split("/\ /",$time_question);
+         $arr_day_question=preg_split("/\-/",$arr2[0]);
+         $arr_time_question=preg_split("/\:/",$arr2[1]);
+         $time_answer=now();//tg tra loi
+         //echo("tg tra loi".$time_answer);
+         $arr=preg_split("/\ /",$time_answer);
+         $arr_day_answer=preg_split("/\-/",$arr[0]);
+         $arr_time_answer=preg_split("/\:/",$arr[1]);
+        if ($arr_time_question[2]+env('TIME_LIMIT',20)
+        <60) $arr_time_question[2]+=env('TIME_LIMIT',20);
         else {
-            $arr_time_question[2]=-(60-$arr_time_question[2]);
+            $arr_time_question[2]=(60-$arr_time_question[2]);
             if ($arr_time_question[1]+1<60) $arr_time_question[1]+=1;
             else {
                 $arr_time_question[1]=0;
@@ -66,7 +68,6 @@ class user_contest_controller extends Controller
                     if ($arr_time_answer[1]==$arr_time_question[1] ){
                         if ($arr_time_answer[2]<=$arr_time_question[2]){
                             $x=true;
-
                         }
                         else $x=false;
                     }else $x=false;
@@ -74,6 +75,7 @@ class user_contest_controller extends Controller
             }
             else $x=false; 
         } 
+        /**/
         //var_dump($request); die();
         $old_history = History::where([
             'user_id' => $request['user_id'],
@@ -88,7 +90,7 @@ class user_contest_controller extends Controller
                 'user_id' => $request['user_id'],
                 'contest_id' => $request['contest_id'],
                 'questions_answer_id' => $request['questions_answer_id'],
-                'question_id' => $request['question_id']
+                'question_id' => $request['question_id'],
                 ]);
         } else {
             if ($x == true) {
@@ -101,14 +103,16 @@ class user_contest_controller extends Controller
                 
             }
         }
-        return redirect('usercontest'); ;
+        return redirect('usercontest'); 
+        if ($x==true) return redirect('usercontest');
+       //return redirect('usercontest'); 
 
-      //test request
+/*      //test request
       $request['user_id']=1;
       $request['contest_id']=1;
       $request['question_id']=1;
       $request['questions_answer_id']="A";
-      
+*/      
       /*  $history = new histories;
         $history->user_id=$request['user_id'];
         $history->contest_id=$request['contest_id'];
@@ -118,12 +122,12 @@ class user_contest_controller extends Controller
       */  //$user=users::find($request['user_id']);
         //env('TIME_LIMIT',31);
 
-  $x=true;
+/*  $x=true;
   if ($x==true){
       return redirect('usercontest');  
   }
   else  return view('errors.403');
-  
+*/  
 }
     
 
