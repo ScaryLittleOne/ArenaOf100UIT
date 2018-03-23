@@ -65,7 +65,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
                     </div>
             <div class="chaomung">
 
-                    <a  href="{{url('/')}}" target="_self"><img src="{{ url('/dautruong100.png') }}" height="70%" width="70%"></a>
+                    <img src="{{ url('/dautruong100.png') }}" height="70%" width="70%">
                     
             </div>
         </div>

@@ -10,6 +10,7 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><a target="_blank" href="/users" > Quản Lí User </a></li>
     <li class="list-group-item"><a target="_blank" href="/questions" > Quản Lí Đề Thi </a></li>
+    <li class="list-group-item"><a target="_blank" href="/history" > Lịch Sử Trả Lời Đáp Án </a></li>
     <li class="list-group-item"><a target="_blank" href="/admincontest" > Vào Đấu Trường </a></li>
   </ul>
 </div>

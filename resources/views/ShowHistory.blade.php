@@ -1,7 +1,18 @@
 @extends('layouts.app')
 @section('title','Lịch Sử Cuộc Thi')
 @section('content')
-
+<div class="dropdown mb-4">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Quản Trị Viên
+  </button>
+  <div class="dropdown-menu">
+  <a class="dropdown-item" href="/statistic" > Thống Kê Đáp Án </a>
+  <a class="dropdown-item" href="/admincontest" > Vào Đấu Trường </a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/users">Quản Lí Sinh Viên</a>
+  <a class="dropdown-item" href="/questions" > Quản Lí Đề Thi </a>
+</div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
