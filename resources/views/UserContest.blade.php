@@ -23,7 +23,6 @@
 <script type="text/javascript">
 	
    $(window).ready( function(){
-   	time_start = new Date();
         var ryry = setInterval( function() {
             $.ajax({
 				type: 'GET',
@@ -34,6 +33,7 @@
 					 if (res[1]!={!!$question->id!!}) 
 					 	{
 					 		location.reload();
+					 		time_start = new Date();
 					 	}
 					 else {
 					 	// time_start = new Date();
@@ -45,10 +45,10 @@
 					 	// // console.log(thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server);
 					 	//  time_start = (new Date()) - thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server;
 					 	// // console.log(time_start.toISOString);
-					 }
+					 	}
 				}
 			});
-    		console.log((new Date()));
+    		console.log(time_start);
             $("#time_dest").html(Math.floor((new Date() - time_start)/1000)) ;
     	},1000);
       function time_count(time_begin, time_curr) {
