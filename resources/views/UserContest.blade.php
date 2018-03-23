@@ -88,8 +88,9 @@
 
 @foreach($answers as $answer)  
 <div id="check">
-	 <input id="questions_answer_id" name="questions_answer_id" type="radio" value="{{$answer->id}}"> 
-	 <label class="questions_answer_id" for="questions_answer_id" >{{$answer->content}}</label>
+
+	 <input id="question_answer_id" name="questions_answer_id" type="radio" value="{{$answer->id}}"> 
+	 <label class="question_answer_id" for="questions_answer_id" >{{$answer->content}}</label>
 </div>
  
 @endforeach
