@@ -89,13 +89,13 @@ class admin_contest_controller extends Controller
         $data['correct_answer'] = $current_contest->current_questions->correct_answer->first()->abcd;
         $data['still_active'] = User::where(['admin'=>0,'active'=>1])->count();
         for($i = 'A'; $i <= 'D'; $i++){
-            $data[$i] = $current_history->filter(function($value, $key){
-                            global $i;
+            $data[$i] = $current_history->filter(function($value, $key)use( &$i){
+                            //var_dump($i);
                             return $value->question_answer->abcd == $i;
                             }
                         )->count();
         }
-
+        //return $data['A'];
         return view('ShowStatistic',$data);
     }
 
@@ -107,7 +107,6 @@ class admin_contest_controller extends Controller
             ->join('questions_answers','questions_answer_id','=','questions_answers.id')
             ->groupBy('histories.id')
             ->get();
-        //$MergeHistory = History::all();
         return view('ShowHistory',compact('MergeHistory') );
     }
 }
