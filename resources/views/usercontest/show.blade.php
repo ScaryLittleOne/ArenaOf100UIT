@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('title','Đấu trường ánh sáng')
-
 @section('content')
 
 <script src="{{ '/jquery.min.js'}}"></script>
@@ -17,7 +16,10 @@
 		success: function (response) 
 		{
 			var res=response.split("\n");
-			if (res[1]!=$question->id) location.reload();
+			if (res[1]!={{!!$question->id!!}})
+			{
+				location.reload();
+			} 
 		}
 	});
           },1000);
