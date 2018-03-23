@@ -69,8 +69,9 @@ class admin_contest_controller extends Controller
         //checkuser
 
         if (true){
-            disable_user_with_wrong_answer_for_current_question();
-        } else {
+            $this->disable_user_with_wrong_answer_for_current_question();
+        } else 
+        {
             $checks = History::select('histories.*','users.id','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
                 ->join('users','user_id','=','users.id')
                 ->join('questions','question_id','=','questions.id')
@@ -85,6 +86,11 @@ class admin_contest_controller extends Controller
             }
             foreach ($checks as $check) 
             {
+                //var_dump($check);
+                $us = User::find($check->user_id)->first();
+                $us->active=0;
+                $us->save();
+            } 
                 if($check->abcd!=$co->abcd)
                 {
                     //var_dump($check);
@@ -92,10 +98,10 @@ class admin_contest_controller extends Controller
                     $us->active=false;
                     $us->save();
                 } 
-            }
         }
-        Contest::where(['active' => true])
+        Contest::where(['active'=>true])
                 ->update(['currentquestion_id'=> $request->id,'startcurrentquestion'=> now()]);
+        //$cont = DB::table('contests')->where('active','=',true)->update(['startcurrentquestion'=> now()]);       
         return $this->index();
 
         $cont = DB::table('contests')->where('active','=',true)->update(['currentquestion_id'=> $request->id]);
@@ -199,6 +205,7 @@ class admin_contest_controller extends Controller
 
         return view('ShowStatistic',['A' => $A, 'B' => $B, 'C' => $C, 'D' => $D]);
     }
+
 
     public function show_history(){//Chuc Nang Cua Admin ->Show Toan Bo Lich Su Thi Dau
         $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
