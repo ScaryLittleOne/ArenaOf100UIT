@@ -38,8 +38,9 @@ class user_contest_controller extends Controller
 
     }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History
-     
          $time=DB::table('contests')->where('currentquestion_id','=',$request['question_id'])->first();
+         $currentquestion=DB::table('contests')->where('active','=',0)->first();
+         if ($currentquestion)  return view('errors.500');
          $time_question=$time->startcurrentquestion;//tg bat dau cau hoi
         // echo("thoi gian bd".$time_question) ; 
          $arr2=preg_split("/\ /",$time_question);
@@ -75,8 +76,6 @@ class user_contest_controller extends Controller
             }
             else $x=false; 
         } 
-        /**/
-        //var_dump($request); die();
         $old_history = History::where([
             'user_id' => $request['user_id'],
             'contest_id' => $request['contest_id'],
@@ -107,29 +106,6 @@ class user_contest_controller extends Controller
         return redirect('usercontest');  
         }
         else  return view('errors.500');
-       //return redirect('usercontest'); 
-
-/*      //test request
-      $request['user_id']=1;
-      $request['contest_id']=1;
-      $request['question_id']=1;
-      $request['questions_answer_id']="A";
-*/      
-      /*  $history = new histories;
-        $history->user_id=$request['user_id'];
-        $history->contest_id=$request['contest_id'];
-        $history->question_id=$request['question_id'];
-        $history->questions_answer_id=$request['questions_answer_id'];
-        $history->save(); 
-      */  //$user=users::find($request['user_id']);
-        //env('TIME_LIMIT',31);
-
-/*  $x=true;
-  if ($x==true){
-      return redirect('usercontest');  
-  }
-  else  return view('errors.403');
-*/  
 }
     
 
