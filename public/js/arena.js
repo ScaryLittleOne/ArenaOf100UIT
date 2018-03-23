@@ -28,6 +28,11 @@
 					//console.log(time_start.toISOString);
 
 					}
+				},
+				error: function(request, status, error)
+				{
+					if (status==500) 
+						 window.location.replace('/die');
 				}
 			});
     		
@@ -36,7 +41,7 @@
     	//console.log(time_start);
     	var dongho = setInterval(function(){
     			var time_left = timelimit - (Math.floor((new Date() - time_start)/1000));
-            $("#time_dest").html( Math.max(0, time_left) ) ;
+            $("#time_dest").html( Math.max(0, time_left-2) ) ;
             if(time_left <= 0){
             	$('input').prop('disabled', true);
             }
