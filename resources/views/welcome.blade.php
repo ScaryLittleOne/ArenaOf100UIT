@@ -8,7 +8,7 @@
            <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>UIT 100 | Đấu trường ánh sáng</title>
+        <title>UIT| Đấu trường ánh sáng</title>
         <link rel="shortcut icon" href="{{ url('/icon.png') }}">
 
 
