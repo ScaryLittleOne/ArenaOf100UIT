@@ -17,7 +17,7 @@
 		success: function (response) 
 		{
 			var res=response.split("\n");
-			if (res[1]!={!!$question->id!!}) location.reload();
+			if (res[1]!=$question->id) location.reload();
 		}
 	});
           },1000);
