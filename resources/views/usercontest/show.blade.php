@@ -16,7 +16,7 @@
 		success: function (response) 
 		{
 			var res=response.split("\n");
-			if (res[1]!={{!!$question->id!!}})
+			if (res[1]!=1)
 			{
 				location.reload();
 			} 
