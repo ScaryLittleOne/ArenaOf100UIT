@@ -30,7 +30,7 @@ class History extends Model
     public function question_answer()
     {
     	
-    	return $this->belongsTo('App\Questions_answer');
+    	return $this->belongsTo('App\Questions_answer', 'questions_answer_id', 'id');
     }
 }
 

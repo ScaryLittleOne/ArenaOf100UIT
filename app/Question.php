@@ -17,8 +17,6 @@ class Question extends Model
     }
 
     public function correct_answer(){
-    	return $this->questions_answers->get()->filter(function($value, $key){
-    		$value->correct == true;
-    	});
+    	return $this->questions_answers()->where(['correct'=>true]);
     }
 }
