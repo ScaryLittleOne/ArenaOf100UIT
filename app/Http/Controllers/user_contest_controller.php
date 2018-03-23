@@ -130,8 +130,8 @@ class user_contest_controller extends Controller
     public function time() {
       $user=DB::table('contests')->where('active','=',true)->first();   
       echo($user->id."\n");
-      echo($user->currentquestion_id."\n");
+      echo($user->c    
+    }urrentquestion_id."\n");
       echo($user->startcurrentquestion."\n");   
-      echo(now()."\n");    
-    }
+      echo(now()."\n");
 }
