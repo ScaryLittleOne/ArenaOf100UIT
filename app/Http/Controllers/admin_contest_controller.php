@@ -112,27 +112,11 @@ class admin_contest_controller extends Controller
     {
         $cont = DB::table('contests')->where('active','=',true)->update(['active'=> false]);
         $cont = DB::table('contests')->where('id','=',$request['contest_id'])->update(['active'=> true]);
-        /*$contt = Contest::all();
-        foreach($contt as $cont)
-        {
-            if ($conts->id == $contt->id)
-            {
-                $cont -> active = 1;
-                $cont -> save();
-            } else
-            {
-                 $cont -> active = 0;
-                 $cont -> save();
-            }
-           
-        }*/
 
-        $users=User::all();
-        foreach($users as $user)
-        {
-            $user->active = true;
-            $user->save();
-        }
+        DB::table('contests')->update(['currentquestion_id'=>1]);
+
+        User::where(['active' => 0])->update(['active' => 1]);
+
         return redirect('admincontest');
     } 
 
