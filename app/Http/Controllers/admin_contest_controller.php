@@ -33,8 +33,8 @@ class admin_contest_controller extends Controller
         User::where(['admin'=>0,'active'=>1])->update(['active'=>0]); 
 
         //Re-enable users with correct answer
-        foreach (History::where('question_id', $current_question->id) as $hist){
-            if($hist->question_answer->abcd == $current_question->correct_answer->abcd){
+        foreach (History::where('question_id', $current_question->id)->get() as $hist){
+            if($hist->question_answer->abcd == $current_question->correct_answer->first()->abcd){
                 $hist->user->active = 1;
                 $hist->user->save();
             }
