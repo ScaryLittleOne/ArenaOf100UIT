@@ -104,7 +104,7 @@ class EverythingElseSeeder extends Seeder
         DB::table('histories')->insert([
             'user_id' => 3,
             'contest_id' => 1,
-            'questions_answer_id' => 0,
+            'questions_answer_id' => 1,
             'question_id' => 1,
 
         ]);

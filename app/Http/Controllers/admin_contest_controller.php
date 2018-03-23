@@ -198,6 +198,7 @@ class admin_contest_controller extends Controller
         $data['still_active'] = User::where(['admin'=>0,'active'=>1])->count();
         for($i = 'A'; $i <= 'D'; $i++){
             $data[$i] = $current_history->filter(function($value, $key){
+                            global $i;
                             return $value->question_answer->abcd == $i;
                             }
                         )->count();
