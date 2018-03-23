@@ -3,11 +3,11 @@
         var ryry = setInterval( function() {
             $.ajax({
 				type: 'GET',
-				url: "{{ url ('/time')}}",
+				url: "/time",
 				success: function (response) 
 				{
 					var res=response.split("\n");
-					if (res[1]!={!!$question->id!!}) 
+					if (res[1]!=question_id) 
 					{					 		location.reload();
 						
 					}
@@ -31,7 +31,7 @@
 				}
 			});
     		//console.log(time_start);
-    		var time_left = {!! env('TIME_LIMIT', 30) !!} - (Math.floor((new Date() - time_start)/1000));
+    		var time_left = timelimit - (Math.floor((new Date() - time_start)/1000));
             $("#time_dest").html( Math.max(0, time_left) ) ;
             if(time_left <= 0){
             	$('input').prop('disabled', true);
