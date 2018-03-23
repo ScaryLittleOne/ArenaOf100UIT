@@ -18,7 +18,7 @@ class CheckActive
         if ($request->user()->active==false) {
            //return redirect()->route('gameover');
             //return File::get(public_path() . '/gameover.html');
-            abort(403);
+            abort(500, 'Something went wrong');
         }
         return $next($request);
     }
