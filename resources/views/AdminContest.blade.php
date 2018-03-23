@@ -43,6 +43,8 @@
   <a class="dropdown-item" href="/history">Xem lịch sử</a>
   </div>
 </div>
+    
+
   <!--$questioncurrent->content; -->
   <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
   <thead>

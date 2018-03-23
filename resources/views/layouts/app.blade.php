@@ -18,26 +18,9 @@
                 font-size: 84px;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
             body {
             background-color: #ab0000;
 background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23ffeb23' fill-opacity='0.28' fill-rule='evenodd'/%3E%3C/svg%3E");
-            }
-            #logout {
-                text-align: right;
-                left: 30px;
-                top: 5px;
-                position: fixed;
-
             }
 
             .chaomung{
@@ -58,56 +41,34 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light ">
-            <div class="container">
-                <div class="flex-center position-ref full-height">
-                    <div id="logout">
-                        @yield('name')
-                    </div>
-            <div class="chaomung">
+            
+            <div class="flex-center position-ref full-height">
+                <div id="logout">
+                    @yield('name')
+                </div>
+                <div class="chaomung">
 
-                    <img src="{{ url('/dautruong100.png') }}" height="70%" width="70%">
-                    
+                        <img src="{{ url('/dautruong100.png') }}" height="50%" width="50%">
+                        
+                </div>
             </div>
-        </div>
 
                
-                    <!-- Left Side Of Navbar -->
-                    
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                       @guest
-                             <a style="background: white; position: fixed; right: 10px;top: 10px; border-radius: 10px;" class="nav-link" href="{{ route('login') }}" target="_self">{{ __('Đăng Nhập') }}</a>
-                            <!--<li><a class="nav-link" href="{{ route('register') }}" target="_self">{{ __('Register') }}</a></li> -->
-                        @else
-                            <a style="background: white; position: fixed; right: 10px;top: 10px; border-radius: 10px;" class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a>
-
-                            <!--<li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>-->
-                                <!--<a class="nav-link" href="{{ route('logout') }}" target="_self">{{ __('Đăng Xuất') }}</a></li> 
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Đăng Xuất') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-
-                                    
-                                </div>
-                            </li>-->
-                        @endguest
-                    </ul>
-                </div>
+            <!-- Left Side Of Navbar -->
             
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                @guest
+                @else 
+                    @if ( Auth::user()->admin == 1)
+                        <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Vào đấu trường</a></li>
+                        <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Thống kê</a></li>
+                        <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Lịch sử</a></li>
+                    @endif
+                    <a class="btn btn-danger" href="{{ route('logout') }}"><strong>Đăng Xuất</strong></a>
+                @endguest
+            </ul>
         </nav>
 
         <div class="container-fluid">

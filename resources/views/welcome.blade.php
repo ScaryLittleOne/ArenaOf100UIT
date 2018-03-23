@@ -1,17 +1,19 @@
 <!doctype html>
+<html lang="{{ app()->getLocale() }}">
 <head>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="{{ url('/css/app.css') }}" rel="stylesheet" type="text/css">
 
-<html lang="{{ app()->getLocale() }}">
            <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>UIT 100 | Đấu trường ánh sáng</title>
+        <title>UIT| Đấu trường ánh sáng</title>
         <link rel="shortcut icon" href="{{ url('/icon.png') }}">
 
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
 
         <!-- Styles -->
         <style>
@@ -32,7 +34,7 @@
 
             .top-right {
                 position: absolute;
-                background: white;
+
                 right: 10px;
                 top: 18px;
                 padding-top: 10px;
@@ -48,15 +50,6 @@
                 font-size: 84px;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
             .m-b-md {
                 margin-bottom: 30px;
@@ -87,8 +80,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
             
             }
         </style>
-    </head>
-    <body>
+</head>
+<body>
        
 <div id="logouit">
     <img src="{{ url('/uit.png') }}" width="15%" height="15%">
@@ -98,12 +91,15 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
 </div>                
             <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right">
+                    
                     @auth
-                        <a href="{{ route('logout') }}">Đăng Xuất</a>
+                        <a class="btn btn-primary" href="{{ url('/home') }}"><strong>Vào đấu trường</strong></a>
+                        <a class="btn btn-danger" href="{{ route('logout') }}"><strong>Đăng Xuất</strong></a>
                     @else
-                        <a href="{{ route('login') }}">Đăng Nhập</a>
+                        <a class="btn btn-primary" href="{{ route('login') }}"><strong>Đăng Nhập</strong></a>
                     @endauth
+                    
                 </div>
             @endif  
 
