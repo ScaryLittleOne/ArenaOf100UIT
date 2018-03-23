@@ -30,28 +30,28 @@
 				url: "{{ url ('/time')}}",
 				success: function (response) 
 				{
-					 var res=response.split("\n");
-					 if (res[1]!={!!$question->id!!}) 
-					 	{					 		location.reload();
-					 		
-					 	}
-					 else {
-					 	// time_start = new Date();
-					 	//$('#time_dest').html(time_count(res[3],res[2]));
+					var res=response.split("\n");
+					if (res[1]!={!!$question->id!!}) 
+					{					 		location.reload();
+						
+					}
+					else {
+					// time_start = new Date();
+					//$('#time_dest').html(time_count(res[3],res[2]));
 
-					 	// var server_current_time =  new Date(res[3]);
-					 	// var server_question_start_time =  new Date(res[2]);
-				 		//console.log("res 3 " + server_current_time);
-				 		//console.log("res 2 " + server_question_start_time);
-				 		//console.log("res 3 " + server_current_time.toISOString());
-				 		//console.log("res 2 " + server_question_start_time.toISOString());
-				 		//console.log((server_current_time.getTime() - server_question_start_time.getTime())/1000);
-					 	
-					 	// console.log(thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server);
-				 		//time_start = (new Date()) - thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server;
-					 	//console.log(time_start.toISOString);
+					var server_current_time =  new Date(res[3]);
+					var server_question_start_time =  new Date(res[2]);
+					// console.log("res 3 " + server_current_time.getTime());
+					// console.log("res 2 " + server_question_start_time.getTime());
+					//console.log("res 3 " + server_current_time.toISOString());
+					//console.log("res 2 " + server_question_start_time.toISOString());
+					var thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server = server_current_time.getTime() - server_question_start_time;
+					
+					// console.log(thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server);
+					time_start = (new Date()) - thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server;
+					//console.log(time_start.toISOString);
 
-					 	}
+					}
 				}
 			});
     		//console.log(time_start);
