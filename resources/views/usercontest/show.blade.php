@@ -3,7 +3,7 @@
 @section('content')
 
 <script src="{{ '/jquery.min.js'}}"></script>
-<h1>CUỘC THI CHƯA BẮT ĐẦU</h1>
+<center><h1>CUỘC THI CHƯA BẮT ĐẦU</h1></center>
 <script type="text/javascript">
 	
    $(window).ready( function(){
