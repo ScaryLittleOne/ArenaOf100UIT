@@ -62,9 +62,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
                 @guest
                 @else 
                     @if ( Auth::user()->admin == 1)
-                        <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Vào đấu trường</a></li>
+                        <li class="nav-item"><a class="btn btn-info" href="{{ url('/admincontest') }}">Vào đấu trường</a></li>
                         <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Thống kê</a></li>
-                        <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Lịch sử</a></li>
+                        <li class="nav-item"><a class="btn btn-info" href="{{ url('/history') }}">Lịch sử</a></li>
                     @endif
                     <a class="btn btn-danger" href="{{ route('logout') }}"><strong>Đăng Xuất</strong></a>
                 @endguest
