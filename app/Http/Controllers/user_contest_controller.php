@@ -38,10 +38,10 @@ class user_contest_controller extends Controller
 
     }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History
-         $time=DB::table('contests')->where('currentquestion_id','=',$request['question_id'])->first();
-         $currentquestion=DB::table('contests')->where('active','=',0)->first();
-         if ($currentquestion)  return view('errors.500');
-         $time_question=$time->startcurrentquestion;//tg bat dau cau hoi
+        $currentcontest=Contest::where('active', 1)->first();
+        if ($currentcontest->current_questions()->first()->id!=$request['question_id']) return view('errors.500');
+       
+        $time_question=$currentcontest->startcurrentquestion;//tg bat dau cau hoi
         // echo("thoi gian bd".$time_question) ; 
          $arr2=preg_split("/\ /",$time_question);
          $arr_day_question=preg_split("/\-/",$arr2[0]);
