@@ -20,34 +20,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Chi Tiết Câu Hỏi Và Đáp Án') }}</div>
-   <!--Toi Day -->
-
-            <?php /*<table class="table table-striped table-bordered table-hover">
-              <thead>
-                <tr>
-                 <th>Số Thứ Tự</th>
-                 <th>Nội Dung</th>
-                  <th>Thông Tin Cuộc Thi</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($question as $question)
-                  <td>{!! $question->id !!}</td>
-                  <td>{!! $question->content !!}</td>
-                  <td>{!! $question->contest_id !!}</td>
-
-                @endforeach
-              </tbody>
-            </table> */?>
-
-           <?php /* @foreach($question as $question)
-                <div>
-                  <li> Số Thứ Tự : {!! $question->id !!} </li>
-                  <li> Nội Dung : {!! $question->content !!} </li>
-                  <li> Thông Tin Cuộc Thi : {!! $question->contest_id !!} </li>
-                </div>
-            @endforeach */?>
-
+   
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
      
             <div class="w3-panel w3-round w3-teal">
