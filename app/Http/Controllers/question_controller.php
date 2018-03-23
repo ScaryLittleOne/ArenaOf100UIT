@@ -19,19 +19,10 @@ class question_controller extends Controller
         {
             $this->middleware('auth');
             $this->middleware('checkadmin');
-            /*$user = Auth::user();
-            $id = Auth::id();
-            var_dump($user);
-            var_dump($id);*/
         }
        
 
     public function index(){
-        /*$this->middleware('auth');
-        $user = Auth::user();
-            if ($user->admin==0){
-                abort(403, 'Unauthorized Access. Your IP has been reported to Admin');
-            }*/
         $questions = Question::all();
         return view('question.list',compact('questions'));//['questions' => Question::all()]);
     }
