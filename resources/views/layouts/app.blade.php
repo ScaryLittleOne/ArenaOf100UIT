@@ -59,12 +59,14 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                @unless (Auth::check())
                 @if ( Auth::user()->admin == 1)
                     <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Vào đấu trường</a></li>
                     <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Thống kê</a></li>
                     <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Lịch sử</a></li>
                 @endif
                 <a class="btn btn-danger" href="{{ route('logout') }}"><strong>Đăng Xuất</strong></a>
+                @endunless
             </ul>
         </nav>
 
