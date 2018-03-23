@@ -30,10 +30,10 @@
       {!! Form::submit('OK', ['class'=>'btn btn-success', 'onclick'=>'return confirm("Bạn có muốn chọn lần thi này?")']) !!}
   {!! Form::close() !!}
   <br>
-  {!! Form::open(['method'=>'POST', 'route'=>['/statistic']]) !!}
-  <input class="form-control" name="id" type="hidden" value="{{ $cont->id }}" >
-    {!! Form::submit('Thống Kê Đáp Án', ['class'=>'btn btn-info', 'onclick'=>'return confirm("Bạn có muốn xem thống kê đáp án của câu hỏi hiện tại?")']) !!}
-  {!! Form::close() !!}
+
+  <a class="btn btn-info" href="{{ url('/statistic') }}">Thống kê câu trả lời</a>
+    
+
   <!--$questioncurrent->content; -->
   <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
   <thead>
