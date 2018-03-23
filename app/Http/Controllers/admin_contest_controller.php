@@ -69,8 +69,9 @@ class admin_contest_controller extends Controller
         //checkuser
 
         if (true){
-            disable_user_with_wrong_answer_for_current_question();
-        } else {
+            $this->disable_user_with_wrong_answer_for_current_question();
+        } else 
+        {
             $checks = History::select('histories.*','users.id','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
                 ->join('users','user_id','=','users.id')
                 ->join('questions','question_id','=','questions.id')
@@ -85,6 +86,11 @@ class admin_contest_controller extends Controller
             }
             foreach ($checks as $check) 
             {
+                //var_dump($check);
+                $us = User::find($check->user_id)->first();
+                $us->active=0;
+                $us->save();
+            } 
                 if($check->abcd!=$co->abcd)
                 {
                     //var_dump($check);
@@ -92,10 +98,10 @@ class admin_contest_controller extends Controller
                     $us->active=false;
                     $us->save();
                 } 
-            }
         }
-        Contest::where(['active' => true])
+        Contest::where(['active'=>true])
                 ->update(['currentquestion_id'=> $request->id,'startcurrentquestion'=> now()]);
+        //$cont = DB::table('contests')->where('active','=',true)->update(['startcurrentquestion'=> now()]);       
         return $this->index();
 
         $cont = DB::table('contests')->where('active','=',true)->update(['currentquestion_id'=> $request->id]);
@@ -160,28 +166,46 @@ class admin_contest_controller extends Controller
         }}
         return $this->changecontest();
     }*/
-    public function Statistic (Request $request)
+    public function Statistic ()
     {
-        $stas = History::select('histories.*','users.username','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
-            ->join('users','user_id','=','users.id')
-            ->join('questions','question_id','=','questions.id')
-            ->join('questions_answers','questions_answer_id','=','questions_answers.id')
-            ->groupBy('histories.id')
-            ->get();
-        $A=(int)0; $B=(int)0; $C=(int)0; $D=(int)0;
-        $cont = DB::table('contests')->where('id','=',$request->id)->first();
-        foreach($stas as $sta)
-        {
-            if($sta->contest_id==$request->id && $sta->question_id==$cont->currentquestion_id)
+        if (false){
+            $stas = History::select('histories.*','users.username','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
+                ->join('users','user_id','=','users.id')
+                ->join('questions','question_id','=','questions.id')
+                ->join('questions_answers','questions_answer_id','=','questions_answers.id')
+                ->groupBy('histories.id')
+                ->get();
+            $A=(int)0; $B=(int)0; $C=(int)0; $D=(int)0;
+            $cont = DB::table('contests')->where('id','=',$request->id)->first();
+            foreach($stas as $sta)
             {
-                if($sta->abcd=='A') $A=$A+1;
-                if($sta->abcd=='B') $B=$B+1;
-                if($sta->abcd=='C') $C=$C+1;
-                if($sta->abcd=='D') $D=$D+1;
+                if($sta->contest_id==$request->id && $sta->question_id==$cont->currentquestion_id)
+                {
+                    if($sta->abcd=='A') $A=$A+1;
+                    if($sta->abcd=='B') $B=$B+1;
+                    if($sta->abcd=='C') $C=$C+1;
+                    if($sta->abcd=='D') $D=$D+1;
+                }
             }
         }
+        $current_contest = Contest::where('active',1)->first();
+        $current_history = History::where([
+                'contest_id' => $current_contest->id
+                ,'question_id' => $current_contest->currentquestion_id
+                ])->get();
+        
+        $data['correct_answer'] = $current_contest->current_questions->correct_answer->abcd;
+        $data['still_active'] = User::where(['admin'=>0,'active'=>1])->count();
+        for($i = 'A'; $i <= 'D'; $i++){
+            $data[$i] = $current_history->filter(function($value, $key){
+                            return $value->question_answer->abcd == $i;
+                            }
+                        )->count();
+        }
+
         return view('ShowStatistic',['A' => $A, 'B' => $B, 'C' => $C, 'D' => $D]);
     }
+
 
     public function show_history(){//Chuc Nang Cua Admin ->Show Toan Bo Lich Su Thi Dau
         $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
