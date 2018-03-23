@@ -1,5 +1,5 @@
    $(window).ready( function(){
-   	var time_start= new Date();
+   		var time_start= new Date();
         var ryry = setInterval( function() {
             $.ajax({
 				type: 'GET',
@@ -30,13 +30,18 @@
 					}
 				}
 			});
-    		//console.log(time_start);
-    		var time_left = timelimit - (Math.floor((new Date() - time_start)/1000));
+    		
+    	},2000);
+
+    	//console.log(time_start);
+    	var dongho = setInterval(function(){
+    			var time_left = timelimit - (Math.floor((new Date() - time_start)/1000));
             $("#time_dest").html( Math.max(0, time_left) ) ;
             if(time_left <= 0){
             	$('input').prop('disabled', true);
             }
     	},1000);
+    		
       function time_count(time_begin, time_curr) {
         spl_time_begin = time_begin.split("-");
         spl_time_curr = time_curr.split("-");

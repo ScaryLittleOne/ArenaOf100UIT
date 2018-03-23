@@ -20,7 +20,7 @@
 </button>
 </center>
 
-<button type="button" style="padding: 20px 20px; border-radius: 20px;">
+<button type="button" class="question">
 <i>	{!!$question->content!!}</i>
 </button>
  {!!Form::open(['method'=>'POST', 'route'=>'usertransmit_answer']) !!}

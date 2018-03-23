@@ -11,3 +11,8 @@
 	font-size: 18px;
 	margin-top: 10px;
 }
+.question {
+	padding: 20px 20px; 
+	border-radius: 20px;
+	width: 100%;
+}
