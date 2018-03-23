@@ -10,76 +10,7 @@
 
         <title>UIT| Đấu trường ánh sáng</title>
         <link rel="shortcut icon" href="{{ url('/icon.png') }}">
-
-
-        <!-- Fonts -->
-
-
-        <!-- Styles -->
-        <style>
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-
-                right: 10px;
-                top: 18px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                border-radius: 10px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-            body {
-            background-color: #ab0000;
-background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23ffeb23' fill-opacity='0.28' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-        
-        #chaomung p{
-            font-family: cursive;
-            color: white;
-            font-size: 20px;
-        }
-        #logouit {
-            position: fixed;
-            top: 10px; 
-            left: 10px;
-            display: inline-block;
-           
-        }
-        .logowecode{
-                position: fixed;
-                right: 10px;
-                bottom: 10px;
-                height: 50px;
-                width: 60px;
-            
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="{{url('/welcome.css')}}">
 </head>
 <body>
        
