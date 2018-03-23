@@ -29,8 +29,10 @@
 		url: "{{ url ('/time')}}",
 
 		success: function (response) 
+
 		{
-			 	location.reload();
+			var res=response.split("\n");
+			if (res[1]!={!!$question->id!!}) location.reload();
 		}
 	});
           },1000);
