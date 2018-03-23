@@ -81,7 +81,7 @@ class user_contest_controller extends Controller
             'question_id' => $request['question_id']
         ]);
         
-
+        
         if ($old_history->get()->count() == 0){
 
             if ($x == true) History::create(        [
