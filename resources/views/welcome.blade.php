@@ -20,7 +20,7 @@
     <img src="{{ url('/logokhmt.png') }}" width="15%" height="15%">
 
 </div>                
-            <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right">
                     
@@ -36,17 +36,15 @@
 
 
             <div class="content">
-                <center>
+            <center>
                 <div id="chaomung">
                     <img src="{{ url('/dautruong100.png') }}" height="100%" width="100%">
-               </div>
+                </div>
            </center>
-
             </div>
         </div>
-    </div>
     <div class="logowecode">
-<img src="{{ url('/logowecode.svg') }}" height="100%" width="100%">
-</div>
-    </body>
+        <img src="{{ url('/logowecode.svg') }}" height="100%" width="100%">
+    </div>
+</body>
 </html>
