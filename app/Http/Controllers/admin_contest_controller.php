@@ -194,7 +194,7 @@ class admin_contest_controller extends Controller
                 ,'question_id' => $current_contest->currentquestion_id
                 ])->get();
         
-        $data['correct_answer'] = $current_contest->current_questions->correct_answer->abcd;
+        $data['correct_answer'] = $current_contest->current_questions->correct_answer->first()->abcd;
         $data['still_active'] = User::where(['admin'=>0,'active'=>1])->count();
         for($i = 'A'; $i <= 'D'; $i++){
             $data[$i] = $current_history->filter(function($value, $key){
@@ -203,7 +203,7 @@ class admin_contest_controller extends Controller
                         )->count();
         }
 
-        return view('ShowStatistic',['A' => $A, 'B' => $B, 'C' => $C, 'D' => $D]);
+        return view('ShowStatistic',$data);
     }
 
 

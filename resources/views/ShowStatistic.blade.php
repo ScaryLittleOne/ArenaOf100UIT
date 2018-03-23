@@ -24,24 +24,37 @@
       </tr>
     </thead>
     <tbody>   
-      <tr class="success">
+      <tr>
         <td>A</td>
         <td>{!!$A!!}</td>
       </tr>
-      <tr class="danger">
+      <tr>
         <td>B</td>
         <td>{!!$B!!}</td>
       </tr>
-      <tr class="info">
+      <tr>
         <td>C</td>
         <td>{!!$C!!}</td>
       </tr>
-      <tr class="warning">
+      <tr>
         <td>D</td>
         <td>{!!$D!!}</td>
       </tr>
     </tbody>
   </table>
+  <br>
+  <table class="table table-striped table-bordered" style="margin-top: 15px; background: white;">
+    <thead>
+      <tr>
+        <th>Số người chơi còn lại</th>
+        <th>Số người chơi không trả lời</th>
+      </tr>
+    </thead>
+    <tbody>  
+        <td>{!!$still_active!!}</td>
+          <td>{!!$still_active - ($A + $B + $C + $D)!!}</td>
+     </tbody>
+  </table>   
 </div>
 <script src="{{ asset('js/app.js') }}">
     </script>
