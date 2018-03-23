@@ -51,7 +51,7 @@ class admin_contest_controller extends Controller
 
     public function disable_user_with_wrong_answer_for_current_question(){
         $current_question = Contest::where('active', 1)->first()->current_questions()->first();
-        
+        if ($current_question->id ==1) return ;
         //Disable every single non-admin and still active user
         User::where(['admin'=>0,'active'=>1])->update(['active'=>0]); 
 
