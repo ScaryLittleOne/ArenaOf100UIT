@@ -34,21 +34,6 @@ class admin_contest_controller extends Controller
     	return view('AdminContest',['questions' => $questions, 'questionc' => $questionc, 'cont' => $cont]);
     }
 
-    /*public function change(Request $request, Contest $contest){
-    	var_dump($request->id);
-    	///Doi cau hoi hien tai trong table contest
-    	///
-        //$contest = new Contest;
-        //$contest = Contest::find($request['contest_id']);
-        $contest_id = $request['contest_id'];
-        $contest->active = true;
-        $contest->currentquestion_id = $request->id;
-    	return $this->index();
-    	$questions = Question::all();
-        $questioncurrent = DB::table('contests')->where('active','=',true)->get();
-    	return view('AdminContest',compact('questions'),compact('questioncurrent'));
-    }*/
-
     public function disable_user_with_wrong_answer_for_current_question(){
         $current_question = Contest::where('active', 1)->first()->current_questions()->first();
         if ($current_question->id ==1) return ;
@@ -56,8 +41,8 @@ class admin_contest_controller extends Controller
         User::where(['admin'=>0,'active'=>1])->update(['active'=>0]); 
 
         //Re-enable users with correct answer
-        foreach (History::where('question_id', $current_question->id) as $hist){
-            if($hist->question_answer->abcd == $current_question->correct_answer->abcd){
+        foreach (History::where('question_id', $current_question->id)->get() as $hist){
+            if($hist->question_answer->abcd == $current_question->correct_answer->first()->abcd){
                 $hist->user->active = 1;
                 $hist->user->save();
             }
