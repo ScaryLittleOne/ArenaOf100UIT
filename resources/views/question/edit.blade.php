@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Danh sách câu hỏi')
+@section('title','Danh Sách Câu Hỏi')
 @section('style')
 @stop
 @section('content')
@@ -8,10 +8,10 @@
     Quản trị viên
   </button>
   <div class="dropdown-menu">
-  <a class="dropdown-item" href="/questions">Quản lí đề thi</a>
+  <a class="dropdown-item" href="/questions">Quản Lí Đề Thi</a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="/users" > Quản lí sinh viên </a>
-  <a class="dropdown-item" href="/contest" > Vào đấu trường </a>
+  <a class="dropdown-item" href="/users" > Quản Lí Sinh Viên </a>
+  <a class="dropdown-item" href="/contest" > Vào Đấu Trường </a>
   
 </div>
 </div>
@@ -56,7 +56,7 @@
       </div>
     <div class="form-group">
         <div class="col-md-4">
-          {{ Form::submit('Chỉnh sửa câu hỏi', ['class' => 'btn  btn-primary form-control']) }}
+          {{ Form::submit('Chỉnh Sửa Câu Hỏi', ['class' => 'btn  btn-primary form-control']) }}
         </div>
       </div>
     {{ Form::close() }}

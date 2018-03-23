@@ -49,36 +49,64 @@ class admin_contest_controller extends Controller
     	return view('AdminContest',compact('questions'),compact('questioncurrent'));
     }*/
 
+    public function disable_user_with_wrong_answer_for_current_question(){
+        $current_question = Contest::where('active', 1)->first()->current_questions()->first();
+        
+        //Disable every single non-admin and still active user
+        User::where(['admin'=>0,'active'=>1])->update(['active'=>0]); 
+
+        //Re-enable users with correct answer
+        foreach (History::where('question_id', $current_question->id) as $hist){
+            if($hist->question_answer->abcd == $current_question->correct_answer->abcd){
+                $hist->user->active = 1;
+                $hist->user->save();
+            }
+        }
+    }
+
     public function change(Request $request)//Request $request){//Chua Test
     {
         //checkuser
-        $checks = History::select('histories.*','users.id','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
-            ->join('users','user_id','=','users.id')
-            ->join('questions','question_id','=','questions.id')
-            ->join('questions_answers','questions_answer_id','=','questions_answers.id')
-            ->groupBy('histories.id')
-            ->get();
-        $corrects = DB::table('questions_answers')->where('id','=',$request->id)->get();
-        $co = new Questions_answer();
-        foreach($corrects as $correct)
+
+        if (true){
+            $this->disable_user_with_wrong_answer_for_current_question();
+        } else 
         {
-            if($correct->correct == true) $co=$correct;
-        }
-        foreach ($checks as $check) 
-        {
-            if($check->abcd!=$co->abcd)
+            $checks = History::select('histories.*','users.id','questions.content','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
+                ->join('users','user_id','=','users.id')
+                ->join('questions','question_id','=','questions.id')
+                ->join('questions_answers','questions_answer_id','=','questions_answers.id')
+                ->groupBy('histories.id')
+                ->get();
+            $corrects = DB::table('questions_answers')->where('id','=',$request->id)->get();
+            $co = new Questions_answer();
+            foreach($corrects as $correct)
+            {
+                if($correct->correct == true) $co=$correct;
+            }
+            foreach ($checks as $check) 
             {
                 //var_dump($check);
                 $us = User::find($check->user_id)->first();
                 $us->active=0;
                 $us->save();
             } 
+                if($check->abcd!=$co->abcd)
+                {
+                    //var_dump($check);
+                    $us = User::find($check->user_id)->first();
+                    $us->active=false;
+                    $us->save();
+                } 
         }
-        
+        Contest::where(['active'=>true])
+                ->update(['currentquestion_id'=> $request->id,'startcurrentquestion'=> now()]);
+        //$cont = DB::table('contests')->where('active','=',true)->update(['startcurrentquestion'=> now()]);       
+        return $this->index();
+
         $cont = DB::table('contests')->where('active','=',true)->update(['currentquestion_id'=> $request->id]);
         $now = now();
         $cont = DB::table('contests')->where('active','=',true)->update(['startcurrentquestion'=> $now]);
-        return $this->index();
     }
     public function changecontest(Request $request)
     {
@@ -161,6 +189,7 @@ class admin_contest_controller extends Controller
         return view('ShowStatistic',['A' => $A, 'B' => $B, 'C' => $C, 'D' => $D]);
     }
 
+
     public function show_history(){//Chuc Nang Cua Admin ->Show Toan Bo Lich Su Thi Dau
         $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
             ->join('users','user_id','=','users.id')
@@ -168,6 +197,10 @@ class admin_contest_controller extends Controller
             ->join('questions_answers','questions_answer_id','=','questions_answers.id')
             ->groupBy('histories.id')
             ->get();
+        $(function () 
+        {
+            $('MergeHistory').DataTable();
+        } );
         //$MergeHistory = History::all();
         return view('ShowHistory',compact('MergeHistory') );
     }

@@ -4,13 +4,13 @@
 
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Quản trị viên
+    Quản Trị Viên
   </button>
   <div class="dropdown-menu">
-  <a class="dropdown-item" href="/questions">Quản lí đề thi</a>
+  <a class="dropdown-item" href="/questions">Quản Lí Đề Thi</a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="/users" > Quản lí sinh viên </a>
-  <a class="dropdown-item" href="/contest" > Vào đấu trường </a>
+  <a class="dropdown-item" href="/users" > Quản Lí Sinh Viên </a>
+  <a class="dropdown-item" href="/contest" > Vào Đấu Trường </a>
   
 </div>
 </div>

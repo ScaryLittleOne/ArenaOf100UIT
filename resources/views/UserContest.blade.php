@@ -23,29 +23,40 @@
 <script type="text/javascript">
 	
    $(window).ready( function(){
-        var ryry = setInterval( function() 
-        {
-        	time_dest--;
-
-        	console.log(time_dest);
-        	$('#time_dest').html(time_dest);
+   	time_start = new Date();
+        var ryry = setInterval( function() {
             $.ajax({
-		type: 'GET',
-		url: "{{ url ('/time')}}",
+				type: 'GET',
+				url: "{{ url ('/time')}}",
 
-		success: function (response) 
-		{
-			 var res=response.split("\n");
-			 if (res[1]!={!!$question->id!!}){
-			 	location.reload();
-			 }
+				success: function (response) 
+				{
+					 var res=response.split("\n");
+					 if (res[1]!={!!$question->id!!}) 
+					 	{
+					 		location.reload();
+					 	}
+					 else {
+					 	// time_start = new Date();
+					 	//$('#time_dest').html(time_count(res[3],res[2]));
+				 		// // console.log("res3" + Date.parse(res[3]));
+				 		// // console.log("res2" + Date.parse(res[2]));
+					 	//  var thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server 
+					 	//  	= (new Date(res[3])) - (new Date(res[2]));
+					 	// // console.log(thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server);
+					 	//  time_start = (new Date()) - thoi_gian_da_qua_la_nhu_nhau_voi_moi_may_ca_client_lan_server;
+					 	// // console.log(time_start.toISOString);
 
-		}
-	});
-          },1000);
+					 }
+
+				}
+			});
+    		console.log((new Date()));
+            $("#time_dest").html(Math.floor((new Date() - time_start)/1000)) ;
+    	},1000);
 
       function time_count(time_begin, time_curr) {
-        time_limit = 10;
+        time_limit = 30;
         spl_time_begin = time_begin.split("-");
         spl_time_curr = time_curr.split("-");
         time_begin = new Date(spl_time_begin[0],spl_time_begin[1],spl_time_begin[2],spl_time_begin[3],spl_time_begin[4],spl_time_begin[5]);
@@ -59,8 +70,10 @@
 
 </script>
 <center>
-<button class="dongho" id="time_dest">
-  
+<button class="dongho" >
+  <div id="time_dest">
+  	
+  </div>
 </button>
 </center>
 
@@ -68,16 +81,21 @@
 <i>	{!!$question->content!!}</i>
 </button>
  {!!Form::open(['method'=>'POST', 'route'=>'usertransmit_answer']) !!}
-@foreach($answers as $answer)  
+  <input name="user_id" type="hidden" value="{{$user->id}}">
+  <input name="contest_id" type="hidden" value="{{$contest_id}}">
+  <input name="question_id" type="hidden" value="{{$question->id}}">
 
+@foreach($answers as $answer)  
 <div id="check">
-	 <input id="dapan" name="dapan" type="radio" value="{{$answer->id}}"> 
-	 <label class="dapan" for="dapan" >{{$answer->content}}</label>
+	 <input id="question_answer_id" name="question_answer_id" type="radio" value="{{$answer->id}}"> 
+	 <label class="question_answer_id" for="question_answer_id" >{{$answer->content}}</label>
 </div>
  
 @endforeach
 <br>
-<center><button type="submit" class="btn btn-success ">Đây là đáp án cuối cùng của tôi</button></center>
+<center>
+<button type="submit" class="btn btn-success ">Đây là đáp án cuối cùng của tôi</button>
+</center>
 </form>
 <script src="{{ asset('js/app.js') }}">
     </script>

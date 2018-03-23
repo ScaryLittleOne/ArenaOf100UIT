@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class History extends Model
 {
+    
+    protected $fillable = ['user_id',     'contest_id',     'question_id',     'questions_answer_id'];
+    
     public function user()
     {
 
@@ -27,7 +30,7 @@ class History extends Model
     public function question_answer()
     {
     	
-    	return $this->belongsTo('App\Questions_answer');
+    	return $this->belongsTo('App\Questions_answer', 'questions_answer_id', 'id');
     }
 }
 
