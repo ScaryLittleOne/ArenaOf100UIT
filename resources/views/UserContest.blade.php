@@ -79,7 +79,7 @@
 </button>
 </center>
 
-<button type="button" class="btn btn-info btn-lg btn-block mt-4" style="padding: 20px 20px;">
+<button type="button" style="padding: 20px 20px; border-radius: 20px;">
 <i>	{!!$question->content!!}</i>
 </button>
  {!!Form::open(['method'=>'POST', 'route'=>'usertransmit_answer']) !!}

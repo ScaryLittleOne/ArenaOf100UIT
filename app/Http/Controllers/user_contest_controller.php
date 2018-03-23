@@ -100,7 +100,7 @@ class user_contest_controller extends Controller
                     'questions_answer_id' => $request['questions_answer_id'],
                     'question_id' => $request['question_id']
                     ]);
-                
+                return redirect('usercontest');  
             }
         }
         if ($x==true){
