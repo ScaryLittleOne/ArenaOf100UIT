@@ -7,10 +7,10 @@
     Quản Trị Viên
   </button>
   <div class="dropdown-menu">
-  <a class="dropdown-item" href="/questions">Quản Lí Đề Thi</a>
+  <a class="dropdown-item" href="{{url('/questions')}}">Quản Lí Đề Thi</a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="/users" > Quản Lí Sinh Viên </a>
-  <a class="dropdown-item" href="/contest" > Vào Đấu Trường </a>
+  <a class="dropdown-item" href="{{url('/users')}}" > Quản Lí Sinh Viên </a>
+  <a class="dropdown-item" href="{{url('/contest')}}" > Vào Đấu Trường </a>
   
 </div>
 </div>

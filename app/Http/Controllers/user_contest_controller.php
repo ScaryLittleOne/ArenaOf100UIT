@@ -19,19 +19,15 @@ class user_contest_controller extends Controller
         $this->middleware('checkactive');
     }
     public function index(){
-        $C = DB::table('contests')->where('active','=',true)->first();
-        $question = DB::table('questions')->where('id','=',$C->currentquestion_id)
-            //->where('contest_id','=',$C->id)
-            ->first();
-          if ($question->id==1) {
-            return(view('usercontest.show'));
-          }
-        $answers = DB::table('questions_answers')
-            ->where('question_id','=',$question->id)
-            ->get(); 
-        
+        $contest=Contest::where('active', 1)->first();
+        $question=$contest->current_questions()->first();
+        if ($question->id==1) return view('usercontest.show');        
         return view('UserContest',
-            ['contest_id' => $C->id, 'user' => Auth::user(), 'question' => $question, 'answers' => $answers]
+            ['contest_id' => $contest->id, 
+             'user' => Auth::user(), 
+              'question' => $question, 
+              'answers' => $question->questions_answers()->get() 
+            ]
         );
 
         return view('UserContest',compact('question'),compact('answers'));
@@ -39,43 +35,14 @@ class user_contest_controller extends Controller
     }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History
         $currentcontest=Contest::where('active', 1)->first();
-        if ($currentcontest->current_questions()->first()->id!=$request['question_id']) return view('errors.500');
+        if ($currentcontest->current_questions()->first()->id!=$request['question_id']) return redirect('usercontest');
        
         $time_question=$currentcontest->startcurrentquestion;//tg bat dau cau hoi
-        // echo("thoi gian bd".$time_question) ; 
-         $arr2=preg_split("/\ /",$time_question);
-         $arr_day_question=preg_split("/\-/",$arr2[0]);
-         $arr_time_question=preg_split("/\:/",$arr2[1]);
-         $time_answer=now();//tg tra loi
-         //echo("tg tra loi".$time_answer);
-         $arr=preg_split("/\ /",$time_answer);
-         $arr_day_answer=preg_split("/\-/",$arr[0]);
-         $arr_time_answer=preg_split("/\:/",$arr[1]);
-        if ($arr_time_question[2]+env('TIME_LIMIT')<60) $arr_time_question[2]+=env('TIME_LIMIT');
-        else {
-            $arr_time_question[2]=env('TIME_LIMIT')-(60-$arr_time_question[2]);
-            if ($arr_time_question[1]+1<60) $arr_time_question[1]+=1;
-            else {
-                $arr_time_question[1]=0;
-                $arr_time_question[0]+=1;
-            }
-        }
-        
-        if ($arr_time_answer[0]<$arr_time_question[0] ) $x=true;
-        else {
-            if ($arr_time_answer[0]==$arr_time_question[0] ){  
-                if ($arr_time_answer[1]<$arr_time_question[1]) $x=true;
-                else {
-                    if ($arr_time_answer[1]==$arr_time_question[1] ){
-                        if ($arr_time_answer[2]<=$arr_time_question[2]){
-                            $x=true;
-                        }
-                        else $x=false;
-                    }else $x=false;
-                }
-            }
-            else $x=false; 
-        } 
+        $time_question=strtotime($time_question);
+        $time_answer=strtotime("now");
+        $interval=$time_answer-$time_question;
+        if ($interval<=env('TIME_LIMIT')) $x=1;
+        else $x=0;
         $old_history = History::where([
             'user_id' => $request['user_id'],
             'contest_id' => $request['contest_id'],

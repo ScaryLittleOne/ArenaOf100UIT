@@ -43,3 +43,6 @@ Route::get('/logout', function () {
 });
 
 Route::get('time','user_contest_controller@time');
+Route::get('die',function(){
+	return view('errors.500');
+});
