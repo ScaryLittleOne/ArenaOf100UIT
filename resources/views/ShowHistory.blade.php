@@ -29,25 +29,14 @@
                    <th>MSSV Của Người Chơi</th>
                    <th>Câu Hỏi</th>
                    <th>Câu Trả Lời</th>
-                   <!--<script>
-                   $(document).ready(function() {
-                    $('MergeHistory').DataTable( {
-                    data: History,
-                    columns: [
-                    { title: "Số thứ tự" },
-                    { title: "Thứ tự cuộc thi" },
-                    { title: "Mssv người chơi" },
-                    { title: "Câu hỏi" },
-                    { title: "Câu trả lời" }
-                ]
-                  } );
-                </script>-->
+                   <th>Cập nhật lần cuối</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php $k=0 ?>
+{{-- 
+
                   @foreach($MergeHistory as $MH)
-                    <?php $k++ ?>
+
                     <tr>
                     <td> {!!$k!!}  </td>
                     <td>{!! $MH-> contest_id !!}</td>
@@ -56,6 +45,17 @@
                     <td>{!! $MH-> abcd !!}</td>
                     </tr>
                   @endforeach
+--}}
+                    @foreach ($history as $ht)
+                      <tr>
+                        <td> {{ $loop->iteration }}  </td>
+                      <td> {{ $ht->contest_id }}</td>
+                      <td> {{ $ht->user->username }}</td>
+                        <td>{{ $ht->question->content }}</td>
+                      <td> {{ $ht->question_answer->abcd }}</td>
+                      <td> {{ $ht->updated_at }}</td>
+                      </tr>
+                    @endforeach
                 </tbody>
               </table>
               <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
