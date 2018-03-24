@@ -3,7 +3,7 @@
         var ryry = setInterval( function() {
             $.ajax({
 				type: 'GET',
-				url: "/time",
+				url: urll,
 				success: function (response) 
 				{
 					var res=response.split("\n");

@@ -24,12 +24,16 @@
 <center>
     <div class="flex-center position-ref full-height">
     <div id="chaomung">
-        <img style="margin-bottom: 40px;" src="{{ url('/dautruong100.png') }}" height="100%" width="100%">
+        <img style="margin-bottom: 40px;" src="{{ url('/dautruong100.png') }}" height="80%" width="80%">
     </div>
-	<h1>BẠN ĐÃ SAI, KẾT THÚC ĐẤU TRƯỜNG</h1> <br>
-    <h2>XIN CHÀO VÀ HẸN GẶP LẠI</h2>
-    <h1>♥</h1>
+
+	<h2>CHÚC MỪNG THÍ CHỦ ĐÃ LÊN BẢNG, XIN VUI LÒNG CHỜ HỒI SINH</h2> <br>
+    <h1>♥</h1><br>
+    <a class="btn btn-primary pt-2" href="{{url('/')}}">
+    <h5>quay lại sảnh chờ</h5>
+</a>
     </div>
+    
 </center>
 </body>
 </html>

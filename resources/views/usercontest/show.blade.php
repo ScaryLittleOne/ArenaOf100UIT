@@ -2,7 +2,11 @@
 @section('title','Đấu trường ánh sáng')
 @section('content')
 
+<<<<<<< HEAD
 <script src="{{ url('/jquery.min.js') }}"></script>
+=======
+<script src="{{url('/jquery.min.js')}}"></script>
+>>>>>>> master
 <center><h1>CUỘC THI CHƯA BẮT ĐẦU</h1></center>
 <script type="text/javascript">
 	
