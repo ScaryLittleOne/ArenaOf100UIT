@@ -52,12 +52,16 @@ class user_contest_controller extends Controller
 
         if ($old_history->get()->count() == 0){
 
-            if ($x == true) History::create(        [
+            if ($x == true) {
+                 History::create(        [
                 'user_id' => $request['user_id'],
                 'contest_id' => $request['contest_id'],
                 'questions_answer_id' => $request['questions_answer_id'],
                 'question_id' => $request['question_id'],
                 ]);
+                return redirect('usercontest');
+            } 
+            else return view('errors.500');
         } else {
             if ($x == true) {
                 $old_history->update(        [
@@ -66,13 +70,10 @@ class user_contest_controller extends Controller
                     'questions_answer_id' => $request['questions_answer_id'],
                     'question_id' => $request['question_id']
                     ]);
-                return redirect('usercontest');  
             }
+            return redirect('usercontest');
         }
-        if ($x==true){
-        return redirect('usercontest');  
-        }
-        else  return view('errors.500');
+        return redirect('usercontest');
 }
     
 

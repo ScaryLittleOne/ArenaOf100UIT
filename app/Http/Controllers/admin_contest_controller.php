@@ -101,12 +101,17 @@ class admin_contest_controller extends Controller
 
 
     public function show_history(){//Chuc Nang Cua Admin ->Show Toan Bo Lich Su Thi Dau
-        $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
-            ->join('users','user_id','=','users.id')
-            ->join('questions','question_id','=','questions.id')
-            ->join('questions_answers','questions_answer_id','=','questions_answers.id')
-            ->groupBy('histories.id')
-            ->get();
+        //Lay Duoc Cau Hoi Hien Tai Dua Tren Contest_CQ va Contest.Active
+        if (1 == 2) {
+            $MergeHistory = History::select('histories.*','users.username','questions.content as QT','questions_answers.*')  
+                ->join('users','user_id','=','users.id')
+                ->join('questions','question_id','=','questions.id')
+                ->join('questions_answers','questions_answer_id','=','questions_answers.id')
+                ->groupBy('histories.id')
+                ->get();
+        } else {
+            return view('ShowHistory', ['history' => History::all()]);
+        }
         return view('ShowHistory',compact('MergeHistory') );
     }
 }

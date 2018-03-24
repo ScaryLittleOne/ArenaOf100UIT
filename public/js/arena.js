@@ -30,9 +30,11 @@
 					}
 				},
 				error: function(request, status, error)
-				{
-					if (status==500) 
-						 window.location.replace('/die');
+				{	
+
+					if (request.status==500) 
+						{
+						 window.location.replace('/die');}
 				}
 			});
     		
