@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('title','Lịch Sử Cuộc Thi')
 @section('content')
-<link href="{{ url('css/jquery.dataTables.min.css') }}" rel="stylesheet">
+{{--  <link href="{{ url('css/jquery.dataTables.min.css') }}" rel="stylesheet">  --}}
+<link href="{{ url('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 <div class="dropdown mb-4">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Quản Trị Viên
