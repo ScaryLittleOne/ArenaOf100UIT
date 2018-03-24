@@ -5,7 +5,7 @@
 @stop
 @section('content')
 
-<script src="{{ url('/jquery.min.js')}}"></script>
+
 <script type="text/javascript">
 	var question_id = {!!$question->id!!};
 	var timelimit= {!! env('TIME_LIMIT', 30) !!};
