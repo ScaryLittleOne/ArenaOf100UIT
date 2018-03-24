@@ -2,9 +2,6 @@
 @section('title','Đấu trường ánh sáng')
 @section('content')
 
-
-<script src="{{ url('/jquery.min.js') }}"></script>
-
 <center><h1>CUỘC THI CHƯA BẮT ĐẦU</h1></center>
 <script type="text/javascript">
 	
@@ -31,7 +28,4 @@
 
 
 </script>
-
-<script src="{{ asset('js/app.js') }}">
-    </script>
 @stop
