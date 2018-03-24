@@ -9,6 +9,7 @@
 <script type="text/javascript">
 	var question_id = {!!$question->id!!};
 	var timelimit= {!! env('TIME_LIMIT', 30) !!};
+  var urll = "{{url('/time')}}";
 </script>
 <script type="text/javascript" src="{{url('/js/arena.js')}}"></script>
 
