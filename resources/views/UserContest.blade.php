@@ -4,8 +4,6 @@
 <link rel="stylesheet" type="text/css" href="{{url('/dongho.css')}}">
 @stop
 @section('content')
-
-
 <script type="text/javascript">
 	var question_id = {!!$question->id!!};
 	var timelimit= {!! env('TIME_LIMIT', 30) !!};
