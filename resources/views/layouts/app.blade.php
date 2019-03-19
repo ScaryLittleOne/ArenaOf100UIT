@@ -27,7 +27,7 @@
                 @yield('name')
             </div>
             <div class="chaomung">
-                <a href="{{url('/')}}">
+                <a href="{{url('/home')}}">
                 <img src="{{ url('/dautruong100.png') }}" width="50%"></a>
                 
             </div>
