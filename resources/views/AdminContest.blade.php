@@ -40,17 +40,6 @@
   <input class="form-control" name="id" type="hidden" value="{{ $cont->id }}" >
     {!! Form::submit('Thống Kê Đáp Án', ['class'=>'btn btn-info', 'onclick'=>'return confirm("Bạn có muốn xem thống kê đáp án của câu hỏi hiện tại?")']) !!}
   {!! Form::close() !!}-->
-  <div class="dropdown mb-4">
-  <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Các chức năng
-  </button>
-  <div class="dropdown-menu">
-  <a class="dropdown-item" href="{{url('/statistic')}}">Thống kê đáp án</a>
-  <a class="dropdown-item" href="{{url('/history')}}">Xem lịch sử</a>
-  </div>
-</div>
-    
-
   <!--$questioncurrent->content; -->
   <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
   <thead>
