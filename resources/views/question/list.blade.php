@@ -14,7 +14,6 @@
   <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm Câu Hỏi</a>
   <div class="dropdown-divider"></div>
   <a class="dropdown-item" href="{{url('/users')}}" > Quản Lí Sinh Viên </a>
-  <a class="dropdown-item" href="{{url('/admincontest')}}" > Vào Đấu Trường </a>
   
   </div>
 </div>

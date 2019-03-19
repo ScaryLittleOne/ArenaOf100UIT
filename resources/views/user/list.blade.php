@@ -1,13 +1,6 @@
 @extends('layouts.app')
 @section('title','Danh Sách Sinh Viên')
-<!-- 
-@section('name')
-
-@stop
-!-->
 @section('style')
-
-
 @stop
 @section('content')
 <div class="dropdown mb-4">
@@ -18,7 +11,6 @@
   <a class="dropdown-item" href="{{route('users.create')}}">Thêm Sinh Viên</a>
   <div class="dropdown-divider"></div>
   <a class="dropdown-item" href="{{url('/questions')}}" > Quản Lí Đề thi </a>
-  <a class="dropdown-item" href="{{url('/admincontest')}}" > Vào Đấu Trường </a>
   
 </div>
 </div>
@@ -95,5 +87,4 @@
         </div>
     <script src="{{ asset('js/app.js') }}">
     </script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 @stop

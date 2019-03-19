@@ -13,8 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{url('/layout.css')}}">
-
-    @yield('style')
+    <style type="text/css">
+    @yield('style');
+    </style>
 </head>
 <body>
 <script src="{{ url('/jquery.min.js')}}"></script>
@@ -26,20 +27,20 @@
                 @yield('name')
             </div>
             <div class="chaomung">
-                    <img src="{{ url('/dautruong100.png') }}" height="50%" width="50%">
+                <a href="{{url('/home')}}">
+                <img src="{{ url('/dautruong100.png') }}" width="50%"></a>
+                
             </div>
         </div>
-
-            
-        <!-- Left Side Of Navbar -->
         
-
-        <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ml-auto">
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-light ">
+    <!-- Right Side Of Navbar -->
+    <ul class="navbar-nav ml-auto">
             @guest
             @else 
                 @if ( Auth::user()->admin == 1)
-                    <li class="nav-item"><a class="btn btn-info" href="{{ url('/admincontest') }}">Vào đấu trường</a></li>
+                    <li class="nav-item"><a class="btn btn-danger" href="{{ url('/admincontest') }}">Vào đấu trường</a></li>
                     <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Thống kê</a></li>
                     <li class="nav-item"><a class="btn btn-info" href="{{ url('/history') }}">Lịch sử</a></li>
                 @endif
@@ -47,8 +48,7 @@
             @endguest
         </ul>
     </nav>
-
-    <div class="container-fluid">
+    <div class="container">
         @yield('content')
     </div>
 

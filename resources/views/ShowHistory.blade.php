@@ -8,9 +8,6 @@
     Quản Trị Viên
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="{{ url('/statistic') }}" > Thống Kê Đáp Án </a>
-    <a class="dropdown-item" href="{{ url('/admincontest') }}" > Vào Đấu Trường </a>
-    <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{url('/users')}}">Quản Lí Sinh Viên</a>
     <a class="dropdown-item" href="{{url('/questions')}}" > Quản Lí Đề Thi </a>
   </div>

@@ -2,7 +2,7 @@
 @section('title','Đấu trường ánh sáng')
 @section('content')
 
-<center><h1>CUỘC THI CHƯA BẮT ĐẦU</h1></center>
+<center><h1 style="color:white;margin-top:10%;">CUỘC THI CHƯA BẮT ĐẦU</h1></center>
 <script type="text/javascript">
 	
    $(window).ready( function(){
