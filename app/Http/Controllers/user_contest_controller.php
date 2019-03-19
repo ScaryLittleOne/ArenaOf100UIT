@@ -48,10 +48,11 @@ class user_contest_controller extends Controller
         $time_answer=strtotime("now");
         $interval=$time_answer-$time_question;
         
-        if ($old_history->get()->count() == 0) $ham_thuc_hien = History::create;
-        else $ham_thuc_hien = $old_history->update;
+        if ($old_history->get()->count() == 0) $ham_thuc_hien = 'App\History::create';
+        else $ham_thuc_hien = array($old_history, 'update');
         
         if ($interval<=env('TIME_LIMIT')) {
+            // History::create(        [
             $ham_thuc_hien(        [
                 'user_id' => $request['user_id'],
                 'contest_id' => $request['contest_id'],
