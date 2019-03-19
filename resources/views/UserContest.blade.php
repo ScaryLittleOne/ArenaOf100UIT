@@ -1,18 +1,17 @@
 @extends('layouts.app')
 @section('title','Đấu trường ánh sáng')
 @section('style')
-<link rel="stylesheet" type="text/css" href="{{url('/dongho.css')}}">
 @stop
 @section('content')
 <script type="text/javascript">
 	var question_id = {!!$question->id!!};
-	var timelimit= {!! env('TIME_LIMIT', 30) !!};
+	var timelimit= {!! env('TIME_LIMIT', 1000) !!};
   var urll = "{{url('/time')}}";
 </script>
 <script type="text/javascript" src="{{url('/js/arena.js')}}"></script>
 
 <center>
-<button class="dongho" >
+<button class="btn btn-outline-secondary" >
   <div id="time_dest">
   	
   </div>
