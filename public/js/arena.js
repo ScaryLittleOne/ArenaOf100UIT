@@ -38,7 +38,8 @@
 				}
 			});
     		
-    	},2000);
+    	},1800);
+    	// },2000);
 
     	//console.log(time_start);
     	var dongho = setInterval(function(){
