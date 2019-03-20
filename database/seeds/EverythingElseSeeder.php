@@ -48,6 +48,7 @@ class EverythingElseSeeder extends Seeder
             'currentquestion_id' => 1  ,
             'active' => 1
         ]);
+        for($i = 0; $i < 20; $i++)
         DB::table('contests')->insert([
             'currentquestion_id' => 1,
             'active' => 0
