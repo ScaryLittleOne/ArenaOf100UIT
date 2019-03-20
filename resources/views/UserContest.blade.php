@@ -31,8 +31,8 @@
 
 @foreach($answers as $answer)  
 <div id="check" >
-   <div class="input-group-btn" data-toggle="buttons">
-    <label class="btn btn-light active question_answer_id" for="questions_answer_id" style="text-align:left;width: 100%;white-space:inherit;">
+   <div class="btn-group btn-group-toggle" data-toggle="buttons" style="width: 100%;">
+    <label class="btn btn-light active" for="questions_answer_id" style="text-align:left;width: 100%;white-space:inherit;">
       <input name="questions_answer_id" value="{{$answer->id}}" type="radio" name="options" id="question_answer_id" autocomplete="off" checked>{{$answer->content}}
     </label>
    </div>

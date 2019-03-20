@@ -24,16 +24,22 @@ class user_contest_controller extends Controller
         if ($question->id==1) return view('usercontest.show');        
         return view('UserContest',
             ['contest_id' => $contest->id, 
-             'user' => Auth::user(), 
-              'question' => $question, 
-              'answers' => $question->questions_answers()->get() 
+            'user' => Auth::user(), 
+            'question' => $question, 
+            'answers' => $question->questions_answers()->get() 
             ]
         );
-
+    
         return view('UserContest',compact('question'),compact('answers'));
-
+    
     }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History
+        $old_history = History::where([
+            'user_id' => $request['user_id'],
+            'contest_id' => $request['contest_id'],
+            'question_id' => $request['question_id']
+        ]);
+    
         $currentcontest=Contest::where('active', 1)->first();
         if ($currentcontest->current_questions()->first()->id!=$request['question_id']) return redirect('usercontest');
        
@@ -41,38 +47,33 @@ class user_contest_controller extends Controller
         $time_question=strtotime($time_question);
         $time_answer=strtotime("now");
         $interval=$time_answer-$time_question;
-        if ($interval<=env('TIME_LIMIT')) $x=1;
-        else $x=0;
-        $old_history = History::where([
-            'user_id' => $request['user_id'],
-            'contest_id' => $request['contest_id'],
-            'question_id' => $request['question_id']
-        ]);
         
-
-        if ($old_history->get()->count() == 0){
-
-            if ($x == true) {
-                 History::create(        [
+        if ($old_history->get()->count() == 0) $ham_thuc_hien = 'App\History::create';
+        else $ham_thuc_hien = array($old_history, 'update');
+        
+        if ($interval<=env('TIME_LIMIT')) {
+            // History::create(        [
+            $ham_thuc_hien(        [
                 'user_id' => $request['user_id'],
                 'contest_id' => $request['contest_id'],
                 'questions_answer_id' => $request['questions_answer_id'],
-                'question_id' => $request['question_id'],
-                ]);
-                return redirect('usercontest');
-            } 
-            else return view('errors.500');
-        } else {
-            if ($x == true) {
-                $old_history->update(        [
-                    'user_id' => $request['user_id'],
-                    'contest_id' => $request['contest_id'],
-                    'questions_answer_id' => $request['questions_answer_id'],
-                    'question_id' => $request['question_id']
-                    ]);
-            }
-            return redirect('usercontest');
+                'question_id' => $request['question_id']
+            ]);
         }
+            // return redirect('usercontest');
+            
+            // if ($interval<=env('TIME_LIMIT')) $x=1;
+            // else $x=0;
+            // if ($x == true) {
+            //      History::create(        [
+            //     'user_id' => $request['user_id'],
+            //     'contest_id' => $request['contest_id'],
+            //     'questions_answer_id' => $request['questions_answer_id'],
+            //     'question_id' => $request['question_id'],
+            //     ]);
+            // } 
+            // return redirect('usercontest');
+    
         return redirect('usercontest');
 }
     
