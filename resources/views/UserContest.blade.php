@@ -37,8 +37,11 @@
     </label>
    </div>
 </div>
- 
+
 @endforeach
+<p class="card-text">
+  {!!$choosen_answer!!}
+</p>
 <br>
 <center>
 <input type="submit" class="btn btn-success " value="Đây là đáp án cuối cùng của tôi" />
