@@ -49,7 +49,8 @@ class admin_contest_controller extends Controller
         $this->disable_user_with_wrong_answer_for_current_question();
         Contest::where(['active'=>true])
                 ->update(['currentquestion_id'=> $request->id,'startcurrentquestion'=> now()]);
-        return $this->index();
+        $link='admincontest#question' . strval($request->id);
+        return redirect($link);
 
     }
     public function changecontest(Request $request)
