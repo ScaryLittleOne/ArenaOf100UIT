@@ -23,6 +23,7 @@ class admin_contest_controller extends Controller
     	$questions = Question::all();
         $cont = DB::table('contests')->where('active','=',true)->first();
         $questionc = DB::table('questions')->where('id','=',$cont->currentquestion_id)->first();
+
     	return view('AdminContest',['questions' => $questions, 'questionc' => $questionc, 'cont' => $cont]);
     }
 
@@ -94,7 +95,13 @@ class admin_contest_controller extends Controller
                             return $value->question_answer->abcd == $i;
                             }
                         )->count();
+            if ($i==$data['correct_answer'])
+            {
+                $data['number_correct']=$data[$i];
+                $data['number_wrong']=$data['still_active']-$data['number_correct'];
+            }
         }
+
         //return $data['A'];
         return view('ShowStatistic',$data);
     }
