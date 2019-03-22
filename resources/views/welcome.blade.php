@@ -38,7 +38,7 @@
             <div class="content">
             <center>
                 <div id="chaomung">
-                    <img src="{{ url('/dautruong100.png') }}" height="100%" width="100%">
+                    <img src="{{ url('/dautruong100.png') }}" width="80%">
                 </div>
            </center>
             </div>

@@ -3,23 +3,17 @@
 @section('style')
 @stop
 @section('content')
-
-  <table class="table table-bordered table-hover table-condensed" style="margin-top: 15px; background: white;">
-  <thead>
 <div class="dropdown mb-4">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Quản Trị Viên
-  </button>
-  <div class="dropdown-menu">
-  <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm Câu Hỏi</a>
-  <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="{{url('/users')}}" > Quản Lí Sinh Viên </a>
-  
-  </div>
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Quản Trị Viên
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm Câu Hỏi</a>
+            <a class="dropdown-item" href="{{route('users.create')}}">Thêm Sinh Viên</a>
+            <a class="dropdown-item" href="{{url('/questions')}}">Quản Lí Đề Thi</a>
+            <a class="dropdown-item" href="{{url('/users')}}" > Quản Lí Sinh Viên </a>
+        </div>
 </div>
-
-  </thead>
-  </table> 
   <div id="row">
     <div class="col-14">
     <table class="table table-striped table-light">

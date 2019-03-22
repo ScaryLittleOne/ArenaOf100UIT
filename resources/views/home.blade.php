@@ -10,8 +10,6 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><a target="_blank" href="{{url('/users')}}" > Quản Lí User </a></li>
     <li class="list-group-item"><a target="_blank" href="{{url('/questions')}}" > Quản Lí Đề Thi </a></li>
-    <li class="list-group-item"><a target="_blank" href="{{url('/history')}}" > Lịch Sử Trả Lời Đáp Án </a></li>
-    <li class="list-group-item"><a target="_blank" href="{{url('/admincontest')}}" > Vào Đấu Trường </a></li>
   </ul>
 </div>
                 </div>

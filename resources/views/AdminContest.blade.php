@@ -5,18 +5,18 @@
 @stop
 @section('content')
 
-  
-<div class="dropdown mb-4">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Quản Trị Viên
-  </button>
-  <div class="dropdown-menu">
-  <a class="dropdown-item" href="{{url('/users')}}">Quản Lí Sinh Viên</a>
-  <a class="dropdown-item" href="{{url('/questions')}}" > Quản Lí Đề Thi </a>
-  </div>
-</div>
  <!-- thêm thẻ menu vào đây -->
-
+<div class="dropdown mb-4">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Quản Trị Viên
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm Câu Hỏi</a>
+            <a class="dropdown-item" href="{{route('users.create')}}">Thêm Sinh Viên</a>
+            <a class="dropdown-item" href="{{url('/questions')}}">Quản Lí Đề Thi</a>
+            <a class="dropdown-item" href="{{url('/users')}}" > Quản Lí Sinh Viên </a>
+        </div>
+</div>
  {!! Form::open(['method'=>'POST', 'route'=>['/adminchangecontest']]) !!}
    <div class="form-group" style="color: white">
         {!! Form::label('contest_id', 'Chọn Mã Cuộc Thi', ['class'=>'control-label']) !!}

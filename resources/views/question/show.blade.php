@@ -1,19 +1,17 @@
 @extends('layouts.app')
 @section('title',' ')
 @section('content')
-
 <div class="dropdown mb-4">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Quản Trị Viên
-  </button>
-  <div class="dropdown-menu">
-  <a class="dropdown-item" href="{{url('/questions')}}">Quản Lí Đề Thi</a>
-  <a class="dropdown-item" href="{{url('/users')}}" > Quản Lí Sinh Viên </a>
-  
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Quản Trị Viên
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm Câu Hỏi</a>
+            <a class="dropdown-item" href="{{route('users.create')}}">Thêm Sinh Viên</a>
+            <a class="dropdown-item" href="{{url('/questions')}}">Quản Lí Đề Thi</a>
+            <a class="dropdown-item" href="{{url('/users')}}" > Quản Lí Sinh Viên </a>
+        </div>
 </div>
-</div>
-
-<div class="container">
     <div class="row justify-content-center">
         <div>
             <div class="card">
@@ -54,10 +52,7 @@
             </div>
           <!-- O day Nua-->
           </div>
-          </div>
         </div>
-    </div>
-</div>
 @endsection
 <!--Toi Day-->
 
