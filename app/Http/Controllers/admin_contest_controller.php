@@ -137,7 +137,8 @@ class admin_contest_controller extends Controller
             $number_answer_of_user=$current_history[$i]->questions_answer_id;
             if($number_answer_of_user==$correct_answer)
                 {
-                    $data[$j++]=$current_history[$i]->user_id;
+                    $name = User::where('id',$current_history[$i]->user_id)->first()->username;
+                    $data[$j++]=$name;
                 }
         }
         return view('ShowUsers',['data'=>$data]);
