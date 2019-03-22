@@ -122,4 +122,27 @@ class admin_contest_controller extends Controller
         }
         return view('ShowHistory',compact('MergeHistory') );
     }
+
+    public function show_users(){
+        $current_contest = Contest::where('active',1)->first();
+        $current_history = History::where([
+                'contest_id' => $current_contest->id
+                ,'question_id' => $current_contest->currentquestion_id
+                ])->get();
+        $correct_answer = $current_contest->current_questions->correct_answer->first()->abcd;
+        if($correct_answer=='A') $correct_answer=1;else
+        if($correct_answer=='B') $correct_answer=2;else
+        if($correct_answer=='C') $correct_answer=3;
+        $j=0;
+        // $still_active = User::where(['admin'=>0,'active'=>1])->get();
+        $data=[];
+        for($i=0;$i<count($current_history);$i++)
+        {
+            if(($current_history[$i]->questions_answer_id)%3+1==$correct_answer)
+                $data[$j++]=$current_history[$i]->user_id;
+
+        }
+        return view('ShowUsers',['data'=>$data]);
+
+    }
 }
