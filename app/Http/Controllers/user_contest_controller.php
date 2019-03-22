@@ -21,16 +21,24 @@ class user_contest_controller extends Controller
     public function index(){
         $contest=Contest::where('active', 1)->first();
         $question=$contest->current_questions()->first();
-        if ($question->id==1) return view('usercontest.show');        
+        if ($question->id==1) return view('usercontest.show');   
+        $choosen_answer=History::where([
+                'user_id' => Auth::user()->id,
+                'contest_id' => $contest->id,
+                'question_id' => $question->id
+                ])->first();
+        if ($choosen_answer!=NULL) $choosen_answer=$choosen_answer->questions_answer_id;
         return view('UserContest',
             ['contest_id' => $contest->id, 
             'user' => Auth::user(), 
             'question' => $question, 
-            'answers' => $question->questions_answers()->get() 
+            'answers' => $question->questions_answers()->get(),
+            'choosen_answer' => $choosen_answer
             ]
         );
+
     
-        return view('UserContest',compact('question'),compact('answers'));
+        //return view('UserContest',compact('question'),compact('answers'));
     
     }               
     public function transmit_answer(Request $request){//Gui Dap An Len Table History

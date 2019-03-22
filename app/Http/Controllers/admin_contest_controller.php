@@ -23,6 +23,7 @@ class admin_contest_controller extends Controller
     	$questions = Question::all();
         $cont = DB::table('contests')->where('active','=',true)->first();
         $questionc = DB::table('questions')->where('id','=',$cont->currentquestion_id)->first();
+
     	return view('AdminContest',['questions' => $questions, 'questionc' => $questionc, 'cont' => $cont]);
     }
 
@@ -48,7 +49,8 @@ class admin_contest_controller extends Controller
         $this->disable_user_with_wrong_answer_for_current_question();
         Contest::where(['active'=>true])
                 ->update(['currentquestion_id'=> $request->id,'startcurrentquestion'=> now()]);
-        return $this->index();
+        $link='admincontest#question' . strval($request->id);
+        return redirect($link);
 
     }
     public function changecontest(Request $request)
@@ -94,7 +96,13 @@ class admin_contest_controller extends Controller
                             return $value->question_answer->abcd == $i;
                             }
                         )->count();
+            if ($i==$data['correct_answer'])
+            {
+                $data['number_correct']=$data[$i];
+                $data['number_wrong']=$data['still_active']-$data['number_correct'];
+            }
         }
+
         //return $data['A'];
         return view('ShowStatistic',$data);
     }

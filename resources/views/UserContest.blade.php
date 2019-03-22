@@ -37,11 +37,10 @@
     </label>
    </div>
 </div>
-<!--  <div id="check">
-   <input id="question_answer_id" name="questions_answer_id" type="radio" value="{{$answer->id}}"> 
-   <label class="question_answer_id" for="questions_answer_id" >{{$answer->content}}</label>
-</div> -->
 @endforeach
+<p class="card-text">
+  {!!$choosen_answer!!}
+</p>
 <br>
 <center>
 <input type="submit" class="btn btn-success " value="Đây là đáp án cuối cùng của tôi" />

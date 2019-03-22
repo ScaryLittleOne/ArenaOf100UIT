@@ -68,7 +68,7 @@
       </thead>
       <tbody>
         @foreach($questions as $question)
-          <tr>
+          <tr id="question{!!$question->id!!}">
           <td>{!! $question->id !!}</td>
           <td>{!! $question->content !!}</td>
           <td>{!! $cont->id !!}</td>
