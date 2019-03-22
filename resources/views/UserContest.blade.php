@@ -34,9 +34,9 @@
 if ($choosen_answer==$answer->id)
 {
   ?>
-  <div id="check" style="background-color: red">
+  <div id="check">
    <div class="input-group-btn" data-toggle="buttons" style="width: 100%;">
-    <label class="btn btn-light active" for="questions_answer_id" style="text-align:left;width: 100%;white-space:inherit;">
+    <label class="btn btn-primary active" for="questions_answer_id" style="text-align:left;width: 100%;white-space:inherit;">
       <input name="questions_answer_id" value="{{$answer->id}}" type="radio" id="question_answer_id" >{{$answer->content}}
     </label>
    </div>
