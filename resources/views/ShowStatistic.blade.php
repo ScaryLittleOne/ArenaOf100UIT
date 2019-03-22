@@ -43,13 +43,17 @@
   <table class="table table-striped table-bordered" style="margin-top: 15px; background: white;">
     <thead>
       <tr>
-        <th>Số người chơi còn lại</th>
+        <th>Tổng số người chơi</th>
         <th>Số người chơi không trả lời</th>
+        <th>Số người chơi đúng</th>
+        <th>Số người chơi sai</th>
       </tr>
     </thead>
     <tbody>  
         <td>{!!$still_active!!}</td>
-          <td>{!!$still_active - ($A + $B + $C + $D)!!}</td>
+        <td>{!!$still_active - ($A + $B + $C + $D)!!}</td>
+        <td>{!!$number_correct!!}</td>
+        <td>{!!$number_wrong-($still_active - ($A + $B + $C + $D))!!}</td>
      </tbody>
   </table>   
 </div>
