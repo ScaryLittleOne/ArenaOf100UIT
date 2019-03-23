@@ -34,7 +34,7 @@
 
 					if (request.status==500) 
 						{
-						 window.location.replace('/die');}
+						 window.location.replace('./die');}
 				}
 			});
     		
