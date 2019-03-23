@@ -6,6 +6,7 @@
             Quản Trị Viên
           </button>
           <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{url('/showusers')}}">Thống kê người chơi</a>
             <a class="dropdown-item" href="{{ route('questions.create') }}">Thêm Câu Hỏi</a>
             <a class="dropdown-item" href="{{route('users.create')}}">Thêm Sinh Viên</a>
             <a class="dropdown-item" href="{{url('/questions')}}">Quản Lí Đề Thi</a>
