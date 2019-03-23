@@ -59,7 +59,7 @@ class user_contest_controller extends Controller
         if ($old_history->get()->count() == 0) $ham_thuc_hien = 'App\History::create';
         else $ham_thuc_hien = array($old_history, 'update');
         
-        if ($interval<=env('TIME_LIMIT')) {
+        if ($interval<=env('TIME_LIMIT') &&  $request['questions_answer_id']!=null) {
             // History::create(        [
             $ham_thuc_hien(        [
                 'user_id' => $request['user_id'],
