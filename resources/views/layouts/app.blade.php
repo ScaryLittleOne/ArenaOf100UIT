@@ -45,7 +45,7 @@
                     <li class="nav-item"><a class="btn btn-info" href="{{ url('/statistic') }}">Thống kê</a></li>
                     <li class="nav-item"><a class="btn btn-info" href="{{ url('/history') }}">Lịch sử</a></li>
                 @endif
-                <a class="btn btn-danger" href="{{ route('logout') }}"><strong>Đăng Xuất</strong></a>
+                <a class="btn btn-danger" href="{{ route('logout') }}"><strong>{!!Auth::user()->username!!} Đăng Xuất</strong></a>
             @endguest
         </ul>
     </nav>
