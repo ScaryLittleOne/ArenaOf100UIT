@@ -13,9 +13,15 @@
             <a class="dropdown-item" href="{{url('/users')}}" > Quản Lí Sinh Viên </a>
         </div>
 </div>
+
+
+
 @foreach($data as $it)
-  <div class="col-1 btn btn-light btn-lg mr-1 mb-1">
-      {!!$it!!}
+  <div class="col-xs btn btn-light btn-lg mr-1 mb-1">
+    {!!$it!!}
   </div>
 @endforeach
+
+
+
 @endsection   
